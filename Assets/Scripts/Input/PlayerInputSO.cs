@@ -5,13 +5,18 @@ using UnityEngine;
 public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
 {
     public PlayerInput input { get; private set; }
-    public List<ButtonAction> Abilities => abilityActions;
-    private List<ButtonAction> abilityActions;
 
-    public ButtonAction OnJump { get { return jumpAction; } }
-    public ButtonAction OnSprint { get { return sprintAction; } }
-    public ButtonAction OnFreeMouse { get { return freeMouseAction; } }
-    private ButtonAction jumpAction, sprintAction, freeMouseAction;
+    public ButtonAction Jump { get { return jumpAction; } }
+
+    public ButtonAction Dash => throw new System.NotImplementedException();
+
+    public ButtonAction Slide => throw new System.NotImplementedException();
+
+    public ButtonAction Primary => throw new System.NotImplementedException();
+
+    public ButtonAction Secondary => throw new System.NotImplementedException();
+
+    private ButtonAction jumpAction, dashAction, freeMouseAction, primAction, secAction;
 
     [SerializeField] private float lookSensitivity;
 
@@ -21,13 +26,9 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
         input.Enable();
 
         jumpAction = new ButtonAction(input.Game.Jump);
-        sprintAction = new ButtonAction(input.Game.Sprint);
-        freeMouseAction = new ButtonAction(input.Game.FreeMouse);
-        ButtonAction abilityPrimary = new ButtonAction(input.Game.Ability1);
-        ButtonAction abilitySecondary = new ButtonAction(input.Game.Ability2);
-        ButtonAction abilityUtility = new ButtonAction(input.Game.Ability3);
-        ButtonAction abilitySpecial = new ButtonAction(input.Game.Ability4);
-        abilityActions = new List<ButtonAction> { abilityPrimary, abilitySecondary, abilityUtility, abilitySpecial }; 
+        dashAction = new ButtonAction(input.Game.Dash);
+        primAction = new ButtonAction(input.Game.Primary);
+        secAction = new ButtonAction(input.Game.Secondary);
     }
 
     public PlayerInputState GetState()

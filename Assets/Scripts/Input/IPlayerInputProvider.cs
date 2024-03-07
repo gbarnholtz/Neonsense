@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlayerInputProvider : IMoveActionProvider, IAbilityActionProvider
+public interface IPlayerInputProvider : IMoveActionProvider, IAttackActionProvider
 {
-    public ButtonAction OnFreeMouse { get; }
     public PlayerInputState GetState();
 }
 

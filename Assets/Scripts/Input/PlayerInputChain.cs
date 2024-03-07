@@ -9,11 +9,15 @@ public class PlayerInputChain : SerializedMonoBehaviour, IInputProvider
     [OdinSerialize] private IPlayerInputProvider inputProvider;
     [OdinSerialize] private List<IInputModifier> inputChain;
 
-    public ButtonAction OnJump => inputProvider.OnJump;
+    public ButtonAction Jump => inputProvider.Jump;
 
-    public ButtonAction OnSprint => inputProvider.OnSprint;
+    public ButtonAction Dash => inputProvider.Dash;
 
-    public List<ButtonAction> Abilities => inputProvider.Abilities;
+    public ButtonAction Slide => inputProvider.Slide;
+
+    public ButtonAction Primary => inputProvider.Primary;
+
+    public ButtonAction Secondary => inputProvider.Secondary;
 
     private void Awake()
     {

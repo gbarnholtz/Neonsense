@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public interface IInputProvider: IMoveActionProvider, IAbilityActionProvider
+public interface IInputProvider: IMoveActionProvider, IAttackActionProvider
 {
     public InputState GetState();
 }
 
 public interface IMoveActionProvider
 {
-    public ButtonAction OnJump { get; }
-    public ButtonAction OnSprint { get; }
+    public ButtonAction Jump { get; }
+    public ButtonAction Dash { get; }
+    public ButtonAction Slide { get; }
 }
 
-public interface IUIActionProvider
+public interface IAttackActionProvider
 {
-    public ButtonAction OnOverlay { get; }
-    public ButtonAction OnPause { get; }
+    public ButtonAction Primary { get; }
+    public ButtonAction Secondary { get; }
 }
-
-public interface IAbilityActionProvider
-{
-    public List<ButtonAction> Abilities { get; }
-}
-
 
 public interface IInputModifier
 {

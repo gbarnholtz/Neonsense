@@ -14,7 +14,7 @@ public enum PlayerMoveState {
 [RequireComponent(typeof(Rigidbody))]
 public class CharacterMotor : SerializedMonoBehaviour, IInputModifier
 {
-    public event Action<bool> OnGroundedChanged, UpdateSprintStatus;
+    public event Action<bool> OnGroundedChanged;
     public event Action OnHardLanding;
 
     [OdinSerialize] private IInputProvider inputProvider;
@@ -60,7 +60,6 @@ public class CharacterMotor : SerializedMonoBehaviour, IInputModifier
     private bool previouslyGrounded;
     private Rigidbody rb;
     private ContactPoint[] contactBuffer = new ContactPoint[10];
-    private Health health;
 
     void OnValidate() {
         slopeDotProduct = Mathf.Cos(maxSlope * Mathf.Deg2Rad);
@@ -69,16 +68,13 @@ public class CharacterMotor : SerializedMonoBehaviour, IInputModifier
     void Awake() {
         rb = GetComponent<Rigidbody>();
         inputProvider = GetComponent<IInputProvider>();
-        health = GetComponent<Health>();
         rb.maxAngularVelocity = 50;
         rb.sleepThreshold = 0.0f;
         OnValidate();
     }
 
     private void OnEnable() {
-        inputProvider.OnJump.started += TryJump;
-        inputProvider.OnSprint.started += TryStartSprint;  
-        inputProvider.OnSprint.ended += EndSprint;
+        inputProvider.Jump.started += TryJump;
     }
 
     void Update() {
@@ -179,14 +175,6 @@ public class CharacterMotor : SerializedMonoBehaviour, IInputModifier
         float jumpSpeed = Mathf.Sqrt(2f * gravity * jumpHeight);
         if (velocity.y != 0) rb.AddForce(new Vector3(0, -velocity.y, 0), ForceMode.VelocityChange);
         rb.AddForce(Vector3.Lerp(Vector3.up, getNormal, slopeJumpBias) * jumpSpeed, ForceMode.VelocityChange);
-    }
-
-    private void EndSprint() {
-        UpdateSprintStatus?.Invoke(false);
-    }
-
-    private void TryStartSprint() {
-        UpdateSprintStatus?.Invoke(true);
     }
 
     private void OnCollisionEnter(Collision collision) {
