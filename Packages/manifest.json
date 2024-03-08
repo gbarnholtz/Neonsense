@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.unity.burst": "1.7.2",
+    "com.unity.burst": "1.8.12",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.collections": "1.4.0",
     "com.unity.feature.development": "1.0.1",
@@ -10,6 +10,7 @@
     "com.unity.inputsystem": "1.4.4",
     "com.unity.mathematics": "1.2.1",
     "com.unity.probuilder": "5.0.7",
+    "com.unity.render-pipelines.universal": "12.1.7",
     "com.unity.test-framework": "1.1.33",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.5",
