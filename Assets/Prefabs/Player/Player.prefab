@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1024304656636799901}
   - component: {fileID: 1024304656636799591}
   - component: {fileID: 1024304656636799590}
-  - component: {fileID: 1024304656636799902}
+  - component: {fileID: 5391336184210726144}
   - component: {fileID: 1024304656636799899}
   - component: {fileID: 4342367381646595744}
-  - component: {fileID: 1024304656636799898}
   - component: {fileID: 4342367381646595751}
+  - component: {fileID: 8765060215111350664}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -90,19 +90,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024304656636799889}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1024304656636799902
-CapsuleCollider:
+--- !u!135 &5391336184210726144
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024304656636799889}
-  m_Material: {fileID: 13400000, guid: a260ce32976a2494aa07162c11cceae2, type: 2}
+  m_Material: {fileID: 13400000, guid: 8ab35d01faed0794c9d0a8f784ec2b32, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1024304656636799899
 Rigidbody:
@@ -164,53 +163,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!114 &1024304656636799898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024304656636799889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b520309f972e3c4eabedb5f2d79b933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 4342367381646595744}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: inputProvider
-      Entry: 10
-      Data: 0
-  gravity: 15
-  terminalVelocity: 10
-  hardLandingThreshold: 0.9
-  friction: 6
-  airFriction: 1
-  maxSpeed: 0
-  sprintSpeedScalar: 1.5
-  groundAccelerationScalar: 4
-  airAccelerationScalar: 2
-  rotationLerp: 0.4
-  maxSlope: 60
-  slopeJumpBias: 0.5
-  jumpHeight: 3
-  maxAirJumps: 0
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 1
-  contactNormal: {x: 0, y: 0, z: 0}
-  steepContactNormal: {x: 0, y: 0, z: 0}
-  airJumps: 5
-  groundContactCount: 0
-  targetRotationAngle: 0
 --- !u!114 &4342367381646595751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +200,25 @@ MonoBehaviour:
   initial: 100
   DisplayOverheadHealth: 0
   receivedCritScalar: 2
+--- !u!114 &8765060215111350664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024304656636799889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79033329cd64f1247bfd8629238dd0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headSpringForce: 1
+  headSpringDamper: 1
+  gravity: 1
+  terminalVelocity: 1
+  hardLandingThreshold: 0.9
+  friction: 0
+  airFriction: 0
 --- !u!1 &5719748912210987375
 GameObject:
   m_ObjectHideFlags: 0
