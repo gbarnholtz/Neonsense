@@ -1,6 +1,7 @@
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -25,7 +26,7 @@ public class PlayerMotor : SerializedMonoBehaviour
     [SerializeField] private LayerMask groundMask;
     private Rigidbody rb;
     public Vector3 ContactNormal { get; private set; }
-    public bool IsGrounded { get; private set; }
+    public bool IsGrounded => ContactNormal == Vector3.zero;
 
     private void Awake()
     {
@@ -58,6 +59,9 @@ public class PlayerMotor : SerializedMonoBehaviour
 
     private void FixedUpdate()
     {
+        HandleGrounded();
+    }
+    private void HandleGrounded() {
         Vector3 springDir = transform.up;
         if (Physics.SphereCast(transform.position, springRadius, -springDir, out RaycastHit hit, headHeight, groundMask))
         {
@@ -66,7 +70,9 @@ public class PlayerMotor : SerializedMonoBehaviour
             float force = (offset * headSpringForce) - (springVelocity * headSpringDamper);
             rb.AddForce(force * springDir, ForceMode.Acceleration);
             ContactNormal = hit.normal;
-        } else {
+        }
+        else
+        {
             ContactNormal = Vector3.zero;
         }
     }
