@@ -34,10 +34,4 @@ public class PlayerInputChain : SerializedMonoBehaviour, IInputProvider
 
         return input;
     }
-
-    //TODO: REMOVE THIS SHIT 
-    private void OnDisable()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 }

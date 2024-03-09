@@ -8,31 +8,19 @@ public class CameraController : SerializedMonoBehaviour, IInputModifier
     [OdinSerialize] private IPlayerInputProvider inputProvider;
     private PlayerInputState playerInputState;
 
-    [SerializeField] private Rigidbody target;
-
-    [Header("Velocity Offset Parameters")]
-    [SerializeField] private Vector3 maxVelocityOffset;
-    private Vector3 currentVelocityOffset, velocityOffset;
-    [SerializeField] private float velocityRoof = 1, velocityOffsetLerp;
+    [SerializeField] private Transform target;
     [Header("Aim Parameters")]
     [SerializeField] private Vector2 cameraAngleLimit;
-    [SerializeField] private float minimumAimDistance, additionalOffset;
     [SerializeField] private LayerMask aimMask;
     private Camera activeCamera;
 
     [SerializeField] private Vector2 viewportAimPivot = new Vector2(0.5f,0.5f);
     private Vector3 aimPoint;
 
-    [Header("Camera Shoulder Parameters")]
-    [SerializeField] private Transform shoulder;
-    [SerializeField] private float armReturnSpeed = 1f;
-    [SerializeField] private LayerMask wallMask;
-    private Vector3 armDistance;
 
     private void Awake()
     {
-        armDistance = shoulder.localPosition;
-        activeCamera = Camera.main;
+        activeCamera = GetComponentInChildren<Camera>();    
     }
 
     void LateUpdate()
@@ -40,27 +28,11 @@ public class CameraController : SerializedMonoBehaviour, IInputModifier
         playerInputState = inputProvider.GetState();
         UpdatePosition();
         UpdateRotation();
-
-        Vector3 localShoulderPosition = shoulder.localPosition;
-        
-        if (Physics.Raycast(transform.position + transform.right * localShoulderPosition.x + transform.up * armDistance.y, -shoulder.forward, out RaycastHit hit, Mathf.Abs(armDistance.z) + additionalOffset, wallMask))
-        {
-            localShoulderPosition.z = -hit.distance + additionalOffset;
-        }
-        else {
-            localShoulderPosition.z = Mathf.Lerp(localShoulderPosition.z, armDistance.z, armReturnSpeed*Time.deltaTime);
-        }
-        shoulder.localPosition = localShoulderPosition;
         aimPoint = GetAimPoint();
     }
 
     private void UpdatePosition() {
-        Vector3 scaledVelocity = target.velocity / velocityRoof;
-        Vector3 localOffset = new Vector3(Vector3.Dot(scaledVelocity, transform.right), Vector3.Dot(scaledVelocity, transform.up), Vector3.Dot(scaledVelocity, transform.forward));
-        localOffset = Vector3.Scale(localOffset, maxVelocityOffset);
-        velocityOffset = localOffset.x * transform.right + localOffset.y * transform.up + localOffset.z * transform.forward;
-        currentVelocityOffset = Vector3.Lerp(currentVelocityOffset, velocityOffset, 1 - Mathf.Exp(-velocityOffsetLerp * Time.deltaTime));
-        transform.position = target.position + currentVelocityOffset;
+        transform.position = target.position;
     }
 
     private void UpdateRotation() {
@@ -72,9 +44,7 @@ public class CameraController : SerializedMonoBehaviour, IInputModifier
 
     private Vector3 GetAimPoint() {
         Ray cameraRay = activeCamera.ViewportPointToRay(viewportAimPivot);
-        if (Physics.Raycast(cameraRay.origin, cameraRay.direction, out RaycastHit hit, float.MaxValue, aimMask)) {
-            return (hit.distance < minimumAimDistance) ? cameraRay.origin + cameraRay.direction * minimumAimDistance : hit.point; 
-        }
+        if (Physics.Raycast(cameraRay.origin, cameraRay.direction, out RaycastHit hit, float.MaxValue, aimMask)) return hit.point;
         return cameraRay.origin + cameraRay.direction * 100;
     }
 

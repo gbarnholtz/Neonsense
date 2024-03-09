@@ -1,33 +1,36 @@
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(SphereCollider), typeof(Rigidbody))]
-public class PlayerMotor : MonoBehaviour
+public class PlayerMotor : SerializedMonoBehaviour
 {
     [OdinSerialize] private IInputProvider inputProvider;
     private InputState inputState;
     public event Action<bool> OnGroundedChanged;
-
-    [SerializeField] public float Height { 
-        get { return height; } 
-        set { 
-            height = value;
-            headHeight = value - head.radius;
-        } 
-    }
-
-    private float height, headHeight;
+    [Header("Player Spring Properties")]
+    [SerializeField] private float height;
+    private float headHeight;
     private SphereCollider head;
     [SerializeField] private float headSpringForce, headSpringDamper;
     private float headSpringVel, springRadius;
-    [SerializeField] private float gravity, terminalVelocity;
+
+    [Header("Physical Properties")]
+    [SerializeField] private float gravity = 15f, terminalVelocity;
     [SerializeField, Range(0, 1)] private float hardLandingThreshold = 0.9f;
     [SerializeField] private float friction, airFriction;
+    private Collider[] collisionBuffer = new Collider[10];
+    [SerializeField] private LayerMask groundMask;
+    private Rigidbody rb;
+    public Vector3 ContactNormal { get; private set; }
+    public bool IsGrounded { get; private set; }
 
     private void Awake()
     {
         head = GetComponent<SphereCollider>();
+        rb = GetComponent<Rigidbody>();
         OnValidate();
     }
 
@@ -35,8 +38,8 @@ public class PlayerMotor : MonoBehaviour
     {
         if (head != null) {
             springRadius = head.radius - 0.01f;
-            headHeight = height - head.radius;
-        }  
+            headHeight = height - head.radius - springRadius;
+        }
     }
 
     private void OnEnable()
@@ -55,7 +58,16 @@ public class PlayerMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Physics.SphereCast(transform.position, springRadius, -transform.up, out RaycastHit hit, headHeight)) {
+        Vector3 springDir = transform.up;
+        if (Physics.SphereCast(transform.position, springRadius, -springDir, out RaycastHit hit, headHeight, groundMask))
+        {
+            float offset = headHeight - hit.distance;
+            float springVelocity = Vector3.Dot(springDir, rb.velocity);
+            float force = (offset * headSpringForce) - (springVelocity * headSpringDamper);
+            rb.AddForce(force * springDir, ForceMode.Acceleration);
+            ContactNormal = hit.normal;
+        } else {
+            ContactNormal = Vector3.zero;
         }
     }
 

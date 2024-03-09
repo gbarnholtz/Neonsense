@@ -33,8 +33,6 @@ public class GameStateManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-        SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive);
-        HUD = SceneManager.GetSceneByName("HUD");
         Camera = Camera.main;
     }
 
