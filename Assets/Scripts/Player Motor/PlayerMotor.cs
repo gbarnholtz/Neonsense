@@ -122,7 +122,7 @@ public class PlayerMotor : SerializedMonoBehaviour
     {
         if (!IsGrounded && targetVelocity.magnitude < 0.01f) return;
         float maxAcceleration = maxSpeed * (IsGrounded ? groundAccelerationScalar : airAccelerationScalar) * Time.fixedDeltaTime;
-        Vector3 acceleration = Vector3.ClampMagnitude(targetVelocity - velocity, maxAcceleration);
+        Vector3 acceleration = Vector3.ClampMagnitude(Vector3.ProjectOnPlane(targetVelocity - velocity, Vector3.up), maxAcceleration);
         rb.AddForce(Vector3.ProjectOnPlane(acceleration, ContactNormal), ForceMode.VelocityChange);
     }
 

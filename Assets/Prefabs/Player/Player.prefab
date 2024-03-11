@@ -223,8 +223,9 @@ MonoBehaviour:
       Entry: 10
       Data: 0
   height: 2
-  headSpringForce: 500
+  headSpringForce: 1500
   headSpringDamper: 50
+  groundSnappingDistance: 0.5
   gravity: 9.81
   terminalVelocity: 15
   hardLandingThreshold: 0.9
@@ -241,6 +242,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  <ContactNormal>k__BackingField: {x: 0, y: 0, z: 0}
 --- !u!1 &5719748912210987375
 GameObject:
   m_ObjectHideFlags: 0
