@@ -10,13 +10,13 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
 
     public ButtonAction Dash => throw new System.NotImplementedException();
 
-    public ButtonAction Slide => throw new System.NotImplementedException();
+    public ButtonAction Slide {get { return slideAction; } }
 
     public ButtonAction Primary => throw new System.NotImplementedException();
 
     public ButtonAction Secondary => throw new System.NotImplementedException();
 
-    private ButtonAction jumpAction, dashAction, freeMouseAction, primAction, secAction;
+    private ButtonAction jumpAction, dashAction, slideAction, primAction, secAction;
 
     [SerializeField] private float lookSensitivity;
 
@@ -29,6 +29,7 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
         dashAction = new ButtonAction(input.Game.Dash);
         primAction = new ButtonAction(input.Game.Primary);
         secAction = new ButtonAction(input.Game.Secondary);
+        slideAction = new ButtonAction(input.Game.Slide);
     }
 
     public PlayerInputState GetState()
