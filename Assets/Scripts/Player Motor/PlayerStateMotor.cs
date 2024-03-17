@@ -21,7 +21,6 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     [Header("Move State Properties")]
     [ShowInInspector] private MoveState activeState;
     public WalkMoveState WalkState;
-    public MidairMoveState MidairState;
     public SlideMoveState SlideState;
     public WallRunMoveState WallRunState;
 
@@ -31,7 +30,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float terminalVelocity=15f;
     private bool shouldJump;
-    public float MaxSpeed=6;
+    public float BaseSpeed=6;
     [SerializeField, Range(0, 90)] private float maxSlope=45f;
     [SerializeField, Range(0, 1)] private float slopeJumpBias=0.5f;
     private float slopeDotProduct;
@@ -110,7 +109,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     private void InitializeStates() {
         WalkState.Register(this);
         SlideState.Register(this);
-        MidairState.Register(this);
+        WallRunState.Register(this);
     }
 
     public void ChangeState(MoveState state) {
@@ -122,7 +121,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void UpdateTargetsFromInput() {
         inputState = inputProvider.GetState();
-        TargetVelocity = inputState.moveDirection.magnitude == 0? Vector3.zero : inputState.moveDirection * MaxSpeed;
+        TargetVelocity = inputState.moveDirection.magnitude == 0? Vector3.zero : inputState.moveDirection * BaseSpeed;
     }
 
     private void HandleGrounded() {

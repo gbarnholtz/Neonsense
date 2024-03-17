@@ -226,56 +226,47 @@ MonoBehaviour:
     - Name: WalkState
       Entry: 7
       Data: 0|WalkMoveState, Assembly-CSharp
-    - Name: AccelerationScalar
+    - Name: Height
+      Entry: 4
+      Data: 1.5
+    - Name: groundAccelerationScalar
       Entry: 4
       Data: 8
-    - Name: Height
+    - Name: airAccelerationScalar
       Entry: 4
-      Data: 1.5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: MidairState
-      Entry: 7
-      Data: 1|MidairMoveState, Assembly-CSharp
-    - Name: AccelerationScalar
-      Entry: 4
-      Data: 1
-    - Name: Height
-      Entry: 4
-      Data: 1.5
-    - Name: terminalVelocity
-      Entry: 4
-      Data: 20
-    - Name: gravity
-      Entry: 4
-      Data: 15
-    - Name: airJumps
-      Entry: 3
       Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: SlideState
       Entry: 7
-      Data: 2|SlideMoveState, Assembly-CSharp
-    - Name: AccelerationScalar
-      Entry: 4
-      Data: 2
+      Data: 1|SlideMoveState, Assembly-CSharp
     - Name: Height
       Entry: 4
-      Data: 1
+      Data: 0.75
     - Name: slideForce
       Entry: 4
       Data: 10
     - Name: exitVelocity
       Entry: 4
       Data: 3
+    - Name: groundFrictionScalar
+      Entry: 4
+      Data: 2
+    - Name: airFrictionScalar
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: WallRunState
-      Entry: 6
+      Entry: 7
+      Data: 2|WallRunMoveState, Assembly-CSharp
+    - Name: Height
+      Entry: 4
+      Data: 1.5
+    - Name: 
+      Entry: 8
       Data: 
   height: 1.5
   headSpringForce: 800
@@ -284,7 +275,7 @@ MonoBehaviour:
   springAdjustSpeed: 0.5
   gravity: 15
   terminalVelocity: 15
-  MaxSpeed: 6
+  BaseSpeed: 6
   maxSlope: 45
   slopeJumpBias: 0.5
   jumpHeight: 2

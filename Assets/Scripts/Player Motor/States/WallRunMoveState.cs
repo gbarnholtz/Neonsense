@@ -6,8 +6,6 @@ public class WallRunMoveState : MoveState
 {
     public override bool ShouldApplyGravity => true ;
 
-
-
     public override void MovePlayer()
     {
         throw new System.NotImplementedException();

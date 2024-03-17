@@ -7,7 +7,7 @@ public abstract class MoveState
 {
     protected PlayerStateMotor psm;
     protected Rigidbody rb;
-    public float AccelerationScalar = 6f, Height = 1.5f;
+    public float Height = 1.5f;
     public abstract bool ShouldApplyGravity { get; }
 
     public void Register(PlayerStateMotor sm)
