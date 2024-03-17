@@ -53,6 +53,7 @@ public struct InputState
     public bool shouldLookAtAim;
     public Vector3 aimPoint;
     public Vector3 lookEulers;
+    public Vector3 lookDirection => Quaternion.Euler(lookEulers) * Vector3.forward;
 
     public InputState(Vector2 moveInput, Vector2 lookInput)
     {

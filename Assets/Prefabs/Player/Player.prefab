@@ -240,13 +240,13 @@ MonoBehaviour:
       Data: 1|MidairMoveState, Assembly-CSharp
     - Name: AccelerationScalar
       Entry: 4
-      Data: 3
+      Data: 1
     - Name: Height
       Entry: 4
       Data: 1.5
     - Name: terminalVelocity
       Entry: 4
-      Data: 10
+      Data: 20
     - Name: gravity
       Entry: 4
       Data: 15
@@ -274,6 +274,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: WallRunState
+      Entry: 6
+      Data: 
   height: 1.5
   headSpringForce: 800
   headSpringDamper: 50
@@ -281,7 +284,6 @@ MonoBehaviour:
   springAdjustSpeed: 0.5
   gravity: 15
   terminalVelocity: 15
-  hardLandingThreshold: 0.9
   MaxSpeed: 6
   maxSlope: 45
   slopeJumpBias: 0.5
@@ -568,7 +570,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
