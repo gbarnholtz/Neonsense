@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using Drawing;
 using Unity.VisualScripting;
+using static UnityEngine.LightAnchor;
 
 [RequireComponent(typeof(SphereCollider), typeof(Rigidbody))]
 public class PlayerStateMotor : SerializedMonoBehaviour
@@ -89,7 +90,11 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         activeState.Update();
         activeState.MovePlayer();
 
-        if (shouldJump) { Jump(); shouldJump = false; }
+        if (shouldJump) {
+            if (activeState.OverrideJump) activeState.Jump();
+            else Jump();
+            shouldJump = false;
+        }
     }
 
     private void LateUpdate()
@@ -103,6 +108,10 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         using (Draw.WithColor(Color.blue))
         {
             Draw.SphereOutline(transform.position - Vector3.up * targetHeadHeight, springRadius - 0.1f);
+            Draw.ArrowheadArc(transform.position, TargetVelocity, 0.55f);
+        }
+        using (Draw.WithColor(Color.red)) {
+            Draw.Arrow(transform.position, transform.position + Vector3.ProjectOnPlane(rb.velocity, ContactNormal));
         }
         activeState.Draw();
     }
@@ -155,12 +164,14 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         rb.AddForce(Vector3.ProjectOnPlane(gravityForce, ContactNormal), ForceMode.VelocityChange);
     }
 
-    private void Jump()
+    private void Jump() => JumpDirectional(IsGrounded ? Vector3.Lerp(Vector3.up, ContactNormal, slopeJumpBias) : Vector3.up);
+
+    public void JumpDirectional(Vector3 direction)
     {
+        direction = direction.normalized;
         float jumpSpeed = Mathf.Sqrt(2f * gravity * jumpHeight);
-        Vector3 jumpDirection = IsGrounded ? Vector3.Lerp(Vector3.up, ContactNormal, slopeJumpBias) : Vector3.up;
-        rb.AddForce(-Vector3.Project(rb.velocity, jumpDirection), ForceMode.VelocityChange);
-        rb.AddForce(jumpDirection * jumpSpeed, ForceMode.VelocityChange);
+        rb.AddForce(-Vector3.Project(rb.velocity, direction), ForceMode.VelocityChange);
+        rb.AddForce(direction * jumpSpeed, ForceMode.VelocityChange);
         disableGroundSnapping = true;
     }
 

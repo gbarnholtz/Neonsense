@@ -8,7 +8,9 @@ public class WallRunMoveState : MoveState, IInputModifier
     public override bool ShouldApplyGravity => false;
     public override bool OverrideJump => true;
 
-    [SerializeField] private float wallRunSpeedScalar = 1.5f, accelerationScalar, wallDetectDistance = 2f, passiveEjectForce = 2f, downSlip = 2f;
+    [SerializeField] private float wallRunSpeedScalar = 1.5f, accelerationScalar=4f, wallDetectDistance = 0.25f, ejectForce = 2f, downSlip = 2f;
+
+    [SerializeField, Range(0,1)] private float wallJumpBias = 0.5f;
     private Vector3 wallNormal, runDirection;
     private float headRadius;
     public bool ShouldEnterWall => WallEntryCheck();
@@ -23,23 +25,21 @@ public class WallRunMoveState : MoveState, IInputModifier
     {
         if (psm.IsGrounded || !WallTraverseCheck()) psm.ChangeState(psm.WalkState);
         else if (Vector3.Dot(psm.TargetVelocity, wallNormal) > 0) {
-            rb.AddForce(passiveEjectForce * wallNormal, ForceMode.VelocityChange);
+            rb.AddForce(ejectForce * wallNormal, ForceMode.VelocityChange);
             psm.ChangeState(psm.WalkState);
         }
     }
 
     public override void MovePlayer()
     {
-        Vector3 acceleration = Vector3.ClampMagnitude(Vector3.ProjectOnPlane(psm.TargetVelocity - rb.velocity, wallNormal), psm.BaseSpeed * Time.fixedDeltaTime);
-        rb.AddForce(Vector3.ProjectOnPlane(acceleration, psm.ContactNormal), ForceMode.VelocityChange);
         rb.AddForce(-Vector3.up * downSlip, ForceMode.Acceleration);
     }
 
     private bool WallEntryCheck() {
         Vector3 direction = psm.TargetVelocity;
-        if (!Physics.Raycast(rb.position, direction, out RaycastHit rayHit, wallDetectDistance)) return false;
+        if (!Physics.Raycast(rb.position, direction, out RaycastHit rayHit, wallDetectDistance+headRadius)) return false;
         wallNormal = rayHit.normal;
-        if (Physics.SphereCast(rb.position, headRadius - 0.01f, direction * Mathf.Max(wallDetectDistance - headRadius,0f), out RaycastHit sphereHit)) wallNormal = sphereHit.normal;
+        if (Physics.SphereCast(rb.position, headRadius - 0.01f, direction * wallDetectDistance, out RaycastHit sphereHit)) wallNormal = sphereHit.normal;
         runDirection = Vector3.Project(direction, wallNormal);
         return true;
     }
@@ -47,9 +47,9 @@ public class WallRunMoveState : MoveState, IInputModifier
     private bool WallTraverseCheck()
     {
         Vector3 direction = -wallNormal;
-        if (!Physics.Raycast(rb.position, direction, out RaycastHit rayHit, wallDetectDistance)) return false;
+        if (!Physics.Raycast(rb.position, direction, out RaycastHit rayHit, wallDetectDistance + headRadius)) return false;
         wallNormal = rayHit.normal;
-        if (Physics.SphereCast(rb.position, headRadius - 0.01f, direction * Mathf.Max(wallDetectDistance - headRadius, 0f), out RaycastHit sphereHit)) wallNormal = sphereHit.normal;
+        if (Physics.SphereCast(rb.position, headRadius - 0.01f, direction * wallDetectDistance, out RaycastHit sphereHit)) wallNormal = sphereHit.normal;
         runDirection = Vector3.Project(direction, wallNormal);
         return true;
     }
@@ -61,7 +61,9 @@ public class WallRunMoveState : MoveState, IInputModifier
 
     public override void Jump()
     {
-        return;
+        psm.JumpDirectional(Vector3.Lerp(Vector3.up, wallNormal, wallJumpBias));
+        rb.AddForce(ejectForce * wallNormal, ForceMode.VelocityChange);
+        psm.ChangeState(psm.WalkState);
     }
 
     private float GetForwardInput()

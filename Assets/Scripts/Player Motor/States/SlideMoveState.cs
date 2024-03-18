@@ -13,13 +13,14 @@ public class SlideMoveState : MoveState
     {
         float frictionScalar = psm.IsGrounded ? groundFrictionScalar : airFrictionScalar;
         float maxAcceleration = psm.BaseSpeed * frictionScalar * Time.fixedDeltaTime;
+        if (!psm.IsGrounded) return;
         Vector3 acceleration = Vector3.ClampMagnitude(-rb.velocity, maxAcceleration);
         rb.AddForce(Vector3.ProjectOnPlane(acceleration, psm.ContactNormal), ForceMode.VelocityChange);
     }
 
     public override void Update()
     {
-        if (!psm.IsGrounded || !FastEnoughToSlide || !psm.TryingToSlide) psm.ChangeState(psm.WalkState);
+        if (!FastEnoughToSlide || !psm.TryingToSlide) psm.ChangeState(psm.WalkState);
     }
 
     public override void Enter()
