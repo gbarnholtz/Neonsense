@@ -243,19 +243,22 @@ MonoBehaviour:
       Data: 1|SlideMoveState, Assembly-CSharp
     - Name: Height
       Entry: 4
-      Data: 0.75
-    - Name: slideForce
-      Entry: 4
-      Data: 10
-    - Name: exitVelocity
-      Entry: 4
-      Data: 3
+      Data: 1.5
     - Name: groundFrictionScalar
       Entry: 4
       Data: 2
     - Name: airFrictionScalar
       Entry: 4
       Data: 1
+    - Name: slideForce
+      Entry: 4
+      Data: 10
+    - Name: slideFullRechargeDelay
+      Entry: 4
+      Data: 2
+    - Name: exitVelocity
+      Entry: 4
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -265,6 +268,18 @@ MonoBehaviour:
     - Name: Height
       Entry: 4
       Data: 1.5
+    - Name: wallRunSpeedScalar
+      Entry: 4
+      Data: 0
+    - Name: wallDetectDistance
+      Entry: 4
+      Data: 2
+    - Name: passiveEjectForce
+      Entry: 4
+      Data: 5
+    - Name: downSlip
+      Entry: 4
+      Data: 2
     - Name: 
       Entry: 8
       Data: 

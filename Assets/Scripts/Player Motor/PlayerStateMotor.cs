@@ -14,15 +14,15 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     private bool previouslyGrounded;
     [Header("Player Spring Properties")]
     [SerializeField] private float height=2f;
-    private SphereCollider head;
+    public SphereCollider Head { get; private set; }
     [SerializeField] private float headSpringForce=500f, headSpringDamper=50f, groundSnappingDistance=0.5f, springAdjustSpeed=2f;
     private float springRadius, targetHeadHeight, currentHeadHeight;
 
     [Header("Move State Properties")]
     [ShowInInspector] private MoveState activeState;
-    public WalkMoveState WalkState;
-    public SlideMoveState SlideState;
-    public WallRunMoveState WallRunState;
+    public WalkMoveState WalkState = new WalkMoveState();
+    public SlideMoveState SlideState = new SlideMoveState();
+    public WallRunMoveState WallRunState = new WallRunMoveState();
 
     public bool TryingToStartSlide => SlideReset && TryingToSlide;
 
@@ -43,6 +43,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     public bool IsGrounded => ContactNormal != Vector3.zero;
     [HideInInspector] public Vector3 TargetVelocity;
     private Vector3 velocity => rb.velocity;
+    public Vector3 LookDirection => inputState.lookDirection;
 
     [Header("Read Only (DEBUG)")]
     [ShowInInspector] private bool disableGroundSnapping;
@@ -50,7 +51,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void Awake()
     {
-        head = GetComponent<SphereCollider>();
+        Head = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
         OnValidate();
         InitializeStates();
@@ -60,8 +61,8 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void OnValidate()
     {
-        if (head != null) {
-            springRadius = head.radius - 0.01f;
+        if (Head != null) {
+            springRadius = Head.radius - 0.01f;
             UpdateHeight(height);
         }
     }
@@ -87,7 +88,6 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         if (activeState.ShouldApplyGravity) ApplyGravity();
         activeState.Update();
         activeState.MovePlayer();
-        
 
         if (shouldJump) { Jump(); shouldJump = false; }
     }
@@ -104,6 +104,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         {
             Draw.SphereOutline(transform.position - Vector3.up * targetHeadHeight, springRadius - 0.1f);
         }
+        activeState.Draw();
     }
 
     private void InitializeStates() {
@@ -143,6 +144,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
             ContactNormal = Vector3.zero;
             currentHeadHeight = Mathf.MoveTowards(currentHeadHeight, targetHeadHeight, Time.fixedDeltaTime * springAdjustSpeed);
         }
+        if (previouslyGrounded = IsGrounded) OnGroundedChanged?.Invoke(IsGrounded);
         previouslyGrounded = IsGrounded;
     }
 

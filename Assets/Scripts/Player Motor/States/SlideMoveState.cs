@@ -5,8 +5,8 @@ using UnityEngine;
 public class SlideMoveState : MoveState
 {
     public override bool ShouldApplyGravity => true;
-    [SerializeField] private float slideForce=10f, exitVelocity=3f, groundFrictionScalar=2f, airFrictionScalar=1f;
-    
+    [SerializeField] private float groundFrictionScalar = 2f, airFrictionScalar = 1f, slideForce = 10f, slideFullRechargeDelay = 2f, exitVelocity = 3f;
+    private float timeLastSlid;
     public bool FastEnoughToSlide => Vector3.ProjectOnPlane(rb.velocity, psm.ContactNormal).magnitude > exitVelocity;
 
     public override void MovePlayer()
@@ -19,13 +19,15 @@ public class SlideMoveState : MoveState
 
     public override void Update()
     {
-        if (!FastEnoughToSlide || !psm.TryingToSlide) psm.ChangeState(psm.WalkState);
+        if (!psm.IsGrounded || !FastEnoughToSlide || !psm.TryingToSlide) psm.ChangeState(psm.WalkState);
     }
 
     public override void Enter()
     {
-        Vector3 force = slideForce * Vector3.ProjectOnPlane(rb.velocity, psm.ContactNormal).normalized;
+        float availableForce = Mathf.Lerp(0, slideForce, (Time.time - timeLastSlid)/slideFullRechargeDelay);
+        Vector3 force = availableForce * Vector3.ProjectOnPlane(psm.TargetVelocity, psm.ContactNormal).normalized;
         rb.AddForce(force, ForceMode.VelocityChange);
         psm.SlideReset = false;
+        timeLastSlid = Time.time;
     }
 }

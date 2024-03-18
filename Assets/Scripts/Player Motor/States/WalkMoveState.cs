@@ -6,8 +6,9 @@ public class WalkMoveState : MoveState
     [SerializeField] private float groundAccelerationScalar = 8f, airAccelerationScalar=4f;
 
     public override void Update()
-    {   
-       if (psm.TryingToStartSlide) psm.ChangeState(psm.SlideState);
+    {
+        if (psm.IsGrounded && psm.TryingToStartSlide) psm.ChangeState(psm.SlideState);
+        else if (!psm.IsGrounded && psm.WallRunState.ShouldEnterWall) psm.ChangeState(psm.WallRunState);
     }
 
     public override void MovePlayer()
@@ -17,4 +18,5 @@ public class WalkMoveState : MoveState
         Vector3 acceleration = Vector3.ClampMagnitude(Vector3.ProjectOnPlane(psm.TargetVelocity - rb.velocity, Vector3.up), maxAcceleration);
         rb.AddForce(Vector3.ProjectOnPlane(acceleration, psm.ContactNormal), ForceMode.VelocityChange);
     }
+
 }
