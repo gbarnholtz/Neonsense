@@ -108,9 +108,6 @@ public class PlayerStateMotor : SerializedMonoBehaviour
             Draw.SphereOutline(transform.position - Vector3.up * targetHeadHeight, springRadius - 0.1f);
             Draw.ArrowheadArc(transform.position, TargetVelocity, 0.55f);
         }
-        using (Draw.WithColor(Color.red)) {
-            Draw.Arrow(transform.position, transform.position + Vector3.ProjectOnPlane(rb.velocity, ContactNormal));
-        }
         activeState.DrawGizmos();
     }
 

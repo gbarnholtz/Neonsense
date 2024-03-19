@@ -390,9 +390,15 @@ MonoBehaviour:
     - Name: ejectForce
       Entry: 4
       Data: 3
+    - Name: ejectVelocity
+      Entry: 4
+      Data: 0.5
     - Name: downSlip
       Entry: 4
       Data: 2
+    - Name: wallJumpBias
+      Entry: 4
+      Data: 0.3
     - Name: springForce
       Entry: 4
       Data: 400
@@ -402,16 +408,13 @@ MonoBehaviour:
     - Name: targetSpringDistance
       Entry: 4
       Data: 0.1
-    - Name: wallJumpBias
-      Entry: 4
-      Data: 0.3
     - Name: 
       Entry: 8
       Data: 
   height: 1.5
   headSpringForce: 800
   headSpringDamper: 50
-  groundSnappingDistance: 0.5
+  groundSnappingDistance: 0.2
   springAdjustSpeed: 0.5
   gravity: 15
   terminalVelocity: 15
