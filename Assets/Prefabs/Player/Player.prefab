@@ -398,7 +398,7 @@ MonoBehaviour:
       Data: 400
     - Name: springDamper
       Entry: 4
-      Data: 50
+      Data: 65
     - Name: targetSpringDistance
       Entry: 4
       Data: 0.1

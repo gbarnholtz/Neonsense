@@ -44,7 +44,6 @@ public class WallRunMoveState : MoveState, IInputModifier
         Vector3 direction = Vector3.ProjectOnPlane(rb.velocity, Vector3.up).normalized;
         Draw.WireSphere(rb.position + direction * (wallDetectDistance -0f), headRadius + 0.0f, Color.magenta);
         if (!Physics.SphereCast(rb.position, headRadius + 0.0f, direction, out wallHit, wallDetectDistance -.0f)) return false;
-        Debug.Log("hit for some reason: "+ wallHit.collider.name);
         runDirection = Vector3.Project(direction, wallNormal);
         return true;
     }
