@@ -25,7 +25,7 @@ public class WallRunMoveState : MoveState, IInputModifier
 
     public override void Update()
     {
-        bool onWall = WallTraverseCheck();
+        bool onWall = RefreshWallStatus();
         if (psm.IsGrounded || !onWall) psm.ChangeState(psm.WalkState);
         //else if (Vector3.Dot(psm.TargetVelocity, wallNormal) > 0) { Eject(); }
     }
@@ -42,16 +42,26 @@ public class WallRunMoveState : MoveState, IInputModifier
 
     public bool RefreshWallEntry() {
         Vector3 direction = Vector3.ProjectOnPlane(rb.velocity, Vector3.up).normalized;
-        Draw.WireSphere(rb.position + direction * (wallDetectDistance -0f), headRadius + 0.0f, Color.magenta);
-        if (!Physics.SphereCast(rb.position, headRadius + 0.0f, direction, out wallHit, wallDetectDistance -.0f)) return false;
+        Vector3 right = Vector3.Lerp(Vector3.Cross(direction, Vector3.up), direction, 0.5f);
+        Vector3 left = Vector3.Lerp(Vector3.Cross(direction, -Vector3.up), direction, 0.5f);
+        float distance = wallDetectDistance + headRadius;
+        Draw.Ray(rb.position, direction.normalized * distance, Color.magenta);
+        Draw.Ray(rb.position, right.normalized * distance, Color.magenta);
+        Draw.Ray(rb.position, left.normalized * distance, Color.magenta);
+        if (!Physics.Raycast(rb.position, left, out wallHit, distance) &&
+            !Physics.Raycast(rb.position, right, out wallHit, distance) &&
+            !Physics.Raycast(rb.position, direction, out wallHit, distance)
+            ) return false;
         runDirection = Vector3.Project(direction, wallNormal);
         return true;
     }
 
-    private bool WallTraverseCheck()
+    private bool RefreshWallStatus()
     {
+        //Less clean but easier to read
         Vector3 direction = -wallNormal;
         if (!Physics.Raycast(rb.position, direction, wallDetectDistance + headRadius)) return false;
+        if (!Physics.Raycast(rb.position- Vector3.up * Height, direction, wallDetectDistance + headRadius)) return false;
         if (!Physics.SphereCast(rb.position, headRadius - 0.01f, direction, out wallHit, wallDetectDistance + 0.01f)) return false;
         runDirection = Vector3.Project(direction, wallNormal);
         return true;
@@ -59,7 +69,6 @@ public class WallRunMoveState : MoveState, IInputModifier
 
     public override void Enter()
     {
-        Debug.Log("Entering Wall Run");
         rb.velocity = Vector3.ProjectOnPlane(rb.velocity, wallNormal);
         rb.AddForce(ejectForce * -wallNormal, ForceMode.VelocityChange);
     }
@@ -83,7 +92,7 @@ public class WallRunMoveState : MoveState, IInputModifier
 
     public override void DrawGizmos()
     {
-        using (Drawing.Draw.WithColor(Color.red)) {
+        using (Draw.WithColor(Color.red)) {
             Draw.Arrow(wallHit.point, wallHit.point + wallHit.normal);
         }
     }
