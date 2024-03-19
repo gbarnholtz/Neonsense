@@ -377,7 +377,7 @@ MonoBehaviour:
       Data: 2|WallRunMoveState, Assembly-CSharp
     - Name: Height
       Entry: 4
-      Data: 1.5
+      Data: 1.25
     - Name: wallRunSpeedScalar
       Entry: 4
       Data: 1.5
@@ -389,13 +389,22 @@ MonoBehaviour:
       Data: 0.25
     - Name: ejectForce
       Entry: 4
-      Data: 5
+      Data: 3
     - Name: downSlip
       Entry: 4
       Data: 2
+    - Name: springForce
+      Entry: 4
+      Data: 400
+    - Name: springDamper
+      Entry: 4
+      Data: 50
+    - Name: targetSpringDistance
+      Entry: 4
+      Data: 0.1
     - Name: wallJumpBias
       Entry: 4
-      Data: 0.5
+      Data: 0.3
     - Name: 
       Entry: 8
       Data: 

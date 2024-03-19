@@ -8,7 +8,10 @@ public class WalkMoveState : MoveState
     public override void Update()
     {
         if (psm.IsGrounded && psm.TryingToStartSlide) psm.ChangeState(psm.SlideState);
-        else if (!psm.IsGrounded && psm.WallRunState.ShouldEnterWall) psm.ChangeState(psm.WallRunState);
+        else if (!psm.IsGrounded && psm.WallRunState.RefreshWallEntry()) {
+            psm.ChangeState(psm.WallRunState);
+        }
+        
     }
 
     public override void MovePlayer()

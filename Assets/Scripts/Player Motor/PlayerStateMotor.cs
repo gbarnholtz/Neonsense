@@ -3,8 +3,6 @@ using Sirenix.Serialization;
 using System;
 using UnityEngine;
 using Drawing;
-using Unity.VisualScripting;
-using static UnityEngine.LightAnchor;
 
 [RequireComponent(typeof(SphereCollider), typeof(Rigidbody))]
 public class PlayerStateMotor : SerializedMonoBehaviour
@@ -113,7 +111,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         using (Draw.WithColor(Color.red)) {
             Draw.Arrow(transform.position, transform.position + Vector3.ProjectOnPlane(rb.velocity, ContactNormal));
         }
-        activeState.Draw();
+        activeState.DrawGizmos();
     }
 
     private void InitializeStates() {

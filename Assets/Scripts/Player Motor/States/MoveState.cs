@@ -34,7 +34,7 @@ public abstract class MoveState
         return true;
     }
 
-    public virtual void Draw() { }
+    public virtual void DrawGizmos() { }
     public virtual void Jump() {
         Debug.LogError("Move state overrides jump but does not implement Jump method");
     }
