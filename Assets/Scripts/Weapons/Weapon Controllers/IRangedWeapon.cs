@@ -10,6 +10,8 @@ public abstract class IRangedWeapon : IWeapon
     [SerializeField] protected int magazineSize = 10;
     [SerializeField] protected int ammoLoaded;
     
+    // numshots, possibly serieslize. 
+    protected virtual numshots = 1;
     public int AmmoPool => ammoPool;
     public int MagazineSize => magazineSize;
     public int AmmoLoaded => ammoLoaded;
@@ -66,8 +68,8 @@ public abstract class IRangedWeapon : IWeapon
         attackHappened?.Invoke();
         InvokeRecoil(recoil);
 
-        //Vector3 bulletDirection = (velocity + firePoint.forward * bulletData.speed).normalized;
-        //ProjectileFactory.CreateBullet(bulletData, firePoint.position, firePoint.forward);
+        Vector3 bulletDirection = (velocity + firePoint.forward * bulletData.speed).normalized;
+        ProjectileFactory.CreateBullet(bulletData, firePoint.position, firePoint.forward);
 
         ammoLoaded--;
         if (ammoLoaded <= 0)
