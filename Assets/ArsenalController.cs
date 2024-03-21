@@ -13,5 +13,8 @@ public class ArsenalController : SerializedMonoBehaviour
     {
         activeWeapon.Subscribe(inputProvider.Primary);
     }
-
+    public void OnDisable()
+    {
+        activeWeapon.Unsubscribe(inputProvider.Primary);
+    }
 }
