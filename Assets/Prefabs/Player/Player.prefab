@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 4342367381646595744}
   - component: {fileID: 4342367381646595751}
   - component: {fileID: 8765060215111350664}
-  - component: {fileID: 3066006397483398553}
   - component: {fileID: 7749240005910225454}
+  - component: {fileID: 3066006397483398553}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -440,9 +440,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   <ContactNormal>k__BackingField: {x: 0, y: 0, z: 0}
-  TargetVelocity: {x: 0, y: 0, z: 0}
   TryingToSlide: 0
   SlideReset: 1
+--- !u!114 &7749240005910225454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024304656636799889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323a20995fe37fa46b066f26b3120495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 4342367381646595744}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: inputProvider
+      Entry: 10
+      Data: 0
+  activeWeapon: {fileID: 59271931099936231}
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -551,32 +576,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &7749240005910225454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024304656636799889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323a20995fe37fa46b066f26b3120495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 4342367381646595744}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: inputProvider
-      Entry: 10
-      Data: 0
-  activeWeapon: {fileID: 59271931099936231}
 --- !u!1 &4751926545273673872
 GameObject:
   m_ObjectHideFlags: 0

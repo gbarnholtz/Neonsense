@@ -149,8 +149,8 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void ApplyGravity()
     {
-        if (velocity.y < -terminalVelocity) return;
-        Vector3 gravityForce = Vector3.ClampMagnitude((-terminalVelocity - velocity.y) * Vector3.up, gravity * Time.fixedDeltaTime);
+        if (Velocity.y < -terminalVelocity) return;
+        Vector3 gravityForce = Vector3.ClampMagnitude((-terminalVelocity - Velocity.y) * Vector3.up, gravity * Time.fixedDeltaTime);
         rb.AddForce(Vector3.ProjectOnPlane(gravityForce, ContactNormal), ForceMode.VelocityChange);
     }
 
@@ -160,7 +160,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     {
         direction = direction.normalized;
         float jumpSpeed = Mathf.Sqrt(2f * gravity * jumpHeight);
-        rb.AddForce(-Vector3.Project(velocity, direction), ForceMode.VelocityChange);
+        rb.AddForce(-Vector3.Project(Velocity, direction), ForceMode.VelocityChange);
         rb.AddForce(direction * jumpSpeed, ForceMode.VelocityChange);
         disableGroundSnapping = true;
     }
