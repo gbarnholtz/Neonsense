@@ -38,10 +38,13 @@ public class RangedWeapon : IWeapon
     private float fireRate => 60 / rpm;
     private float timeReloadStarted;
 
+    private AudioSource weaponSound;
+
     protected virtual void Awake()
     {
         ammoLoaded = magazineSize;
         timeReloadStarted = -reloadTime;
+        weaponSound = gameObject.GetComponent<AudioSource>();
     }
 
     public IEnumerator Reload() {
@@ -64,6 +67,8 @@ public class RangedWeapon : IWeapon
 
     public override IEnumerator Attack()
     {
+        weaponSound.Play();
+
         IsAttacking = true;
         Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
 

@@ -34,6 +34,8 @@ public class GameStateManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         Camera = Camera.main;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnEnable()
