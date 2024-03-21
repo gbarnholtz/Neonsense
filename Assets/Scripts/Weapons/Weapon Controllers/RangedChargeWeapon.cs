@@ -14,7 +14,7 @@ public class RangedChargeWeapon : IRangedWeapon
     {
         chargeRate = 1 / chargeTime;
     }
-
+    /*
     protected void Update()
     {
         if (attackQueued && CanAttack) {
@@ -29,5 +29,5 @@ public class RangedChargeWeapon : IRangedWeapon
                 StartCoroutine(Fire());
             }
         }
-    }
+    }*/
 }

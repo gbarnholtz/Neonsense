@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bullet : PooledObject, ITeamable
 {
-    public float speed;
-    public DamageInstance damage;
+    [HideInInspector] public float Speed;
+    [HideInInspector] public float Damage;
 
     [SerializeField] public GameObject body,trail;
     public Vector3 position => transform.position;

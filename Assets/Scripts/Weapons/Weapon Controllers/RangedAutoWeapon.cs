@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class RangedAutoWeapon : RangedSemiWeapon
 {
-    public override IEnumerator Fire() {
-        yield return base.Fire();
+    public override IEnumerator Attack() {
+        yield return base.Attack();
         if (CanAttack && tryingToAttack)
         {
-            StartCoroutine(Fire());
+            StartCoroutine(Attack());
         }
     }
 }
