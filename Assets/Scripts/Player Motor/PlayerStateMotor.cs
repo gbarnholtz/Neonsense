@@ -22,7 +22,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     public WalkMoveState WalkState = new WalkMoveState();
     public SlideMoveState SlideState = new SlideMoveState();
     public WallRunMoveState WallRunState = new WallRunMoveState();
-
+    public SlamMoveState SlamState = new SlamMoveState();
     public bool TryingToStartSlide => SlideReset && TryingToSlide;
 
     [Header("Uniform Movement Properties")]
@@ -33,7 +33,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     [SerializeField, Range(0, 90)] private float maxSlope=45f;
     [SerializeField, Range(0, 1)] private float slopeJumpBias=0.5f;
     private float slopeDotProduct;
-    [SerializeField, Range(0, 10)] private float jumpHeight=2f;
+    [SerializeField, Range(0, 10)] public float JumpHeight=2f;
     [SerializeField] private int maxAirJumps;
     [SerializeField] LayerMask groundMask;
     
@@ -116,6 +116,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         WalkState.Register(this);
         SlideState.Register(this);
         WallRunState.Register(this);
+        SlamState.Register(this);
     }
 
     public void ChangeState(MoveState state) {
@@ -142,8 +143,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
                 //only way of truly fixing it is with GetAccumulatedForces() but that is in a later version of Unity
                 //upgrading Unity versions would make it incompatible on hopkins computers 
                 if (!shouldJump) rb.AddForce(force * springDir, ForceMode.Acceleration);
-            } else {
-                return;
+            } else {  return;
                 rb.velocity = Vector3.ProjectOnPlane(rb.velocity, hit.normal);
                 ContactNormal = Vector3.zero;
                 currentHeadHeight = Mathf.MoveTowards(currentHeadHeight, targetHeadHeight, Time.fixedDeltaTime * springAdjustSpeed);
@@ -168,10 +168,10 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     public void JumpDirectional(Vector3 direction)
     {
         direction = direction.normalized;
-        float jumpSpeed = Mathf.Sqrt(2f * gravity * jumpHeight);
+        float jumpSpeed = Mathf.Sqrt(2f * gravity * JumpHeight);
         rb.velocity = Vector3.ProjectOnPlane(rb.velocity, Vector3.up);
         rb.AddForce(direction * jumpSpeed, ForceMode.VelocityChange);
-        Debug.Log("Jump: " + -rb.velocity.y * Vector3.up + direction * jumpSpeed);
+        //Debug.Log("Jump: " + -rb.velocity.y * Vector3.up + direction * jumpSpeed);
         disableGroundSnapping = true;
     }
 

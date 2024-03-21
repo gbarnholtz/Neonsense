@@ -6,11 +6,11 @@ public class WalkMoveState : MoveState
     [SerializeField] private float groundAccelerationScalar = 8f, airAccelerationScalar=4f;
 
     public override void Update() {
-        if (psm.IsGrounded && psm.TryingToStartSlide) psm.ChangeState(psm.SlideState);
-        else if (!psm.IsGrounded && psm.WallRunState.RefreshWallEntry()) {
-            psm.ChangeState(psm.WallRunState);
+        if (psm.IsGrounded && psm.TryingToStartSlide) { psm.ChangeState(psm.SlideState); return; 
+        } else {
+            if (psm.TryingToStartSlide) { psm.ChangeState(psm.SlamState);  return; }
+            if (psm.WallRunState.RefreshWallEntry()) { psm.ChangeState(psm.WallRunState); return; }
         }
-        
     }
 
     public override void MovePlayer() {

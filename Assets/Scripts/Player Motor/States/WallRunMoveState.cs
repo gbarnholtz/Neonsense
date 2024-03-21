@@ -7,7 +7,7 @@ public class WallRunMoveState : MoveState, IInputModifier
     public override bool ShouldApplyGravity => false;
     public override bool OverrideJump => true;
 
-    [SerializeField] private float wallRunSpeedScalar = 1.5f, accelerationScalar=4f, wallDetectDistance = 0.25f, ejectForce = 2f, ejectVelocity=1f, downSlip = 2f;
+    [SerializeField] private float wallRunSpeedScalar = 1.5f, accelerationScalar=4f, wallDetectDistance = 0.25f, ejectForce = 2f, ejectVelocity=1f, downSlip = 2f, slipEjectThreshold=6f;
     [SerializeField, Range(0, 1)] private float wallJumpBias = 0.5f;
     [Header("Wall Spring Properties")]
     [SerializeField] private float springForce=400f;
@@ -26,7 +26,7 @@ public class WallRunMoveState : MoveState, IInputModifier
     public override void Update() {
         bool onWall = RefreshWallStatus();
         if (psm.IsGrounded || !onWall) psm.ChangeState(psm.WalkState);
-        else if (Vector3.Dot(psm.TargetDirection, wallNormal) > 0.5f) { Eject(); }
+        else if (Vector3.Dot(psm.TargetDirection, wallNormal) > 0.5f || rb.velocity.y < -slipEjectThreshold) { Eject(); }
     }
 
     public override void MovePlayer() {
