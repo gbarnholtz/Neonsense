@@ -50,10 +50,10 @@ public class WallRunMoveState : MoveState, IInputModifier
         Draw.Ray(rb.position, direction.normalized * distance, Color.magenta);
         Draw.Ray(rb.position, right.normalized * distance, Color.magenta);
         Draw.Ray(rb.position, left.normalized * distance, Color.magenta);
-        if (!Physics.Raycast(rb.position, left, out wallHit, distance) &&
-            !Physics.Raycast(rb.position, right, out wallHit, distance) &&
-            !Physics.Raycast(rb.position, direction, out wallHit, distance)
-            ) return false;
+        if (!WallCheck(left, out wallHit) &&
+            !WallCheck(right, out wallHit) &&
+            !WallCheck(direction, out wallHit)) return false;
+
         runDirection = Vector3.ProjectOnPlane(psm.TargetDirection, wallNormal).normalized;
         return true;
     }
@@ -62,8 +62,7 @@ public class WallRunMoveState : MoveState, IInputModifier
     {
         //Less clean but easier to read
         Vector3 direction = -wallNormal;
-        if (!Physics.Raycast(rb.position, direction, wallDetectDistance + headRadius)) return false;
-        if (!Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius)) return false;
+        if (!WallCheck(direction, out wallHit)) return false;
         if (!Physics.SphereCast(rb.position, headRadius - 0.01f, direction, out wallHit, wallDetectDistance + 0.01f)) return false;
         runDirection = Vector3.ProjectOnPlane(psm.TargetDirection, wallNormal).normalized;
         return true;
@@ -98,5 +97,11 @@ public class WallRunMoveState : MoveState, IInputModifier
     private void Eject() {
         rb.AddForce(ejectForce * wallNormal, ForceMode.VelocityChange);
         psm.ChangeState(psm.WalkState);
+    }
+
+    private bool WallCheck(Vector3 direction, out RaycastHit hit)
+    {
+        bool floorHit = Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius);
+        return Physics.Raycast(rb.position, direction, out hit, wallDetectDistance + headRadius) && floorHit;
     }
 }
