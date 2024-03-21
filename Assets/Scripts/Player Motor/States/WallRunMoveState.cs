@@ -36,7 +36,9 @@ public class WallRunMoveState : MoveState, IInputModifier
         float force = (offset * springForce) - (springVelocity * springDamper);
         rb.AddForce(force * springDir, ForceMode.Acceleration);
 
-        Vector3 runForce = runDirection * wallRunSpeedScalar * psm.BaseSpeed;
+
+        float heading = Vector3.Dot(velocity, runDirection);
+        Vector3 runForce = runDirection * Mathf.Min(0, (wallRunSpeedScalar * psm.BaseSpeed) - heading);
         rb.AddForce(Vector3.ClampMagnitude(runForce, accelerationScalar*Time.fixedDeltaTime), ForceMode.VelocityChange);
 
         rb.AddForce(-Vector3.up * downSlip, ForceMode.Acceleration);
