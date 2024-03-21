@@ -364,12 +364,24 @@ MonoBehaviour:
     - Name: slideForce
       Entry: 4
       Data: 10
-    - Name: slideFullRechargeDelay
+    - Name: fullRechargeDelay
       Entry: 4
       Data: 2
     - Name: exitVelocity
       Entry: 4
       Data: 3
+    - Name: velocityFalloffScalar
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -402,7 +414,7 @@ MonoBehaviour:
       Data: 0.3
     - Name: springForce
       Entry: 4
-      Data: 400
+      Data: 100
     - Name: springDamper
       Entry: 4
       Data: 65
