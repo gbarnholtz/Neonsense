@@ -12,7 +12,7 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
 
     public ButtonAction Slide {get { return slideAction; } }
 
-    public ButtonAction Primary => throw new System.NotImplementedException();
+    public ButtonAction Primary { get { return primAction; } }
 
     public ButtonAction Secondary => throw new System.NotImplementedException();
 
