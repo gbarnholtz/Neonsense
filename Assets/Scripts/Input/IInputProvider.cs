@@ -20,6 +20,12 @@ public interface IAttackActionProvider
     public ButtonAction Primary { get; }
     public ButtonAction Secondary { get; }
 }
+public interface ICharacterInputProvider : IAttackActionProvider
+{
+    public InputState GetState();
+    public ButtonAction Jump { get; }
+}
+
 public interface IButtonActionSubscriber
 {
     public void Subscribe(ButtonAction attackActions);
