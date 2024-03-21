@@ -17,8 +17,8 @@ public class WallRunMoveState : MoveState, IInputModifier
     private Vector3 runDirection;
     private float headRadius;
     private RaycastHit wallHit;
-    public override void Register(PlayerStateMotor sm)
-    {
+
+    public override void Register(PlayerStateMotor sm) {
         base.Register(sm);
         headRadius = sm.GetComponent<SphereCollider>().radius;
     }
@@ -26,7 +26,7 @@ public class WallRunMoveState : MoveState, IInputModifier
     public override void Update() {
         bool onWall = RefreshWallStatus();
         if (psm.IsGrounded || !onWall) psm.ChangeState(psm.WalkState);
-        //else if (Mathf.Abs(Vector3.Dot(velocity, runDirection)) < ejectVelocity) { Eject(); }
+        else if (Vector3.Dot(psm.TargetDirection, wallNormal) > 0.5f) { Eject(); }
     }
 
     public override void MovePlayer() {
@@ -36,10 +36,10 @@ public class WallRunMoveState : MoveState, IInputModifier
         float force = (offset * springForce) - (springVelocity * springDamper);
         rb.AddForce(force * springDir, ForceMode.Acceleration);
 
-
         float heading = Vector3.Dot(velocity, runDirection);
-        Vector3 runForce = runDirection * Mathf.Min(0, (wallRunSpeedScalar * psm.BaseSpeed) - heading);
-        rb.AddForce(Vector3.ClampMagnitude(runForce, accelerationScalar*Time.fixedDeltaTime), ForceMode.VelocityChange);
+        Vector3 runForce = runDirection * (wallRunSpeedScalar * psm.BaseSpeed - heading);
+        //Debug.Log((wallRunSpeedScalar * psm.BaseSpeed) - heading);
+        rb.AddForce(Vector3.ClampMagnitude(runForce, psm.BaseSpeed*accelerationScalar*Time.fixedDeltaTime), ForceMode.VelocityChange);
 
         rb.AddForce(-Vector3.up * downSlip, ForceMode.Acceleration);
     }
@@ -74,6 +74,7 @@ public class WallRunMoveState : MoveState, IInputModifier
     {
         rb.velocity = Vector3.ProjectOnPlane(velocity, wallNormal);
         rb.AddForce(ejectForce * -wallNormal, ForceMode.VelocityChange);
+        rb.velocity = Vector3.ProjectOnPlane(rb.velocity, Vector3.up);
     }
 
     public override void Jump()

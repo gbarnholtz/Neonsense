@@ -64,6 +64,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
             springRadius = Head.radius - 0.01f;
             UpdateHeight(height);
         }
+        slopeDotProduct = Mathf.Cos(maxSlope * Mathf.Deg2Rad);
     }
 
     private void OnEnable()
@@ -127,18 +128,26 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     private void HandleGrounded() {
         Vector3 springDir = transform.up;
         float checkDistance = (previouslyGrounded && !disableGroundSnapping) ? currentHeadHeight + groundSnappingDistance : currentHeadHeight;
-        if (Physics.SphereCast(transform.position, springRadius, -springDir, out RaycastHit hit, checkDistance, groundMask)) {
-            float offset = targetHeadHeight - hit.distance;
-            float springVelocity = Vector3.Dot(springDir, Velocity);
-            float force = (offset * headSpringForce) - (springVelocity * headSpringDamper);
-            ContactNormal = hit.normal;
-            currentHeadHeight = hit.distance;
-            disableGroundSnapping = false;
-            //TODO: remove conditional wrapper
-            //jumping during the window of the spring bouncing upwards causes forces to stack, sending the player super high
-            //only way of truly fixing it is with GetAccumulatedForces() but that is in a later version of Unity
-            //upgrading Unity versions would make it incompatible on hopkins computers 
-            if (!shouldJump) rb.AddForce(force * springDir, ForceMode.Acceleration);
+        if (Physics.SphereCast(rb.position, springRadius, -springDir, out RaycastHit hit, checkDistance, groundMask)) {
+            if (hit.normal.y >= slopeDotProduct)
+            {
+                float offset = targetHeadHeight - hit.distance;
+                float springVelocity = Vector3.Dot(springDir, Velocity);
+                float force = (offset * headSpringForce) - (springVelocity * headSpringDamper);
+                ContactNormal = hit.normal;
+                currentHeadHeight = hit.distance;
+                disableGroundSnapping = false;
+                //TODO: remove conditional wrapper
+                //jumping during the window of the spring bouncing upwards causes forces to stack, sending the player super high
+                //only way of truly fixing it is with GetAccumulatedForces() but that is in a later version of Unity
+                //upgrading Unity versions would make it incompatible on hopkins computers 
+                if (!shouldJump) rb.AddForce(force * springDir, ForceMode.Acceleration);
+            } else {
+                return;
+                rb.velocity = Vector3.ProjectOnPlane(rb.velocity, hit.normal);
+                ContactNormal = Vector3.zero;
+                currentHeadHeight = Mathf.MoveTowards(currentHeadHeight, targetHeadHeight, Time.fixedDeltaTime * springAdjustSpeed);
+            }
         } else {
             ContactNormal = Vector3.zero;
             currentHeadHeight = Mathf.MoveTowards(currentHeadHeight, targetHeadHeight, Time.fixedDeltaTime * springAdjustSpeed);
@@ -160,8 +169,9 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     {
         direction = direction.normalized;
         float jumpSpeed = Mathf.Sqrt(2f * gravity * jumpHeight);
-        rb.AddForce(-Vector3.Project(Velocity, direction), ForceMode.VelocityChange);
+        rb.velocity = Vector3.ProjectOnPlane(rb.velocity, Vector3.up);
         rb.AddForce(direction * jumpSpeed, ForceMode.VelocityChange);
+        Debug.Log("Jump: " + -rb.velocity.y * Vector3.up + direction * jumpSpeed);
         disableGroundSnapping = true;
     }
 

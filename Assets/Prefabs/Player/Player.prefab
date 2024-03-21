@@ -366,7 +366,7 @@ MonoBehaviour:
       Data: 10
     - Name: fullRechargeDelay
       Entry: 4
-      Data: 2
+      Data: 3
     - Name: exitVelocity
       Entry: 4
       Data: 3
@@ -375,10 +375,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 1.5
     - Name: 
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -396,13 +396,13 @@ MonoBehaviour:
       Data: 1.5
     - Name: accelerationScalar
       Entry: 4
-      Data: 4
+      Data: 1.5
     - Name: wallDetectDistance
       Entry: 4
       Data: 0.25
     - Name: ejectForce
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: ejectVelocity
       Entry: 4
       Data: 0.5
@@ -432,7 +432,7 @@ MonoBehaviour:
   gravity: 15
   terminalVelocity: 15
   BaseSpeed: 6
-  maxSlope: 45
+  maxSlope: 60
   slopeJumpBias: 0.5
   jumpHeight: 2
   maxAirJumps: 0
