@@ -26,35 +26,37 @@ public class WallRunMoveState : MoveState, IInputModifier
     public override void Update() {
         bool onWall = RefreshWallStatus();
         if (psm.IsGrounded || !onWall) psm.ChangeState(psm.WalkState);
-        //else if (Mathf.Abs(Vector3.Dot(rb.velocity, runDirection)) < ejectVelocity) { Eject(); }
+        //else if (Mathf.Abs(Vector3.Dot(velocity, runDirection)) < ejectVelocity) { Eject(); }
     }
 
     public override void MovePlayer() {
         Vector3 springDir = wallHit.normal;
         float offset = targetSpringDistance - wallHit.distance;
-        float springVelocity = Vector3.Dot(springDir, rb.velocity);
+        float springVelocity = Vector3.Dot(springDir, velocity);
         float force = (offset * springForce) - (springVelocity * springDamper);
         rb.AddForce(force * springDir, ForceMode.Acceleration);
 
-        Vector3 runForce = runDirection * wallRunSpeedScalar * psm.BaseSpeed;
+
+        float heading = Vector3.Dot(velocity, runDirection);
+        Vector3 runForce = runDirection * Mathf.Min(0, (wallRunSpeedScalar * psm.BaseSpeed) - heading);
         rb.AddForce(Vector3.ClampMagnitude(runForce, accelerationScalar*Time.fixedDeltaTime), ForceMode.VelocityChange);
 
         rb.AddForce(-Vector3.up * downSlip, ForceMode.Acceleration);
     }
 
     public bool RefreshWallEntry() {
-        Vector3 direction = Vector3.ProjectOnPlane(rb.velocity, Vector3.up).normalized;
+        Vector3 direction = Vector3.ProjectOnPlane(velocity, Vector3.up).normalized;
         Vector3 right = Quaternion.Euler(0, 45f, 0) * direction;
         Vector3 left = Quaternion.Euler(0, -45f, 0) * direction;
         float distance = wallDetectDistance + headRadius;
         Draw.Ray(rb.position, direction.normalized * distance, Color.magenta);
         Draw.Ray(rb.position, right.normalized * distance, Color.magenta);
         Draw.Ray(rb.position, left.normalized * distance, Color.magenta);
-        if (!Physics.Raycast(rb.position, left, out wallHit, distance) &&
-            !Physics.Raycast(rb.position, right, out wallHit, distance) &&
-            !Physics.Raycast(rb.position, direction, out wallHit, distance)
-            ) return false;
-        runDirection = Vector3.ProjectOnPlane(psm.TargetVelocity, wallNormal).normalized;
+        if (!WallCheck(left, out wallHit) &&
+            !WallCheck(right, out wallHit) &&
+            !WallCheck(direction, out wallHit)) return false;
+
+        runDirection = Vector3.ProjectOnPlane(psm.TargetDirection, wallNormal).normalized;
         return true;
     }
 
@@ -62,16 +64,15 @@ public class WallRunMoveState : MoveState, IInputModifier
     {
         //Less clean but easier to read
         Vector3 direction = -wallNormal;
-        if (!Physics.Raycast(rb.position, direction, wallDetectDistance + headRadius)) return false;
-        if (!Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius)) return false;
+        if (!WallCheck(direction, out wallHit)) return false;
         if (!Physics.SphereCast(rb.position, headRadius - 0.01f, direction, out wallHit, wallDetectDistance + 0.01f)) return false;
-        runDirection = Vector3.ProjectOnPlane(psm.TargetVelocity, wallNormal).normalized;
+        runDirection = Vector3.ProjectOnPlane(psm.TargetDirection, wallNormal).normalized;
         return true;
     }
 
     public override void Enter()
     {
-        rb.velocity = Vector3.ProjectOnPlane(rb.velocity, wallNormal);
+        rb.velocity = Vector3.ProjectOnPlane(velocity, wallNormal);
         rb.AddForce(ejectForce * -wallNormal, ForceMode.VelocityChange);
     }
 
@@ -98,5 +99,11 @@ public class WallRunMoveState : MoveState, IInputModifier
     private void Eject() {
         rb.AddForce(ejectForce * wallNormal, ForceMode.VelocityChange);
         psm.ChangeState(psm.WalkState);
+    }
+
+    private bool WallCheck(Vector3 direction, out RaycastHit hit)
+    {
+        bool floorHit = Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius);
+        return Physics.Raycast(rb.position, direction, out hit, wallDetectDistance + headRadius) && floorHit;
     }
 }

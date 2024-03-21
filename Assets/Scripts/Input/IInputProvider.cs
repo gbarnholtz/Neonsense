@@ -20,6 +20,11 @@ public interface IAttackActionProvider
     public ButtonAction Primary { get; }
     public ButtonAction Secondary { get; }
 }
+public interface IButtonActionSubscriber
+{
+    public void Subscribe(ButtonAction attackActions);
+    public void Unsubscribe(ButtonAction attackActions);
+}
 
 public interface IInputModifier
 {

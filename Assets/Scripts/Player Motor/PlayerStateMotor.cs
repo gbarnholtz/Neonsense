@@ -40,8 +40,8 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     private Rigidbody rb;
     [field: SerializeField] public Vector3 ContactNormal { get; private set; }
     public bool IsGrounded => ContactNormal != Vector3.zero;
-    [HideInInspector] public Vector3 TargetVelocity;
-    private Vector3 velocity => rb.velocity;
+    public Vector3 TargetDirection => inputState.moveDirection;
+    public Vector3 Velocity => rb.velocity;
     public Vector3 LookDirection => inputState.lookDirection;
 
     [Header("Read Only (DEBUG)")]
@@ -82,7 +82,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateTargetsFromInput();
+        inputState = inputProvider.GetState();
         HandleGrounded();
         if (activeState.ShouldApplyGravity) ApplyGravity();
         activeState.Update();
@@ -106,7 +106,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         using (Draw.WithColor(Color.blue))
         {
             Draw.SphereOutline(transform.position - Vector3.up * targetHeadHeight, springRadius - 0.1f);
-            Draw.ArrowheadArc(transform.position, TargetVelocity, 0.55f);
+            Draw.ArrowheadArc(transform.position, TargetDirection, 0.55f);
         }
         activeState.DrawGizmos();
     }
@@ -124,17 +124,12 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         UpdateHeight(activeState.Height);
     }
 
-    private void UpdateTargetsFromInput() {
-        inputState = inputProvider.GetState();
-        TargetVelocity = inputState.moveDirection.magnitude == 0? Vector3.zero : inputState.moveDirection * BaseSpeed;
-    }
-
     private void HandleGrounded() {
         Vector3 springDir = transform.up;
         float checkDistance = (previouslyGrounded && !disableGroundSnapping) ? currentHeadHeight + groundSnappingDistance : currentHeadHeight;
         if (Physics.SphereCast(transform.position, springRadius, -springDir, out RaycastHit hit, checkDistance, groundMask)) {
             float offset = targetHeadHeight - hit.distance;
-            float springVelocity = Vector3.Dot(springDir, velocity);
+            float springVelocity = Vector3.Dot(springDir, Velocity);
             float force = (offset * headSpringForce) - (springVelocity * headSpringDamper);
             ContactNormal = hit.normal;
             currentHeadHeight = hit.distance;
@@ -154,8 +149,8 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void ApplyGravity()
     {
-        if (rb.velocity.y < -terminalVelocity) return;
-        Vector3 gravityForce = Vector3.ClampMagnitude((-terminalVelocity - rb.velocity.y) * Vector3.up, gravity * Time.fixedDeltaTime);
+        if (Velocity.y < -terminalVelocity) return;
+        Vector3 gravityForce = Vector3.ClampMagnitude((-terminalVelocity - Velocity.y) * Vector3.up, gravity * Time.fixedDeltaTime);
         rb.AddForce(Vector3.ProjectOnPlane(gravityForce, ContactNormal), ForceMode.VelocityChange);
     }
 
@@ -165,7 +160,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     {
         direction = direction.normalized;
         float jumpSpeed = Mathf.Sqrt(2f * gravity * jumpHeight);
-        rb.AddForce(-Vector3.Project(rb.velocity, direction), ForceMode.VelocityChange);
+        rb.AddForce(-Vector3.Project(Velocity, direction), ForceMode.VelocityChange);
         rb.AddForce(direction * jumpSpeed, ForceMode.VelocityChange);
         disableGroundSnapping = true;
     }
