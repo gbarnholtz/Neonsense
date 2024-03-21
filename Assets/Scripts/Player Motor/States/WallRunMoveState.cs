@@ -26,13 +26,13 @@ public class WallRunMoveState : MoveState, IInputModifier
     public override void Update() {
         bool onWall = RefreshWallStatus();
         if (psm.IsGrounded || !onWall) psm.ChangeState(psm.WalkState);
-        //else if (Mathf.Abs(Vector3.Dot(rb.velocity, runDirection)) < ejectVelocity) { Eject(); }
+        //else if (Mathf.Abs(Vector3.Dot(velocity, runDirection)) < ejectVelocity) { Eject(); }
     }
 
     public override void MovePlayer() {
         Vector3 springDir = wallHit.normal;
         float offset = targetSpringDistance - wallHit.distance;
-        float springVelocity = Vector3.Dot(springDir, rb.velocity);
+        float springVelocity = Vector3.Dot(springDir, velocity);
         float force = (offset * springForce) - (springVelocity * springDamper);
         rb.AddForce(force * springDir, ForceMode.Acceleration);
 
@@ -43,7 +43,7 @@ public class WallRunMoveState : MoveState, IInputModifier
     }
 
     public bool RefreshWallEntry() {
-        Vector3 direction = Vector3.ProjectOnPlane(rb.velocity, Vector3.up).normalized;
+        Vector3 direction = Vector3.ProjectOnPlane(velocity, Vector3.up).normalized;
         Vector3 right = Quaternion.Euler(0, 45f, 0) * direction;
         Vector3 left = Quaternion.Euler(0, -45f, 0) * direction;
         float distance = wallDetectDistance + headRadius;
@@ -54,7 +54,7 @@ public class WallRunMoveState : MoveState, IInputModifier
             !Physics.Raycast(rb.position, right, out wallHit, distance) &&
             !Physics.Raycast(rb.position, direction, out wallHit, distance)
             ) return false;
-        runDirection = Vector3.ProjectOnPlane(psm.TargetVelocity, wallNormal).normalized;
+        runDirection = Vector3.ProjectOnPlane(psm.TargetDirection, wallNormal).normalized;
         return true;
     }
 
@@ -65,13 +65,13 @@ public class WallRunMoveState : MoveState, IInputModifier
         if (!Physics.Raycast(rb.position, direction, wallDetectDistance + headRadius)) return false;
         if (!Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius)) return false;
         if (!Physics.SphereCast(rb.position, headRadius - 0.01f, direction, out wallHit, wallDetectDistance + 0.01f)) return false;
-        runDirection = Vector3.ProjectOnPlane(psm.TargetVelocity, wallNormal).normalized;
+        runDirection = Vector3.ProjectOnPlane(psm.TargetDirection, wallNormal).normalized;
         return true;
     }
 
     public override void Enter()
     {
-        rb.velocity = Vector3.ProjectOnPlane(rb.velocity, wallNormal);
+        rb.velocity = Vector3.ProjectOnPlane(velocity, wallNormal);
         rb.AddForce(ejectForce * -wallNormal, ForceMode.VelocityChange);
     }
 

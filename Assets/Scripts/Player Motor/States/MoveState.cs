@@ -7,6 +7,7 @@ public abstract class MoveState
 {
     protected PlayerStateMotor psm;
     protected Rigidbody rb;
+    protected Vector3 velocity => rb.velocity;
     public float Height = 1.5f;
     public abstract bool ShouldApplyGravity { get; }
     public virtual bool OverrideJump => false;
