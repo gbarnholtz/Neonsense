@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6627107464513559954}
-  - component: {fileID: 931629102627900989}
+  - component: {fileID: 4588730248826798753}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -148,7 +148,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &931629102627900989
+--- !u!114 &4588730248826798753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,19 +157,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7098786638656445594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f940827c440d23e418a459ea5a035e68, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b5aa524fc597b54a8ac41abdd48d675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   description: Lorem Ipsum
   IsAttacking: 0
   firePoint: {fileID: 3591885968686185719}
   bulletDamage: 1
-  bulletSpeed: 50
+  bulletSpeed: 25
   bulletsPerShot: 1
-  ammoPool: 9999
-  magazineSize: 10
-  ammoLoaded: 0
+  automatic: 0
   reloadTime: 1
+  magazineSize: 10
+  ammoPool: 9999
+  ammoLoaded: 0
   rpm: 60
   recoil: {x: 0, y: 0, z: 0}
   spread: 0

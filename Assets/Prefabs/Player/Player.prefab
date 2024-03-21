@@ -564,7 +564,7 @@ MonoBehaviour:
     - Name: inputProvider
       Entry: 10
       Data: 0
-  activeWeapon: {fileID: 3715801621103966587}
+  activeWeapon: {fileID: 59271931099936231}
 --- !u!1 &4751926545273673872
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +797,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -866,6 +866,10 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 7634292425448812394, guid: 8f44287303290a24283a5c31d13877fe, type: 3}
+    - target: {fileID: 931629102627900989, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
+      propertyPath: spread
+      value: 0.139
+      objectReference: {fileID: 0}
     - target: {fileID: 6627107464513559954, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -916,15 +920,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
---- !u!114 &3715801621103966587 stripped
+--- !u!114 &59271931099936231 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 931629102627900989, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4588730248826798753, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
   m_PrefabInstance: {fileID: 4574780192260994886}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f940827c440d23e418a459ea5a035e68, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b5aa524fc597b54a8ac41abdd48d675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7243148813091613396 stripped

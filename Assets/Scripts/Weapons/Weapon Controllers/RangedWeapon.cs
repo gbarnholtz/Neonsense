@@ -3,22 +3,24 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public abstract class IRangedWeapon : IWeapon
+public class RangedWeapon : IWeapon
 {
     //[SerializeField] protected WeaponData weaponData;
     [SerializeField] protected Transform firePoint;
+    
     [SerializeField] protected float bulletDamage = 1f, bulletSpeed = 25f; 
     [SerializeField] protected int bulletsPerShot = 1;
-    [SerializeField] protected int ammoPool = 9999;
+    [SerializeField] private bool automatic;
+    [SerializeField] protected float reloadTime = 1;
     [SerializeField] protected int magazineSize = 10;
+    [SerializeField] protected int ammoPool = 9999;
+
     [SerializeField] protected int ammoLoaded;
-    
     public int AmmoPool => ammoPool;
     public int MagazineSize => magazineSize;
     public int AmmoLoaded => ammoLoaded;
     public float ReloadProgress => Mathf.Clamp01((Time.time - timeReloadStarted) / reloadTime);
     
-    [SerializeField] protected float reloadTime = 1;
     protected float autoReloadDelay = 0.1f;
 
     public float rpm = 60;
@@ -83,6 +85,8 @@ public abstract class IRangedWeapon : IWeapon
         yield return new WaitForSeconds(fireRate);
         isPastFireRate = true;
         IsAttacking = false;
+
+        if (automatic && CanAttack && tryingToAttack) StartCoroutine(Attack());
     }
 
     public override void Subscribe(ButtonAction attackActions)
