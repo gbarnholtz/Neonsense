@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SlideMoveState : MoveState
 {
+    public override bool ShouldApplyGravity => true;
     [SerializeField] private float slideForce, exitVelocity;
+
+    public bool FastEnoughToSlide => Vector3.ProjectOnPlane(rb.velocity, psm.ContactNormal).magnitude > exitVelocity;
 
     public override void MovePlayer()
     {
@@ -15,9 +18,8 @@ public class SlideMoveState : MoveState
 
     public override void Update()
     {
-        if (!psm.IsGrounded) {
-            psm.SetState(psm.MidairState);
-        }else if (rb.velocity.magnitude < exitVelocity || !psm.TryingToSlide) psm.SetState(psm.WalkState);
+        if (!psm.IsGrounded) psm.ChangeState(psm.MidairState);
+        else if (!FastEnoughToSlide || !psm.TryingToSlide) psm.ChangeState(psm.WalkState);
     }
 
     public override void Enter()

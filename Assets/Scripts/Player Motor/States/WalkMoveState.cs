@@ -5,10 +5,12 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class WalkMoveState : MoveState
 {
+    public override bool ShouldApplyGravity => false;
+
     public override void Update()
-    {
-        if (!psm.IsGrounded) psm.SetState(psm.MidairState);
-        else if (psm.TryingToStartSlide) psm.SetState(psm.SlideState);
+    {   
+        if (!psm.IsGrounded) psm.ChangeState(psm.MidairState);
+        else if (psm.TryingToStartSlide) psm.ChangeState(psm.SlideState);
     }
 
     public override void MovePlayer()

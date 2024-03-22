@@ -18,19 +18,19 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     [SerializeField] private float headSpringForce=500f, headSpringDamper=50f, groundSnappingDistance=0.5f, springAdjustSpeed=2f;
     private float springRadius, targetHeadHeight, currentHeadHeight;
 
-    [Header("Player Move State Properties")]
+    [Header("Move State Properties")]
     [ShowInInspector] private MoveState activeState;
     public WalkMoveState WalkState;
     public MidairMoveState MidairState;
     public SlideMoveState SlideState;
+    public WallRunMoveState WallRunState;
+
     public bool TryingToStartSlide => SlideReset && TryingToSlide;
 
-    [Header("Uniform Properties")]
+    [Header("Uniform Movement Properties")]
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float terminalVelocity=15f;
-    [SerializeField, Range(0, 1)] private float hardLandingThreshold = 0.9f;
     private bool shouldJump;
-    [Header("Movement Properties")]
     public float MaxSpeed=6;
     [SerializeField, Range(0, 90)] private float maxSlope=45f;
     [SerializeField, Range(0, 1)] private float slopeJumpBias=0.5f;
@@ -55,9 +55,10 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         rb = GetComponent<Rigidbody>();
         OnValidate();
         InitializeStates();
-        SetState(WalkState);
+        ChangeState(WalkState);
         currentHeadHeight = targetHeadHeight;
     }
+
     private void OnValidate()
     {
         if (head != null) {
@@ -84,10 +85,12 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     {
         UpdateTargetsFromInput();
         HandleGrounded();
+        if (activeState.ShouldApplyGravity) ApplyGravity();
         activeState.Update();
         activeState.MovePlayer();
+        
 
-        if(shouldJump) { Jump(); shouldJump = false; }
+        if (shouldJump) { Jump(); shouldJump = false; }
     }
 
     private void LateUpdate()
@@ -110,7 +113,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         MidairState.Register(this);
     }
 
-    public void SetState(MoveState state) {
+    public void ChangeState(MoveState state) {
         activeState?.Exit();
         activeState = state;
         activeState.Enter();
@@ -124,26 +127,38 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void HandleGrounded() {
         Vector3 springDir = transform.up;
-        currentHeadHeight = Mathf.MoveTowards(currentHeadHeight, targetHeadHeight, Time.fixedDeltaTime * springAdjustSpeed);
         float checkDistance = (previouslyGrounded && !disableGroundSnapping) ? currentHeadHeight + groundSnappingDistance : currentHeadHeight;
         if (Physics.SphereCast(transform.position, springRadius, -springDir, out RaycastHit hit, checkDistance, groundMask)) {
             float offset = targetHeadHeight - hit.distance;
             float springVelocity = Vector3.Dot(springDir, velocity);
             float force = (offset * headSpringForce) - (springVelocity * headSpringDamper);
-            rb.AddForce(force * springDir, ForceMode.Acceleration);
             ContactNormal = hit.normal;
             currentHeadHeight = hit.distance;
             disableGroundSnapping = false;
+            //TODO: remove conditional wrapper
+            //jumping during the window of the spring bouncing upwards causes forces to stack, sending the player super high
+            //only way of truly fixing it is with GetAccumulatedForces() but that is in a later version of Unity
+            //upgrading Unity versions would make it incompatible on hopkins computers 
+            if (!shouldJump) rb.AddForce(force * springDir, ForceMode.Acceleration);
         } else {
             ContactNormal = Vector3.zero;
+            currentHeadHeight = Mathf.MoveTowards(currentHeadHeight, targetHeadHeight, Time.fixedDeltaTime * springAdjustSpeed);
         }
         previouslyGrounded = IsGrounded;
     }
+
+    private void ApplyGravity()
+    {
+        if (rb.velocity.y < -terminalVelocity) return;
+        Vector3 gravityForce = Vector3.ClampMagnitude((-terminalVelocity - rb.velocity.y) * Vector3.up, gravity * Time.fixedDeltaTime);
+        rb.AddForce(Vector3.ProjectOnPlane(gravityForce, ContactNormal), ForceMode.VelocityChange);
+    }
+
     private void Jump()
     {
         float jumpSpeed = Mathf.Sqrt(2f * gravity * jumpHeight);
-        rb.AddForce(new Vector3(0, -velocity.y, 0), ForceMode.VelocityChange);
         Vector3 jumpDirection = IsGrounded ? Vector3.Lerp(Vector3.up, ContactNormal, slopeJumpBias) : Vector3.up;
+        rb.AddForce(-Vector3.Project(rb.velocity, jumpDirection), ForceMode.VelocityChange);
         rb.AddForce(jumpDirection * jumpSpeed, ForceMode.VelocityChange);
         disableGroundSnapping = true;
     }

@@ -5,10 +5,10 @@ using UnityEngine;
 
 public abstract class MoveState
 {
-    private List<Transition> transitions = new();
     protected PlayerStateMotor psm;
     protected Rigidbody rb;
     public float AccelerationScalar = 6f, Height = 1.5f;
+    public abstract bool ShouldApplyGravity { get; }
 
     public void Register(PlayerStateMotor sm)
     {
