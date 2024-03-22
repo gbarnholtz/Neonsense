@@ -346,6 +346,9 @@ MonoBehaviour:
     - Name: airAccelerationScalar
       Entry: 4
       Data: 1
+    - Name: friction
+      Entry: 4
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -361,7 +364,7 @@ MonoBehaviour:
     - Name: airFrictionScalar
       Entry: 4
       Data: 1
-    - Name: slideVelocity
+    - Name: slideForce
       Entry: 4
       Data: 10
     - Name: fullRechargeDelay

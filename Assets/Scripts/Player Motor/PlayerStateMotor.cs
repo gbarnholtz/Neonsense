@@ -17,13 +17,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     [SerializeField] private float headSpringForce=500f, headSpringDamper=50f, groundSnappingDistance=0.5f, springAdjustSpeed=2f;
     private float springRadius, targetHeadHeight, currentHeadHeight;
 
-    [Header("Move State Properties")]
-    [ShowInInspector] private MoveState activeState;
-    public WalkMoveState WalkState = new WalkMoveState();
-    public SlideMoveState SlideState = new SlideMoveState();
-    public WallRunMoveState WallRunState = new WallRunMoveState();
-    public SlamMoveState SlamState = new SlamMoveState();
-    public bool TryingToStartSlide => SlideReset && TryingToSlide;
+    
 
     [Header("Uniform Movement Properties")]
     [SerializeField] private float gravity = 9.81f;
@@ -41,8 +35,17 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     [field: SerializeField] public Vector3 ContactNormal { get; private set; }
     public bool IsGrounded => ContactNormal != Vector3.zero;
     public Vector3 TargetDirection => inputState.moveDirection;
+    public Vector3 ProjectedTargetDirection => Vector3.ProjectOnPlane(inputState.moveDirection, ContactNormal).normalized;
     public Vector3 Velocity => rb.velocity;
     public Vector3 LookDirection => inputState.lookDirection;
+
+    [Header("Move State Properties")]
+    [ShowInInspector] private MoveState activeState;
+    public WalkMoveState WalkState = new WalkMoveState();
+    public SlideMoveState SlideState = new SlideMoveState();
+    public WallRunMoveState WallRunState = new WallRunMoveState();
+    public SlamMoveState SlamState = new SlamMoveState();
+    public bool TryingToStartSlide => SlideReset && TryingToSlide;
 
     [Header("Read Only (DEBUG)")]
     [ShowInInspector] private bool disableGroundSnapping;
