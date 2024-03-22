@@ -35,21 +35,21 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
     public IEnumerator CycleDirectionVector()
     {
         randomizedVector.z = Random.Range(-1f, 1f);
-        //randomizedVector.x = Random.Range(-1f, 1f);
+        randomizedVector.x = Random.Range(-1f, 1f);
         yield return new WaitForSeconds(Random.Range(0.5f, 1));
         StartCoroutine(CycleDirectionVector());
     }
 
     public void FixedUpdate()
     {
-        /*if (Vector3.Distance(player.transform.position, transform.position) < 5)
+        if (Vector3.Distance(player.transform.position, transform.position) < 5)
         {
             weapon.GetComponent<RangedWeapon>().Shoot();
-        }*/
+        }
 
-        //targetDirection = player.transform.position - transform.position;
-        //input.moveDirection = Vector3.Lerp(randomizedVector.normalized, targetDirection.normalized, Mathf.InverseLerp(innerTarget, outerTarget, targetDirection.magnitude));
-        //transform.position = transform.position + input.moveDirection/5;
+        targetDirection = player.transform.position - transform.position;
+        input.moveDirection = Vector3.Lerp(randomizedVector.normalized, targetDirection.normalized, Mathf.InverseLerp(innerTarget, outerTarget, targetDirection.magnitude));
+        transform.position = transform.position + input.moveDirection/15;
     }
 
     public InputState GetState()
