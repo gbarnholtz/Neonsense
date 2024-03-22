@@ -17,7 +17,7 @@ public class CharacterMotor : SerializedMonoBehaviour, IInputModifier
     public event Action<bool> OnGroundedChanged;
     public event Action OnHardLanding;
 
-    [OdinSerialize] private IInputProvider inputProvider;
+    [OdinSerialize] private ICharacterInputProvider inputProvider;
 
     public int priority => 5;
     private InputState inputState;
@@ -67,7 +67,6 @@ public class CharacterMotor : SerializedMonoBehaviour, IInputModifier
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
-        inputProvider = GetComponent<IInputProvider>();
         rb.maxAngularVelocity = 50;
         rb.sleepThreshold = 0.0f;
         OnValidate();

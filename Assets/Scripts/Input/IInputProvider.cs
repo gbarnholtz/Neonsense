@@ -21,6 +21,25 @@ public interface IAttackActionProvider
     public ButtonAction Secondary { get; }
 }
 
+/* TODO: Use this interface to switch weapons
+ * public interface ISwitchWeaponProvider
+{
+    public ButtonAction SwitchToPistol { get; }
+    public ButtonAction SwitchToShotgun { get; }
+}*/
+
+public interface ICharacterInputProvider : IAttackActionProvider
+{
+    public InputState GetState();
+    public ButtonAction Jump { get; }
+}
+
+public interface IButtonActionSubscriber
+{
+    public void Subscribe(ButtonAction attackActions);
+    public void Unsubscribe(ButtonAction attackActions);
+}
+
 public interface IInputModifier
 {
     public InputState ModifyInput(InputState input);

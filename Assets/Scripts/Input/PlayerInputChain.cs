@@ -17,6 +17,11 @@ public class PlayerInputChain : SerializedMonoBehaviour, IInputProvider
 
     public ButtonAction Primary => inputProvider.Primary;
 
+    /* TODO: Switch to using these button actions to switch weapons
+    public ButtonAction SwitchToPistol => inputProvider.SwitchToPistol;
+    public ButtonAction SwitchToShotgun => inputProvider.SwitchToShotgun;
+    */
+
     public ButtonAction Secondary => inputProvider.Secondary;
 
     private void Awake()

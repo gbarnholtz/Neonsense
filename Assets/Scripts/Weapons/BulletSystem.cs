@@ -72,8 +72,8 @@ class BulletSystem : MonoBehaviour
         for (int it = 0; it < bulletCount; ++it)
         {
             Bullet bullet = bullets[it];
-            positionsToWrite[it] = bullet.transform.position + (dt * bullet.speed) * bullet.direction;
-            commands[it] = new RaycastCommand(bullet.transform.position, bullet.direction, bullet.speed * dt);
+            positionsToWrite[it] = bullet.transform.position + (dt * bullet.Speed) * bullet.direction;
+            commands[it] = new RaycastCommand(bullet.transform.position, bullet.direction, bullet.Speed * dt);
         }
 
         /*
@@ -110,7 +110,7 @@ class BulletSystem : MonoBehaviour
             var hit = results[it];
             if (hit.collider == null)
             {
-                bullet.transform.position += (dt * bullet.speed) * bullet.direction;
+                bullet.transform.position += (dt * bullet.Speed) * bullet.direction;
                 ++it;
                 continue;
             }
@@ -141,7 +141,7 @@ class BulletSystem : MonoBehaviour
 
         if (hit.transform.TryGetComponent<IDamageable>(out var damageable))
         {
-            damageable.TakeDamage(bullet.damage);
+            damageable.TakeDamage(bullet.Damage);
         }
     }
 
