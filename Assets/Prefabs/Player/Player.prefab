@@ -346,6 +346,9 @@ MonoBehaviour:
     - Name: airAccelerationScalar
       Entry: 4
       Data: 1
+    - Name: friction
+      Entry: 4
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -366,7 +369,7 @@ MonoBehaviour:
       Data: 10
     - Name: fullRechargeDelay
       Entry: 4
-      Data: 2
+      Data: 3
     - Name: exitVelocity
       Entry: 4
       Data: 3
@@ -375,10 +378,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 1.5
     - Name: 
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -396,19 +399,22 @@ MonoBehaviour:
       Data: 1.5
     - Name: accelerationScalar
       Entry: 4
-      Data: 4
+      Data: 1.5
     - Name: wallDetectDistance
       Entry: 4
       Data: 0.25
     - Name: ejectForce
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: ejectVelocity
       Entry: 4
       Data: 0.5
     - Name: downSlip
       Entry: 4
       Data: 2
+    - Name: slipEjectThreshold
+      Entry: 4
+      Data: 6
     - Name: wallJumpBias
       Entry: 4
       Data: 0.3
@@ -424,6 +430,27 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: SlamState
+      Entry: 7
+      Data: 3|SlamMoveState, Assembly-CSharp
+    - Name: Height
+      Entry: 4
+      Data: 0.75
+    - Name: terminalVelocity
+      Entry: 4
+      Data: 50
+    - Name: acceleration
+      Entry: 4
+      Data: 80
+    - Name: entryVelocity
+      Entry: 4
+      Data: 10
+    - Name: entryHeight
+      Entry: 4
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
   height: 1.5
   headSpringForce: 800
   headSpringDamper: 50
@@ -432,9 +459,9 @@ MonoBehaviour:
   gravity: 15
   terminalVelocity: 15
   BaseSpeed: 6
-  maxSlope: 45
+  maxSlope: 60
   slopeJumpBias: 0.5
-  jumpHeight: 2
+  JumpHeight: 2
   maxAirJumps: 0
   groundMask:
     serializedVersion: 2
