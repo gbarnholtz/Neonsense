@@ -342,10 +342,10 @@ MonoBehaviour:
       Data: 1.5
     - Name: groundAccelerationScalar
       Entry: 4
-      Data: 8
+      Data: 16
     - Name: airAccelerationScalar
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: friction
       Entry: 4
       Data: 12
@@ -495,6 +495,8 @@ MonoBehaviour:
       Entry: 10
       Data: 0
   activeWeapon: {fileID: 7354971670136863053}
+  pistol: {fileID: 0}
+  shotgun: {fileID: 0}
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
