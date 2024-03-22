@@ -20,6 +20,14 @@ public interface IAttackActionProvider
     public ButtonAction Primary { get; }
     public ButtonAction Secondary { get; }
 }
+
+/* TODO: Use this interface to switch weapons
+ * public interface ISwitchWeaponProvider
+{
+    public ButtonAction SwitchToPistol { get; }
+    public ButtonAction SwitchToShotgun { get; }
+}*/
+
 public interface ICharacterInputProvider : IAttackActionProvider
 {
     public InputState GetState();

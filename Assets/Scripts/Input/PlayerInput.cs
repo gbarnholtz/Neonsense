@@ -98,6 +98,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToPistol"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c44307f-261d-4050-80b1-8c65c3480880"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToShotgun"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f6c3623-5f55-41e3-9e6a-d0381f027625"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -287,6 +305,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""296a35a5-6912-42e7-89e3-1c20bb42f9e7"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToPistol"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba991dfc-ea02-425d-b600-4fc5ec335dfa"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToShotgun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -303,6 +343,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Game_Secondary = m_Game.FindAction("Secondary", throwIfNotFound: true);
         m_Game_Slide = m_Game.FindAction("Slide", throwIfNotFound: true);
         m_Game_Pause = m_Game.FindAction("Pause", throwIfNotFound: true);
+        m_Game_SwitchToPistol = m_Game.FindAction("SwitchToPistol", throwIfNotFound: true);
+        m_Game_SwitchToShotgun = m_Game.FindAction("SwitchToShotgun", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -370,6 +412,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Secondary;
     private readonly InputAction m_Game_Slide;
     private readonly InputAction m_Game_Pause;
+    private readonly InputAction m_Game_SwitchToPistol;
+    private readonly InputAction m_Game_SwitchToShotgun;
     public struct GameActions
     {
         private @PlayerInput m_Wrapper;
@@ -382,6 +426,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Secondary => m_Wrapper.m_Game_Secondary;
         public InputAction @Slide => m_Wrapper.m_Game_Slide;
         public InputAction @Pause => m_Wrapper.m_Game_Pause;
+        public InputAction @SwitchToPistol => m_Wrapper.m_Game_SwitchToPistol;
+        public InputAction @SwitchToShotgun => m_Wrapper.m_Game_SwitchToShotgun;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -415,6 +461,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
+                @SwitchToPistol.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToPistol;
+                @SwitchToPistol.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToPistol;
+                @SwitchToPistol.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToPistol;
+                @SwitchToShotgun.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToShotgun;
+                @SwitchToShotgun.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToShotgun;
+                @SwitchToShotgun.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToShotgun;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -443,6 +495,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @SwitchToPistol.started += instance.OnSwitchToPistol;
+                @SwitchToPistol.performed += instance.OnSwitchToPistol;
+                @SwitchToPistol.canceled += instance.OnSwitchToPistol;
+                @SwitchToShotgun.started += instance.OnSwitchToShotgun;
+                @SwitchToShotgun.performed += instance.OnSwitchToShotgun;
+                @SwitchToShotgun.canceled += instance.OnSwitchToShotgun;
             }
         }
     }
@@ -457,5 +515,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnSecondary(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnSwitchToPistol(InputAction.CallbackContext context);
+        void OnSwitchToShotgun(InputAction.CallbackContext context);
     }
 }

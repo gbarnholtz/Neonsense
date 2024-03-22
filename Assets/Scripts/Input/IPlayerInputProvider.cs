@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IPlayerInputProvider : IMoveActionProvider, IAttackActionProvider
+//, ISwitchWeaponProvider
+// TODO: Uncomment above line when ISwitchWeaponProvider is implemented in IInputProvider.cs
 {
+
     public PlayerInputState GetState();
 }
 

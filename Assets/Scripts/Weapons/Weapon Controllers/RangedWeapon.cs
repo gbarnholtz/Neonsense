@@ -38,13 +38,15 @@ public class RangedWeapon : IWeapon
     private float fireRate => 60 / rpm;
     private float timeReloadStarted;
 
-    private AudioSource weaponSound;
+    private AudioSource audioSource;
+    private AudioClip weaponSound;
 
     protected virtual void Awake()
     {
         ammoLoaded = magazineSize;
         timeReloadStarted = -reloadTime;
-        weaponSound = gameObject.GetComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+        weaponSound = audioSource.clip;
     }
 
     public IEnumerator Reload() {
@@ -67,12 +69,44 @@ public class RangedWeapon : IWeapon
 
     public override IEnumerator Attack()
     {
-        weaponSound.Play();
+        audioSource.PlayOneShot(weaponSound);
 
         IsAttacking = true;
         Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
 
         for (int i = 0; i < bulletsPerShot; i++) {
+            float inaccuracy = Mathf.Lerp(0, 90, spread);
+            Quaternion inaccuracyRotation = Quaternion.Euler(Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy));
+            ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * firePoint.forward);
+        }
+
+        InvokeRecoil(recoil);
+        ammoLoaded--;
+        if (ammoLoaded <= 0)
+        {
+            // TODO: play weapond reload sound here
+            StopTryingToFire();
+            StartCoroutine(DelayedReload());
+        }
+
+        isPastFireRate = false;
+        yield return new WaitForSeconds(fireRate);
+        isPastFireRate = true;
+        IsAttacking = false;
+
+        if (automatic && CanAttack && tryingToAttack) StartCoroutine(Attack());
+    }
+
+
+    // For enemies only
+    // TODO: Eventually remove this and have enemies only use the Attack() method instead
+    public IEnumerator Shoot()
+    {
+        IsAttacking = true;
+        Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
+
+        for (int i = 0; i < bulletsPerShot; i++)
+        {
             float inaccuracy = Mathf.Lerp(0, 90, spread);
             Quaternion inaccuracyRotation = Quaternion.Euler(Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy));
             ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * firePoint.forward);
@@ -90,8 +124,6 @@ public class RangedWeapon : IWeapon
         yield return new WaitForSeconds(fireRate);
         isPastFireRate = true;
         IsAttacking = false;
-
-        if (automatic && CanAttack && tryingToAttack) StartCoroutine(Attack());
     }
 
     public override void Subscribe(ButtonAction attackActions)
