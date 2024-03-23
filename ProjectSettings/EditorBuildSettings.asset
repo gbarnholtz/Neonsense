@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay Testing/Weapon Testing.unity
     guid: b06a0966a832ede498200423476f4ee0
   - enabled: 1
-    path: Assets/Scenes/level 1 whitebox.unity
+    path: Assets/Scenes/level 1.unity
     guid: 5e53332195f28c640a0b17a0b9f245eb
   m_configObjects: {}
