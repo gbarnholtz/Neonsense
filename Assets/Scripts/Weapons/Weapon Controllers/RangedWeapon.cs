@@ -97,35 +97,6 @@ public class RangedWeapon : IWeapon
         if (automatic && CanAttack && tryingToAttack) StartCoroutine(Attack());
     }
 
-
-    // For enemies only
-    // TODO: Eventually remove this and have enemies only use the Attack() method instead
-    public IEnumerator Shoot()
-    {
-        IsAttacking = true;
-        Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
-
-        for (int i = 0; i < bulletsPerShot; i++)
-        {
-            float inaccuracy = Mathf.Lerp(0, 90, spread);
-            Quaternion inaccuracyRotation = Quaternion.Euler(Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy));
-            ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * firePoint.forward);
-        }
-
-        InvokeRecoil(recoil);
-        ammoLoaded--;
-        if (ammoLoaded <= 0)
-        {
-            StopTryingToFire();
-            StartCoroutine(DelayedReload());
-        }
-
-        isPastFireRate = false;
-        yield return new WaitForSeconds(fireRate);
-        isPastFireRate = true;
-        IsAttacking = false;
-    }
-
     public override void Subscribe(ButtonAction attackActions)
     {
 
