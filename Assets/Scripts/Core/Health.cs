@@ -21,5 +21,9 @@ public class Health : Progressive, IDamageable
     public void TakeDamage(float damage)      
     { 
         Current -= damage;
+        if (Current <= 0)
+        {
+            Destroy(transform.parent.gameObject);
+        }
     }
 }    

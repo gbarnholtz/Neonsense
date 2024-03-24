@@ -42,9 +42,9 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
 
     public void FixedUpdate()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 5)
+        if (Vector3.Distance(player.transform.position, transform.position) < 25)
         {
-            weapon.GetComponent<RangedWeapon>().Shoot();
+            weapon.GetComponent<RangedWeapon>().Attack();
         }
 
         targetDirection = player.transform.position - transform.position;
