@@ -357,7 +357,7 @@ MonoBehaviour:
       Data: 1|SlideMoveState, Assembly-CSharp
     - Name: Height
       Entry: 4
-      Data: 0.75
+      Data: 0.5
     - Name: groundFrictionScalar
       Entry: 4
       Data: 2
@@ -456,9 +456,9 @@ MonoBehaviour:
   headSpringDamper: 50
   groundSnappingDistance: 0.5
   springAdjustSpeed: 0.5
-  gravity: 15
+  gravity: 35
   terminalVelocity: 15
-  BaseSpeed: 18
+  BaseSpeed: 15
   maxSlope: 60
   slopeJumpBias: 0.5
   JumpHeight: 2
