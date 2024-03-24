@@ -495,8 +495,8 @@ MonoBehaviour:
       Entry: 10
       Data: 0
   activeWeapon: {fileID: 7354971670136863053}
-  pistol: {fileID: 0}
-  shotgun: {fileID: 0}
+  pistol: {fileID: 59271931099936231}
+  shotgun: {fileID: 7354971670136863053}
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -965,6 +965,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
+--- !u!114 &59271931099936231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4588730248826798753, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
+  m_PrefabInstance: {fileID: 4574780192260994886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5aa524fc597b54a8ac41abdd48d675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7243148813091613396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6627107464513559954, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
