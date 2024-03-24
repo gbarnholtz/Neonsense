@@ -4935,17 +4935,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 1d01040000005400650061006d000200000000000000
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: Team
-      Entry: 3
-      Data: 2
+    SerializationNodes: []
 --- !u!114 &385027907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,27 +4956,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 01010f000000440061006d006100670065004d006f0064006900660069006500720073002f00000000014f000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b004900440061006d006100670065004d006f006400690066006900650072002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: DamageModifiers
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[IDamageModifier, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   initial: 100
   DisplayOverheadHealth: 1
 --- !u!114 &385027908
@@ -4995,7 +4979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -8053,7 +8037,7 @@ PrefabInstance:
       objectReference: {fileID: 1583140138}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_VersionIndex
-      value: 75
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -9174,6 +9158,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2064982404}
+    - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
+      propertyPath: m_VersionIndex
+      value: 78
+      objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_SelectedEdges.Array.size
       value: 0
@@ -14037,7 +14025,7 @@ PrefabInstance:
       objectReference: {fileID: 1257066929}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_VersionIndex
-      value: 75
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -16291,17 +16279,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 1d01040000005400650061006d000100000000000000
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: Team
-      Entry: 3
-      Data: 1
+    SerializationNodes: []
 --- !u!43 &1094341703
 Mesh:
   m_ObjectHideFlags: 0
@@ -18361,7 +18346,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-73896
+  m_Name: pb_Mesh48296
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18853,7 +18838,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-73788
+  m_Name: pb_Mesh47842
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22008,7 +21993,7 @@ PrefabInstance:
       objectReference: {fileID: 1144196640}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_VersionIndex
-      value: 75
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -23093,17 +23078,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 1d01040000005400650061006d000200000000000000
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: Team
-      Entry: 3
-      Data: 2
+    SerializationNodes: []
 --- !u!114 &1549544638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23117,27 +23099,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 01010f000000440061006d006100670065004d006f0064006900660069006500720073002f00000000014f000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b004900440061006d006100670065004d006f006400690066006900650072002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: DamageModifiers
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[IDamageModifier, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   initial: 100
   DisplayOverheadHealth: 1
 --- !u!114 &1549544639
@@ -23153,7 +23122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -23565,7 +23534,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-73752
+  m_Name: pb_Mesh48402
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26686,7 +26655,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-73770
+  m_Name: pb_Mesh47814
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27183,17 +27152,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 1d01040000005400650061006d000200000000000000
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: Team
-      Entry: 3
-      Data: 2
+    SerializationNodes: []
 --- !u!114 &2084485394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27207,27 +27173,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 01010f000000440061006d006100670065004d006f0064006900660069006500720073002f00000000014f000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b004900440061006d006100670065004d006f006400690066006900650072002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: DamageModifiers
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[IDamageModifier, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   initial: 100
   DisplayOverheadHealth: 1
 --- !u!114 &2084485395
@@ -27243,7 +27196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -27323,7 +27276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -27350,17 +27303,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 1d01040000005400650061006d000200000000000000
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: Team
-      Entry: 3
-      Data: 2
+    SerializationNodes: []
 --- !u!114 &2137942247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27374,27 +27324,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 01010f000000440061006d006100670065004d006f0064006900660069006500720073002f00000000014f000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b004900440061006d006100670065004d006f006400690066006900650072002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: DamageModifiers
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[IDamageModifier, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   initial: 100
   DisplayOverheadHealth: 1
 --- !u!1 &2137970808
