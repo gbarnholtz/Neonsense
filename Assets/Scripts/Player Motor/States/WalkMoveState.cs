@@ -22,6 +22,6 @@ public class WalkMoveState : MoveState
         Debug.Log(psm.ProjectedTargetDirection);
         if (heading + acceleration > psm.BaseSpeed) acceleration = psm.BaseSpeed - heading;
         rb.AddForce(acceleration * psm.ProjectedTargetDirection, ForceMode.VelocityChange);
-        Debug.Log(groundSpeed);
+        //Debug.Log(groundSpeed);
     }
 }
