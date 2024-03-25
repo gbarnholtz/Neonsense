@@ -28,7 +28,7 @@ public class PooledObject : MonoBehaviour
 			There are no free instances, lets allocate a new one.
 			*/
             result = Instantiate<T>(prefab, pos, rot);
-            //result.gameObject.hideFlags = HideFlags.HideInHierarchy;
+            result.gameObject.hideFlags = HideFlags.HideInHierarchy;
         }
         result.next = prefab;
         result.gameObject.SetActive(true);
