@@ -12,6 +12,7 @@ public class PatrolFollow : MonoBehaviour
     GameObject waypointSelected;
     UnityEngine.AI.NavMeshAgent agent;
     public Transform target;
+    [SerializeField] private RangedWeapon weapon;
 
     NavMeshAgent navMeshAgent;
 
@@ -36,7 +37,7 @@ public class PatrolFollow : MonoBehaviour
         if (Vector3.Distance(agent.transform.position, target.transform.position) < 5)
         {
             agent.SetDestination(target.transform.position);
-            // TODO: Shoot gun at player
+            weapon.StartTryingToFire();
             Seed();
         }
 

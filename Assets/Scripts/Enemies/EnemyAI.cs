@@ -40,18 +40,6 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
         StartCoroutine(CycleDirectionVector());
     }
 
-    public void FixedUpdate()
-    {
-        /*if (Vector3.Distance(player.transform.position, transform.position) < 25)
-        {
-            weapon.GetComponent<RangedWeapon>().Attack();
-        }
-
-        targetDirection = player.transform.position - transform.position;
-        input.moveDirection = Vector3.Lerp(randomizedVector.normalized, targetDirection.normalized, Mathf.InverseLerp(innerTarget, outerTarget, targetDirection.magnitude));
-        transform.position = transform.position + input.moveDirection/15;*/
-    }
-
     public InputState GetState()
     {
         return input;
