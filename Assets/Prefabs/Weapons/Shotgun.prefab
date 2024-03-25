@@ -382,7 +382,7 @@ MonoBehaviour:
   description: Lorem Ipsum
   IsAttacking: 0
   firePoint: {fileID: 3591885968686185719}
-  bulletDamage: 0.25
+  bulletDamage: 0.5
   bulletSpeed: 75
   bulletsPerShot: 20
   automatic: 0

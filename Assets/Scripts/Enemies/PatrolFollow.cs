@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class PatrolFollow : MonoBehaviour
@@ -12,12 +13,14 @@ public class PatrolFollow : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     public Transform target;
 
+    NavMeshAgent navMeshAgent;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         Seed();
+        navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
     }
 
     void Seed()
