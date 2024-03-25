@@ -9,7 +9,7 @@ public class WalkMoveState : MoveState
         if (psm.IsGrounded && psm.TryingToStartSlide) { psm.ChangeState(psm.SlideState); return; 
         } else {
             //if (psm.TryingToStartSlide) { psm.ChangeState(psm.SlamState);  return; }
-            if (psm.WallRunState.RefreshWallEntry()) { psm.ChangeState(psm.WallRunState); return; }
+            if (!psm.IsGrounded && psm.WallRunState.RefreshWallEntry()) { psm.ChangeState(psm.WallRunState); return; }
         }
     }
 
