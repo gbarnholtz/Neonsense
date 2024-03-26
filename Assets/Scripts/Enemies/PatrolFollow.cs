@@ -34,7 +34,7 @@ public class PatrolFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(agent.transform.position, target.transform.position) < 5)
+        if (Vector3.Distance(agent.transform.position, target.transform.position) < 15)
         {
             agent.SetDestination(target.transform.position);
             weapon.StartTryingToFire();
