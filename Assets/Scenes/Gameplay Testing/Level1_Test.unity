@@ -10961,7 +10961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &673136850
 Transform:
   m_ObjectHideFlags: 0
@@ -16654,6 +16654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1222755513714852244, guid: 2af4d0ef74140ed439ea45447854456a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1222755513714852251, guid: 2af4d0ef74140ed439ea45447854456a, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -21142,7 +21146,7 @@ PrefabInstance:
       objectReference: {fileID: 2130127588}
     - target: {fileID: 4984439439052371493, guid: 18fc26aeccce9594fa2c69fa339294ad, type: 3}
       propertyPath: m_VersionIndex
-      value: 96
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 5719748912433271391, guid: 18fc26aeccce9594fa2c69fa339294ad, type: 3}
       propertyPath: serializationData.Prefab
@@ -21180,6 +21184,10 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
       objectReference: {fileID: 612513478}
+    - target: {fileID: 7749240005910225454, guid: 18fc26aeccce9594fa2c69fa339294ad, type: 3}
+      propertyPath: assault_rifle
+      value: 
+      objectReference: {fileID: 1928537806}
     - target: {fileID: 7749240005910225454, guid: 18fc26aeccce9594fa2c69fa339294ad, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -23802,6 +23810,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924211287}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1928537806 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 282831358629629481, guid: 18fc26aeccce9594fa2c69fa339294ad, type: 3}
+  m_PrefabInstance: {fileID: 1627141877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5aa524fc597b54a8ac41abdd48d675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1935725924
 GameObject:
   m_ObjectHideFlags: 0
@@ -28849,6 +28868,10 @@ PrefabInstance:
     - target: {fileID: 1222755513714852244, guid: 2af4d0ef74140ed439ea45447854456a, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222755513714852244, guid: 2af4d0ef74140ed439ea45447854456a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1222755513714852251, guid: 2af4d0ef74140ed439ea45447854456a, type: 3}
       propertyPath: serializationData.Prefab
