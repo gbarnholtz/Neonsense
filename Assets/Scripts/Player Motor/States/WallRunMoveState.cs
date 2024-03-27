@@ -7,12 +7,15 @@ public class WallRunMoveState : MoveState, IInputModifier
     public override bool ShouldApplyGravity => false;
     public override bool OverrideJump => true;
 
-    [SerializeField] private float wallRunSpeedScalar = 1.5f, accelerationScalar=4f, wallDetectDistance = 0.25f, ejectForce = 2f, ejectVelocity=1f, downSlip = 2f, slipEjectThreshold=6f;
+    [SerializeField] private float wallRunSpeedScalar = 1.5f, accelerationScalar=4f, ejectForce = 2f, ejectVelocity=1f, downSlip = 2f, slipEjectThreshold=6f;
     [SerializeField, Range(0, 1)] private float wallJumpBias = 0.5f;
+    [Header("Entry Properties")]
+    [SerializeField] private float wallDetectDistance = 0.25f;
+    [SerializeField, Range(0, 90)] private float entryAngleLimit; 
     [Header("Wall Spring Properties")]
     [SerializeField] private float springForce=400f;
     [SerializeField] private float springDamper=50f, targetSpringDistance=0.1f;
-
+    public bool CheckWallRun => RefreshWallEntry();// && EntryAngleCheck();
     private Vector3 wallNormal => wallHit.normal;
     private Vector3 runDirection;
     private float headRadius;
@@ -44,7 +47,7 @@ public class WallRunMoveState : MoveState, IInputModifier
         rb.AddForce(-Vector3.up * downSlip, ForceMode.Acceleration);
     }
 
-    public bool RefreshWallEntry() {
+    private bool RefreshWallEntry() {
         Vector3 direction = Vector3.ProjectOnPlane(velocity, Vector3.up).normalized;
         Vector3 right = Quaternion.Euler(0, 45f, 0) * direction;
         Vector3 left = Quaternion.Euler(0, -45f, 0) * direction;
@@ -105,6 +108,10 @@ public class WallRunMoveState : MoveState, IInputModifier
     private bool WallCheck(Vector3 direction, out RaycastHit hit)
     {
         bool floorHit = Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius, wallRunLayer);
-        return Physics.Raycast(rb.position, direction, out hit, wallDetectDistance + headRadius, wallRunLayer) && floorHit;
+        return Physics.Raycast(rb.position, direction, out hit, wallDetectDistance + headRadius, wallRunLayer);
+    }
+
+    private bool EntryAngleCheck() {
+        return Vector3.Dot(rb.velocity.normalized, -wallHit.normal) < Mathf.Cos(entryAngleLimit * Mathf.Deg2Rad);
     }
 }

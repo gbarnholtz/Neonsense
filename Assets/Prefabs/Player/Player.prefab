@@ -400,9 +400,6 @@ MonoBehaviour:
     - Name: accelerationScalar
       Entry: 4
       Data: 1.5
-    - Name: wallDetectDistance
-      Entry: 4
-      Data: 0.25
     - Name: ejectForce
       Entry: 4
       Data: 2
@@ -418,6 +415,12 @@ MonoBehaviour:
     - Name: wallJumpBias
       Entry: 4
       Data: 0.3
+    - Name: wallDetectDistance
+      Entry: 4
+      Data: 0.25
+    - Name: entryAngleLimit
+      Entry: 4
+      Data: 30
     - Name: springForce
       Entry: 4
       Data: 100
