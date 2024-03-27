@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TriggerRestart : MonoBehaviour
+// Gets the next scene in the build index
+public class tr_NextScene : MonoBehaviour
 {
     public void OnTriggerEnter(Collider col)
     {
-        print("trigger");
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.CompareTag("Player"))
         {
             Scene thisScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(thisScene.name);
+            SceneManager.LoadScene(thisScene.buildIndex + 1);
         }
     }
 }

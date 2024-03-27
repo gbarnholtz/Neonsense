@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Teleports player to given destination
 public class tr_teleport : MonoBehaviour
 {
     //[SerializeField] private GameObject player;
