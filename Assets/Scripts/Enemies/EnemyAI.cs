@@ -13,7 +13,7 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
 
     private InputState input = new InputState();
         
-    private GameObject player;
+    public GameObject player;
     [SerializeField] private int distanceToShoot;
     [SerializeField] private RangedWeapon weapon;
 
