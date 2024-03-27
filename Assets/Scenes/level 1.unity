@@ -25663,7 +25663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   distanceToChasePlayer: 0
 --- !u!136 &1411339343
 CapsuleCollider:
@@ -26168,7 +26167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   distanceToChasePlayer: 0
 --- !u!136 &1424426211
 CapsuleCollider:
@@ -26379,7 +26377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   distanceToChasePlayer: 0
 --- !u!136 &1430452139
 CapsuleCollider:
@@ -26950,7 +26947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   distanceToChasePlayer: 0
 --- !u!136 &1442978079
 CapsuleCollider:
@@ -32190,7 +32186,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-575976
+  m_Name: pb_Mesh191142
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32649,7 +32645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   distanceToChasePlayer: 0
 --- !u!136 &1727078495
 CapsuleCollider:
@@ -41589,7 +41584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   distanceToChasePlayer: 0
 --- !u!136 &2120560918
 CapsuleCollider:
@@ -41745,7 +41739,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
