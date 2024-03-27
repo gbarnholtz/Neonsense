@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class PatrolFollow : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PatrolFollow : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     public Transform target;
     [SerializeField] private RangedWeapon weapon;
+    [SerializeField] private float firingRange = 15;
+    [SerializeField] private float renameThisDistanceFloat = 2;
 
     NavMeshAgent navMeshAgent;
 
@@ -34,7 +37,7 @@ public class PatrolFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(agent.transform.position, target.transform.position) < 15)
+        if (Vector3.Distance(agent.transform.position, target.transform.position) < firingRange)
         {
             agent.SetDestination(target.transform.position);
             weapon.StartTryingToFire();
@@ -43,7 +46,7 @@ public class PatrolFollow : MonoBehaviour
 
         else
         {
-            if (Vector3.Distance(agent.transform.position, waypointSelected.transform.position) >= 2)
+            if (Vector3.Distance(agent.transform.position, waypointSelected.transform.position) >= renameThisDistanceFloat)
             {
                 // pursue 'waypointSelected'
                 agent.SetDestination(waypointSelected.transform.position);
