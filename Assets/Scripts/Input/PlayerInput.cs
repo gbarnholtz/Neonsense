@@ -116,6 +116,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToRifle"",
+                    ""type"": ""Button"",
+                    ""id"": ""9bebcf32-991f-4289-847b-b5f49cd5635a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToSmg"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c2f64eb-10d0-4806-9e85-822c2bae7805"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -338,6 +356,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""SwitchToShotgun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d772d3aa-ef63-41f4-bedf-9847b4f31304"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToRifle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab5fb7d0-d46e-42a5-9c1e-5c7aa2c5fc73"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToSmg"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -356,6 +396,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Game_Pause = m_Game.FindAction("Pause", throwIfNotFound: true);
         m_Game_SwitchToPistol = m_Game.FindAction("SwitchToPistol", throwIfNotFound: true);
         m_Game_SwitchToShotgun = m_Game.FindAction("SwitchToShotgun", throwIfNotFound: true);
+        m_Game_SwitchToRifle = m_Game.FindAction("SwitchToRifle", throwIfNotFound: true);
+        m_Game_SwitchToSmg = m_Game.FindAction("SwitchToSmg", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -425,6 +467,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Pause;
     private readonly InputAction m_Game_SwitchToPistol;
     private readonly InputAction m_Game_SwitchToShotgun;
+    private readonly InputAction m_Game_SwitchToRifle;
+    private readonly InputAction m_Game_SwitchToSmg;
     public struct GameActions
     {
         private @PlayerInput m_Wrapper;
@@ -439,6 +483,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Game_Pause;
         public InputAction @SwitchToPistol => m_Wrapper.m_Game_SwitchToPistol;
         public InputAction @SwitchToShotgun => m_Wrapper.m_Game_SwitchToShotgun;
+        public InputAction @SwitchToRifle => m_Wrapper.m_Game_SwitchToRifle;
+        public InputAction @SwitchToSmg => m_Wrapper.m_Game_SwitchToSmg;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -478,6 +524,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SwitchToShotgun.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToShotgun;
                 @SwitchToShotgun.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToShotgun;
                 @SwitchToShotgun.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToShotgun;
+                @SwitchToRifle.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToRifle;
+                @SwitchToRifle.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToRifle;
+                @SwitchToRifle.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToRifle;
+                @SwitchToSmg.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToSmg;
+                @SwitchToSmg.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToSmg;
+                @SwitchToSmg.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToSmg;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -512,6 +564,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SwitchToShotgun.started += instance.OnSwitchToShotgun;
                 @SwitchToShotgun.performed += instance.OnSwitchToShotgun;
                 @SwitchToShotgun.canceled += instance.OnSwitchToShotgun;
+                @SwitchToRifle.started += instance.OnSwitchToRifle;
+                @SwitchToRifle.performed += instance.OnSwitchToRifle;
+                @SwitchToRifle.canceled += instance.OnSwitchToRifle;
+                @SwitchToSmg.started += instance.OnSwitchToSmg;
+                @SwitchToSmg.performed += instance.OnSwitchToSmg;
+                @SwitchToSmg.canceled += instance.OnSwitchToSmg;
             }
         }
     }
@@ -528,5 +586,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnSwitchToPistol(InputAction.CallbackContext context);
         void OnSwitchToShotgun(InputAction.CallbackContext context);
+        void OnSwitchToRifle(InputAction.CallbackContext context);
+        void OnSwitchToSmg(InputAction.CallbackContext context);
     }
 }

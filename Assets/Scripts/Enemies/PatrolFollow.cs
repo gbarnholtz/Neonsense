@@ -11,8 +11,8 @@ public class PatrolFollow : MonoBehaviour
     int rand;
     GameObject waypointSelected;
     UnityEngine.AI.NavMeshAgent agent;
-    public Transform target;
-    [SerializeField] private RangedWeapon weapon;
+    private Transform target;
+    [SerializeField] private int distanceToChasePlayer;
 
     NavMeshAgent navMeshAgent;
 
@@ -22,6 +22,7 @@ public class PatrolFollow : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         Seed();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     void Seed()
@@ -34,10 +35,9 @@ public class PatrolFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(agent.transform.position, target.transform.position) < 5)
+        if (Vector3.Distance(agent.transform.position, target.transform.position) < distanceToChasePlayer)
         {
             agent.SetDestination(target.transform.position);
-            weapon.StartTryingToFire();
             Seed();
         }
 

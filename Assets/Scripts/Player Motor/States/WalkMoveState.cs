@@ -19,7 +19,7 @@ public class WalkMoveState : MoveState
 
         float acceleration = psm.BaseSpeed * (psm.IsGrounded ? groundAccelerationScalar : airAccelerationScalar) * Time.fixedDeltaTime;
         float heading = Vector3.Dot(rb.velocity, psm.ProjectedTargetDirection);
-        Debug.Log(psm.ProjectedTargetDirection);
+        //Debug.Log(psm.ProjectedTargetDirection);
         if (heading + acceleration > psm.BaseSpeed) acceleration = psm.BaseSpeed - heading;
         rb.AddForce(acceleration * psm.ProjectedTargetDirection, ForceMode.VelocityChange);
         //Debug.Log(groundSpeed);

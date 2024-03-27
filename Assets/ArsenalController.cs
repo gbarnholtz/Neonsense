@@ -12,6 +12,8 @@ public class ArsenalController : SerializedMonoBehaviour
 
     [SerializeField] private IWeapon pistol;
     [SerializeField] private IWeapon shotgun;
+    [SerializeField] private IWeapon assault_rifle;
+    [SerializeField] private IWeapon smg;
 
     public void OnEnable()
     {
@@ -26,8 +28,12 @@ public class ArsenalController : SerializedMonoBehaviour
     {
         PlayerInputSO.switch2Pistol.performed += switchToPistolAction;
         PlayerInputSO.switch2Shotgun.performed += switchToShotgunAction;
+        PlayerInputSO.switch2Rifle.performed += switchToRifleAction;
+        PlayerInputSO.switch2SMG.performed += switchToSMGAction;
         PlayerInputSO.switch2Pistol.Enable();
         PlayerInputSO.switch2Shotgun.Enable();
+        PlayerInputSO.switch2Rifle.Enable();
+        PlayerInputSO.switch2SMG.Enable();
     }
 
     void switchToPistolAction(InputAction.CallbackContext obj)
@@ -38,6 +44,15 @@ public class ArsenalController : SerializedMonoBehaviour
     void switchToShotgunAction(InputAction.CallbackContext obj)
     {
         switchWeapon("shotgun");
+    }
+    void switchToRifleAction(InputAction.CallbackContext obj)
+    {
+        switchWeapon("rifle");
+    }
+
+    void switchToSMGAction(InputAction.CallbackContext obj)
+    {
+        switchWeapon("smg");
     }
 
     /* TODO: Remove this method when proper switching of weapons is implemented in PlayerSO.cs */
@@ -56,6 +71,18 @@ public class ArsenalController : SerializedMonoBehaviour
             activeWeapon = shotgun;
             activeWeapon.Subscribe(inputProvider.Primary);
             shotgun.gameObject.SetActive(true);
+        }
+        else if (weapon == "rifle")
+        {
+            activeWeapon = assault_rifle;
+            activeWeapon.Subscribe(inputProvider.Primary);
+            assault_rifle.gameObject.SetActive(true);
+        }
+        else if (weapon == "smg")
+        {
+            activeWeapon = smg;
+            activeWeapon.Subscribe(inputProvider.Primary);
+            smg.gameObject.SetActive(true);
         }
     }
 }
