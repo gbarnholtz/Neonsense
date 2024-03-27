@@ -58,33 +58,31 @@ public class ArsenalController : SerializedMonoBehaviour
     /* TODO: Remove this method when proper switching of weapons is implemented in PlayerSO.cs */
     void switchWeapon(string weapon)
     {
-        if (!activeWeapon.IsAttacking) {
-            activeWeapon.Unsubscribe(inputProvider.Primary);
-            activeWeapon.gameObject.SetActive(false);
-            if (weapon == "pistol")
-            {
-                activeWeapon = pistol;
-                activeWeapon.Subscribe(inputProvider.Primary);
-                pistol.gameObject.SetActive(true);
-            }
-            else if (weapon == "shotgun")
-            {
-                activeWeapon = shotgun;
-                activeWeapon.Subscribe(inputProvider.Primary);
-                shotgun.gameObject.SetActive(true);
-            }
-            else if (weapon == "rifle")
-            {
-                activeWeapon = assault_rifle;
-                activeWeapon.Subscribe(inputProvider.Primary);
-                assault_rifle.gameObject.SetActive(true);
-            }
-            else if (weapon == "smg")
-            {
-                activeWeapon = smg;
-                activeWeapon.Subscribe(inputProvider.Primary);
-                smg.gameObject.SetActive(true);
-            }
+        activeWeapon.Unsubscribe(inputProvider.Primary);
+        activeWeapon.gameObject.SetActive(false);
+        if (weapon == "pistol")
+        {
+            activeWeapon = pistol;
+            activeWeapon.Subscribe(inputProvider.Primary);
+            pistol.gameObject.SetActive(true);
+        }
+        else if (weapon == "shotgun")
+        {
+            activeWeapon = shotgun;
+            activeWeapon.Subscribe(inputProvider.Primary);
+            shotgun.gameObject.SetActive(true);
+        }
+        else if (weapon == "rifle")
+        {
+            activeWeapon = assault_rifle;
+            activeWeapon.Subscribe(inputProvider.Primary);
+            assault_rifle.gameObject.SetActive(true);
+        }
+        else if (weapon == "smg")
+        {
+            activeWeapon = smg;
+            activeWeapon.Subscribe(inputProvider.Primary);
+            smg.gameObject.SetActive(true);
         }
     }
 }
