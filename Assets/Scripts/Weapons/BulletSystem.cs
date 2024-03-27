@@ -139,6 +139,7 @@ class BulletSystem : MonoBehaviour
             } 
         }
 
+        // Have damageable takeDamage
         if (hit.transform.TryGetComponent<IDamageable>(out var damageable))
         {
             damageable.TakeDamage(bullet.Damage);
