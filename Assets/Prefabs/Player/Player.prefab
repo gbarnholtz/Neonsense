@@ -432,7 +432,7 @@ MonoBehaviour:
       Data: UnityEngine.LayerMask, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 1
+      Data: 64
     - Name: 
       Entry: 8
       Data: 
@@ -467,7 +467,7 @@ MonoBehaviour:
   springAdjustSpeed: 0.5
   gravity: 35
   terminalVelocity: 15
-  BaseSpeed: 15
+  BaseSpeed: 14
   maxSlope: 60
   slopeJumpBias: 0.5
   JumpHeight: 2
