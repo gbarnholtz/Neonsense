@@ -9,11 +9,13 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
 {
     [SerializeField] private float outerTarget, innerTarget;
     [SerializeField] private Vector3 targetDirection, randomizedVector;
-    [SerializeField] private GameObject weapon;
+
 
     private InputState input = new InputState();
         
-    [SerializeField] public GameObject player;
+    private GameObject player;
+    [SerializeField] private int distanceToShoot;
+    [SerializeField] private RangedWeapon weapon;
 
     public ButtonAction Jump => jump;
     private ButtonAction jump;
@@ -30,6 +32,7 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
         primary = new ButtonAction();
         secondary = new ButtonAction();
         StartCoroutine(CycleDirectionVector());
+        player = GameObject.FindWithTag("Player");
     }
 
     public IEnumerator CycleDirectionVector()
@@ -43,5 +46,13 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
     public InputState GetState()
     {
         return input;
+    }
+
+    void Update()
+    {
+        if (Vector3.Distance(transform.position, player.transform.position) < distanceToShoot)
+        {
+            weapon.StartTryingToFire();
+        }
     }
 }
