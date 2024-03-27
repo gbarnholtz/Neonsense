@@ -11963,6 +11963,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1024304656636799901, guid: 18fc26aeccce9594fa2c69fa339294ad, type: 3}
   m_PrefabInstance: {fileID: 1627141877}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &763828906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763828888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2572f91137a3e3943baa4ad3c9092071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Team
+      Entry: 3
+      Data: 1
 --- !u!1 &798225472
 GameObject:
   m_ObjectHideFlags: 0
@@ -20554,6 +20578,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 763828897}
+    - target: {fileID: 1092635814431264785, guid: b9b9def3f269e344cb75922b2623c7f5, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1092635814431264790, guid: b9b9def3f269e344cb75922b2623c7f5, type: 3}
       propertyPath: m_Name
       value: Enemy_Shotgun
