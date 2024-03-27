@@ -21,7 +21,7 @@ public abstract class IWeapon : MonoBehaviour, IRecoilProvider, IButtonActionSub
     public abstract void Subscribe(ButtonAction attackActions);
     public abstract void Unsubscribe(ButtonAction attackActions);
 
-    protected void StartTryingToFire()
+    public void StartTryingToFire()
     {
         tryingToAttack = true;
         if (CanAttack) StartCoroutine(Attack());

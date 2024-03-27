@@ -69,6 +69,7 @@ public class RangedWeapon : IWeapon
 
     public override IEnumerator Attack()
     {
+        //Debug.Log("Entering Attack method");
         audioSource.PlayOneShot(weaponSound);
 
         IsAttacking = true;

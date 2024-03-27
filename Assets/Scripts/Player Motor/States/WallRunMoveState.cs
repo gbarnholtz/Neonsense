@@ -17,7 +17,7 @@ public class WallRunMoveState : MoveState, IInputModifier
     private Vector3 runDirection;
     private float headRadius;
     private RaycastHit wallHit;
-
+    [SerializeField] private LayerMask wallRunLayer;
     public override void Register(PlayerStateMotor sm) {
         base.Register(sm);
         headRadius = sm.GetComponent<SphereCollider>().radius;
@@ -65,7 +65,7 @@ public class WallRunMoveState : MoveState, IInputModifier
         //Less clean but easier to read
         Vector3 direction = -wallNormal;
         if (!WallCheck(direction, out wallHit)) return false;
-        if (!Physics.SphereCast(rb.position, headRadius - 0.01f, direction, out wallHit, wallDetectDistance + 0.01f)) return false;
+        if (!Physics.SphereCast(rb.position, headRadius - 0.01f, direction, out wallHit, wallDetectDistance + 0.01f, wallRunLayer)) return false;
         runDirection = Vector3.ProjectOnPlane(psm.TargetDirection, wallNormal).normalized;
         return true;
     }
@@ -104,7 +104,7 @@ public class WallRunMoveState : MoveState, IInputModifier
 
     private bool WallCheck(Vector3 direction, out RaycastHit hit)
     {
-        bool floorHit = Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius);
-        return Physics.Raycast(rb.position, direction, out hit, wallDetectDistance + headRadius) && floorHit;
+        bool floorHit = Physics.Raycast(rb.position - Vector3.up * Height, direction, wallDetectDistance + headRadius, wallRunLayer);
+        return Physics.Raycast(rb.position, direction, out hit, wallDetectDistance + headRadius, wallRunLayer) && floorHit;
     }
 }
