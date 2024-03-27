@@ -12,7 +12,7 @@ public class PatrolFollow : MonoBehaviour
     int rand;
     GameObject waypointSelected;
     UnityEngine.AI.NavMeshAgent agent;
-    public Transform target;
+    private Transform target;
     [SerializeField] private RangedWeapon weapon;
     [SerializeField] private float firingRange = 15;
     [SerializeField] private float renameThisDistanceFloat = 2;
@@ -25,6 +25,7 @@ public class PatrolFollow : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         Seed();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     void Seed()
