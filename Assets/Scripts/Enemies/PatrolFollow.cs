@@ -15,17 +15,24 @@ public class PatrolFollow : MonoBehaviour
     [SerializeField] private int distanceToChasePlayer;
 
     NavMeshAgent navMeshAgent;
+    
+    void OnDrawGizmosSelected()
+    {
+        // Display the chase radius when selected
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanceToChasePlayer);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Seed();
+        ToWaypoint();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player").transform;
     }
 
-    void Seed()
+    void ToWaypoint()
     {
         waypoint = GameObject.FindGameObjectsWithTag("waypoint");
         rand = Random.Range(0, waypoint.Length);
@@ -38,7 +45,7 @@ public class PatrolFollow : MonoBehaviour
         if (Vector3.Distance(agent.transform.position, target.transform.position) < distanceToChasePlayer)
         {
             agent.SetDestination(target.transform.position);
-            Seed();
+            ToWaypoint();
         }
 
         else
@@ -46,13 +53,13 @@ public class PatrolFollow : MonoBehaviour
             if (Vector3.Distance(agent.transform.position, waypointSelected.transform.position) >= 2)
             {
                 // pursue 'waypointSelected'
-                agent.SetDestination(waypointSelected.transform.position);
+                //agent.SetDestination(waypointSelected.transform.position);
             }
 
             else
             {
                 // if the distance is too small, find a new 'waypointSelected'
-                Seed();
+                ToWaypoint();
             }
         }
     }

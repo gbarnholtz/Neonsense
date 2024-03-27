@@ -503,11 +503,11 @@ MonoBehaviour:
     - Name: inputProvider
       Entry: 10
       Data: 0
-  activeWeapon: {fileID: 59271931099936231}
+  activeWeapon: {fileID: 1116539119426513313}
   pistol: {fileID: 59271931099936231}
   shotgun: {fileID: 7354971670136863053}
   assault_rifle: {fileID: 282831358629629481}
-  smg: {fileID: 1116539119426513313}
+  smg: {fileID: 0}
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -1035,6 +1035,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
+    - target: {fileID: -2705181349650105720, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5197721666836309241, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1120,6 +1124,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
+    - target: {fileID: -2705181349650105720, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5197721666836309241, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1291,8 +1299,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
     - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
+      propertyPath: MaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4572273370194375527, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_Layer
