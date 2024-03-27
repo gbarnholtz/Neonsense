@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class PatrolFollow : MonoBehaviour
@@ -11,13 +12,16 @@ public class PatrolFollow : MonoBehaviour
     GameObject waypointSelected;
     UnityEngine.AI.NavMeshAgent agent;
     public Transform target;
+    [SerializeField] private RangedWeapon weapon;
 
+    NavMeshAgent navMeshAgent;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         Seed();
+        navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
     }
 
     void Seed()
@@ -30,10 +34,10 @@ public class PatrolFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(agent.transform.position, target.transform.position) < 5)
+        if (Vector3.Distance(agent.transform.position, target.transform.position) < 15)
         {
             agent.SetDestination(target.transform.position);
-            // TODO: Shoot gun at player
+            weapon.StartTryingToFire();
             Seed();
         }
 

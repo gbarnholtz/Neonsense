@@ -9,7 +9,7 @@ public class WalkMoveState : MoveState
         if (psm.IsGrounded && psm.TryingToStartSlide) { psm.ChangeState(psm.SlideState); return; 
         } else {
             //if (psm.TryingToStartSlide) { psm.ChangeState(psm.SlamState);  return; }
-            if (psm.WallRunState.RefreshWallEntry()) { psm.ChangeState(psm.WallRunState); return; }
+            if (!psm.IsGrounded && psm.WallRunState.RefreshWallEntry()) { psm.ChangeState(psm.WallRunState); return; }
         }
     }
 
@@ -22,6 +22,6 @@ public class WalkMoveState : MoveState
         Debug.Log(psm.ProjectedTargetDirection);
         if (heading + acceleration > psm.BaseSpeed) acceleration = psm.BaseSpeed - heading;
         rb.AddForce(acceleration * psm.ProjectedTargetDirection, ForceMode.VelocityChange);
-        Debug.Log(groundSpeed);
+        //Debug.Log(groundSpeed);
     }
 }

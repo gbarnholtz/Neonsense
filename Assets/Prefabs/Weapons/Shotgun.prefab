@@ -382,7 +382,7 @@ MonoBehaviour:
   description: Lorem Ipsum
   IsAttacking: 0
   firePoint: {fileID: 3591885968686185719}
-  bulletDamage: 0.25
+  bulletDamage: 0.5
   bulletSpeed: 75
   bulletsPerShot: 20
   automatic: 0
@@ -406,7 +406,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ffb70a118c097864291bd322f737e6d4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0

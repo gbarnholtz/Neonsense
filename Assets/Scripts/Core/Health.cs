@@ -23,7 +23,7 @@ public class Health : Progressive, IDamageable
         Current -= damage;
         if (Current <= 0)
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 }    

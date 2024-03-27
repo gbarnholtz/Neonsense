@@ -94,6 +94,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToRifle",
+                    "type": "Button",
+                    "id": "9bebcf32-991f-4289-847b-b5f49cd5635a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchToSmg",
+                    "type": "Button",
+                    "id": "7c2f64eb-10d0-4806-9e85-822c2bae7805",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -242,6 +260,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b31d3fde-b56f-401a-b382-ebff505d2a6c",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c5b281c7-d0d3-4f2b-ad83-8a5a10670a9d",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -303,6 +332,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchToShotgun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d772d3aa-ef63-41f4-bedf-9847b4f31304",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToRifle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab5fb7d0-d46e-42a5-9c1e-5c7aa2c5fc73",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchToSmg",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
