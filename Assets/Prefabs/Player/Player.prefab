@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 3066006397483398553}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,10 +503,11 @@ MonoBehaviour:
     - Name: inputProvider
       Entry: 10
       Data: 0
-  activeWeapon: {fileID: 1116539119426513313}
+  activeWeapon: {fileID: 59271931099936231}
   pistol: {fileID: 59271931099936231}
   shotgun: {fileID: 7354971670136863053}
   assault_rifle: {fileID: 282831358629629481}
+  smg: {fileID: 1116539119426513313}
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -1289,6 +1290,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
+    - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4572273370194375527, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_Layer
       value: 31
