@@ -5,7 +5,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
-public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
+public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
 {
     [SerializeField] private float outerTarget, innerTarget;
     [SerializeField] private Vector3 targetDirection, randomizedVector;
@@ -13,7 +13,7 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
 
     private InputState input = new InputState();
         
-    private GameObject player;
+    [SerializeField] public GameObject player;
     [SerializeField] private int distanceToShoot;
     [SerializeField] private RangedWeapon weapon;
 
@@ -32,7 +32,6 @@ public class EnemyAI : SerializedMonoBehaviour, ICharacterInputProvider
         primary = new ButtonAction();
         secondary = new ButtonAction();
         StartCoroutine(CycleDirectionVector());
-        player = GameObject.FindWithTag("Player");
     }
 
     public IEnumerator CycleDirectionVector()
