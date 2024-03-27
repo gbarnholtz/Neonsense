@@ -41,6 +41,8 @@ public class RangedWeapon : IWeapon
     private AudioSource audioSource;
     private AudioClip weaponSound;
 
+    [SerializeField] private float volume = 0.1f;
+
     protected virtual void Awake()
     {
         ammoLoaded = magazineSize;
@@ -70,7 +72,7 @@ public class RangedWeapon : IWeapon
     public override IEnumerator Attack()
     {
         //Debug.Log("Entering Attack method");
-        audioSource.volume = 0.01f;
+        audioSource.volume = volume;
         audioSource.PlayOneShot(weaponSound);
 
         IsAttacking = true;

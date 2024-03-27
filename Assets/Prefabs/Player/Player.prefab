@@ -503,11 +503,11 @@ MonoBehaviour:
     - Name: inputProvider
       Entry: 10
       Data: 0
-  activeWeapon: {fileID: 1116539119426513313}
+  activeWeapon: {fileID: 59271931099936231}
   pistol: {fileID: 59271931099936231}
   shotgun: {fileID: 7354971670136863053}
   assault_rifle: {fileID: 282831358629629481}
-  smg: {fileID: 0}
+  smg: {fileID: 1116539119426513313}
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -1035,9 +1035,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
-    - target: {fileID: -2705181349650105720, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
+    - target: {fileID: 4588730248826798753, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
+      propertyPath: volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5197721666836309241, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
       propertyPath: m_Mesh
@@ -1124,9 +1124,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
-    - target: {fileID: -2705181349650105720, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
+    - target: {fileID: 4588730248826798753, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
+      propertyPath: volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5197721666836309241, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
       propertyPath: m_Mesh
@@ -1221,6 +1221,10 @@ PrefabInstance:
       propertyPath: spread
       value: 0.139
       objectReference: {fileID: 0}
+    - target: {fileID: 4588730248826798753, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
+      propertyPath: volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6627107464513559954, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1273,6 +1277,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7235953470690153186, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
 --- !u!114 &59271931099936231 stripped
@@ -1299,6 +1307,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
     - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: MaxDistance
       value: 500
       objectReference: {fileID: 0}
@@ -1309,6 +1321,10 @@ PrefabInstance:
     - target: {fileID: 4572273370194375527, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_Layer
       value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588730248826798753, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
+      propertyPath: volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5197721666836309241, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_Mesh
