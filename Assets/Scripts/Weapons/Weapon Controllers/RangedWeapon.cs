@@ -29,7 +29,7 @@ public class RangedWeapon : IWeapon
     [SerializeField, Range(0,1)] private float spread;
     [SerializeField] Bullet bullet;
 
-    protected bool isPastFireRate = true, isFiring;
+    public bool isPastFireRate = true, isFiring;
     public bool IsReloading => ReloadProgress < 1;
     public bool IsCooling => ReloadProgress < 1;
     public bool IsLoaded => ammoLoaded > 0;
