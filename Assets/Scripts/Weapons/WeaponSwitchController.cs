@@ -21,24 +21,6 @@ public class WeaponSwitchController : MonoBehaviour
         PlayerInputSO.switch2Rifle.Enable();
         PlayerInputSO.switch2SMG.Enable();
     }
-    void switchToPistolAction(InputAction.CallbackContext obj)
-    {
-        switchWeapon("pistol");
-    }
-
-    void switchToShotgunAction(InputAction.CallbackContext obj)
-    {
-        switchWeapon("shotgun");
-    }
-    void switchToRifleAction(InputAction.CallbackContext obj)
-    {
-        switchWeapon("rifle");
-    }
-
-    void switchToSMGAction(InputAction.CallbackContext obj)
-    {
-        switchWeapon("smg");
-    }
 
     /* Switches weapons based on string passed*/
     void switchWeapon(string weapon)
@@ -77,8 +59,42 @@ public class WeaponSwitchController : MonoBehaviour
     void disableWeapon()
     {
         arsenal.activeWeapon.IsAttacking = false;
-        ((RangedWeapon)arsenal.activeWeapon).isPastFireRate = true; 
+        ((RangedWeapon)arsenal.activeWeapon).isPastFireRate = true;
         arsenal.OnDisable();
         arsenal.activeWeapon.gameObject.SetActive(false);
+    }
+
+    /* ------- Methods below are triggered when player presses their respective key ----------- */
+
+    void switchToPistolAction(InputAction.CallbackContext obj)
+    {
+        /* Only switches weapon if player is not reloading */
+        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        {
+            switchWeapon("pistol");
+        }
+    }
+
+    void switchToShotgunAction(InputAction.CallbackContext obj)
+    {
+        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        {
+            switchWeapon("shotgun");
+        }
+    }
+    void switchToRifleAction(InputAction.CallbackContext obj)
+    {
+        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        {
+            switchWeapon("rifle");
+        }
+    }
+
+    void switchToSMGAction(InputAction.CallbackContext obj)
+    {
+        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        {
+            switchWeapon("smg");
+        }
     }
 }

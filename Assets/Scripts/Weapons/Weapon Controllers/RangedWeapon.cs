@@ -11,7 +11,7 @@ public class RangedWeapon : IWeapon
     [SerializeField] protected float bulletDamage = 1f, bulletSpeed = 25f; 
     [SerializeField] protected int bulletsPerShot = 1;
     [SerializeField] private bool automatic;
-    [SerializeField] protected float reloadTime = 1;
+    [SerializeField] public float reloadTime = 1;
     [SerializeField] protected int magazineSize = 10;
     [SerializeField] protected int ammoPool = 9999;
 
@@ -36,7 +36,7 @@ public class RangedWeapon : IWeapon
     protected override bool CanAttack { get { return  !IsReloading && !IsCooling && isPastFireRate && !isFiring && IsLoaded; } }
 
     private float fireRate => 60 / rpm;
-    private float timeReloadStarted;
+    public float timeReloadStarted;
 
     private AudioSource audioSource;
     private AudioClip weaponSound;
