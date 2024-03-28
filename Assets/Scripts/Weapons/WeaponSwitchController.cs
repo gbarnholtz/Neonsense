@@ -69,7 +69,7 @@ public class WeaponSwitchController : MonoBehaviour
     void switchToPistolAction(InputAction.CallbackContext obj)
     {
         /* Only switches weapon if player is not reloading */
-        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
         {
             switchWeapon("pistol");
         }
@@ -77,14 +77,14 @@ public class WeaponSwitchController : MonoBehaviour
 
     void switchToShotgunAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
         {
             switchWeapon("shotgun");
         }
     }
     void switchToRifleAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
         {
             switchWeapon("rifle");
         }
@@ -92,7 +92,7 @@ public class WeaponSwitchController : MonoBehaviour
 
     void switchToSMGAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).IsReloading == false)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
         {
             switchWeapon("smg");
         }

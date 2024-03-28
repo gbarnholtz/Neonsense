@@ -41,7 +41,8 @@ public class RangedWeapon : IWeapon
     private AudioSource audioSource;
     private AudioClip weaponSound;
 
-    [SerializeField] private float volume = 0.1f;
+    [SerializeField] private float volume;
+    [SerializeField] private AudioClip reloadSound;
 
     protected virtual void Awake()
     {
@@ -88,7 +89,7 @@ public class RangedWeapon : IWeapon
         ammoLoaded--;
         if (ammoLoaded <= 0)
         {
-            // TODO: play weapond reload sound here
+            audioSource.PlayOneShot(reloadSound);
             StopTryingToFire();
             StartCoroutine(DelayedReload());
         }
