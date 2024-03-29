@@ -386,14 +386,19 @@ MonoBehaviour:
   bulletSpeed: 75
   bulletsPerShot: 20
   automatic: 0
-  reloadTime: 1
-  magazineSize: 10
+  reloadTime: 3
+  magazineSize: 2
   ammoPool: 9999
   ammoLoaded: 0
   rpm: 60
   recoil: {x: 0, y: 0, z: 0}
   spread: 0.05
   bullet: {fileID: 7634292425448812394, guid: 8f44287303290a24283a5c31d13877fe, type: 3}
+  isPastFireRate: 1
+  isFiring: 0
+  timeReloadStarted: 0
+  volume: 0.1
+  reloadSound: {fileID: 8300000, guid: 78573af1b174cf747b3045bda184d057, type: 3}
 --- !u!82 &-2705181349650105720
 AudioSource:
   m_ObjectHideFlags: 0
