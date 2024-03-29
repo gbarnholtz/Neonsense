@@ -26,4 +26,9 @@ public class Health : Progressive, IDamageable
             Destroy(gameObject);
         }
     }
+
+    public float GetHealth()
+    {
+        return Current;
+    }
 }    
