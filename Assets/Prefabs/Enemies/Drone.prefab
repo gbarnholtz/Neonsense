@@ -363,6 +363,11 @@ MonoBehaviour:
   recoil: {x: 0, y: 0, z: 0}
   spread: 0
   bullet: {fileID: 7634292425448812394, guid: 8f44287303290a24283a5c31d13877fe, type: 3}
+  isPastFireRate: 1
+  isFiring: 0
+  timeReloadStarted: 0
+  volume: 0
+  reloadSound: {fileID: 0}
 --- !u!82 &8964253040679750828
 AudioSource:
   m_ObjectHideFlags: 0
@@ -586,10 +591,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 10
-  m_Acceleration: 10
+  m_Speed: 20
+  m_Acceleration: 15
   avoidancePriority: 50
-  m_AngularSpeed: 3600
+  m_AngularSpeed: 9000
   m_StoppingDistance: 8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -624,7 +629,7 @@ MonoBehaviour:
   targetDirection: {x: 0, y: 0, z: 0}
   randomizedVector: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
-  distanceToShoot: 5
+  distanceToShoot: 15
   weapon: {fileID: 1854461158263633029}
 --- !u!114 &5286086587929033652
 MonoBehaviour:
