@@ -11,15 +11,17 @@ public class UI_Manager : MonoBehaviour
     public TMP_Text MaxAmmo_Text;
     public TMP_Text HP_Text;
 
-    private GameObject player;
-    private Health playerHealth;
     public TMP_Text CurrentWeapon_Text;
     public TMP_Text CurrentHealth_Text;
-    public TMP_Text MaxHealth_Text;
+
+    private GameObject player;
+    private Health playerHealth;
+
 
     private RangedWeapon weapon;
     private ArsenalController arsenal;
     private Health health;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
