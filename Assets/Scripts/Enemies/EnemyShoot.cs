@@ -13,7 +13,7 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
 
     private InputState input = new InputState();
         
-    [SerializeField] public GameObject player;
+    private GameObject player;
     [SerializeField] private int distanceToShoot;
     [SerializeField] private RangedWeapon weapon;
 
@@ -32,6 +32,7 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         primary = new ButtonAction();
         secondary = new ButtonAction();
         StartCoroutine(CycleDirectionVector());
+        player = GameObject.FindWithTag("Player");
     }
 
     public IEnumerator CycleDirectionVector()

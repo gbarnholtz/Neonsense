@@ -8,6 +8,7 @@ public class tr_teleport : MonoBehaviour
 {
     //[SerializeField] private GameObject player;
     [SerializeField] private Transform destination;
+    [SerializeField] private AudioSource sound;
     
     public void OnTriggerEnter(Collider col)
     {
@@ -16,6 +17,10 @@ public class tr_teleport : MonoBehaviour
             if (destination != null)
             {
                 col.transform.position = destination.position;
+                if (sound != null)
+                {
+                    sound.Play();
+                }
             }
             else
             {

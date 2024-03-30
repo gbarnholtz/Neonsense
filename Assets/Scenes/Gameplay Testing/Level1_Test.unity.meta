@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Gameplay Testing/Level1_Test.unity.meta
 guid: 2d1f422034b535242a92af38ec9f989a
+========
+guid: 858fc45116ec96d40b2c0facdc3233aa
+folderAsset: yes
+>>>>>>>> main:Assets/Audio/Sound Effects/Weapons/Vunsunta - Firearm Sound Pack V2.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

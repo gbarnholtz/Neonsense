@@ -13,22 +13,30 @@ public class UI_Manager : MonoBehaviour
 
     private GameObject player;
     private Health playerHealth;
+    public TMP_Text CurrentWeapon_Text;
+    public TMP_Text CurrentHealth_Text;
+    public TMP_Text MaxHealth_Text;
 
     private RangedWeapon weapon;
     private ArsenalController arsenal;
+    private Health health;
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
         playerHealth = player.GetComponent<Health>();
         arsenal = player.GetComponent<ArsenalController>();
+        health = player.GetComponent<Health>();
     }
 
     // Update is called once per frame
 
     void Update()
     {
+        //CurrentHealth_Text.text = health.Current.ToString();
+        //MaxHealth_Text.text = health.Max.ToString();
         /* Gets the weapon player is using */
         weapon = (RangedWeapon) arsenal.activeWeapon;
+        CurrentWeapon_Text.text = weapon.gameObject.name;
         CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
         MaxAmmo_Text.text = weapon.MagazineSize.ToString();
         HP_Text.text = playerHealth.GetHealth().ToString();    
