@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 7749240005910225454}
   - component: {fileID: 3066006397483398553}
   - component: {fileID: 6509155053853022846}
+  - component: {fileID: -4356761528737227669}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -629,6 +630,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7b2bc1e2a609248bc5d69bad66539a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4356761528737227669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024304656636799889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2572f91137a3e3943baa4ad3c9092071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Team
+      Entry: 3
+      Data: 1
 --- !u!1 &4751926545273673872
 GameObject:
   m_ObjectHideFlags: 0
