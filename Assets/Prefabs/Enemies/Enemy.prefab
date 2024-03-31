@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToChasePlayer: 25
-  stoppingDistance: 5
+  stoppingDistance: 0
 --- !u!195 &1222755513714852243
 NavMeshAgent:
   m_ObjectHideFlags: 0
