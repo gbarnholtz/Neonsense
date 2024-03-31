@@ -13,6 +13,7 @@ public class PatrolFollow : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     private Transform target;
     [SerializeField] private int distanceToChasePlayer;
+    [SerializeField] private int stoppingDistance;
 
     NavMeshAgent navMeshAgent;
     
@@ -42,10 +43,19 @@ public class PatrolFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(agent.transform.position, target.transform.position) < distanceToChasePlayer)
+        /* If player is within range, chase player */
+        if (ChasePlayer())
         {
-            agent.SetDestination(target.transform.position);
-            ToWaypoint();
+            /* If stopping distance is not reached, chase player */
+            if (!StoppingDistanceReached())
+            {
+                agent.SetDestination(target.transform.position);
+                ToWaypoint();
+            } else
+            {
+                /* Else set destination to current position */
+                agent.SetDestination(transform.position);
+            }
         }
 
         else
@@ -62,5 +72,15 @@ public class PatrolFollow : MonoBehaviour
                 ToWaypoint();
             }
         }
+    }
+
+    bool ChasePlayer()
+    {
+        return Vector3.Distance(agent.transform.position, target.transform.position) < distanceToChasePlayer;
+    }
+
+    bool StoppingDistanceReached()
+    {
+        return Vector3.Distance(agent.transform.position, target.transform.position) < stoppingDistance;
     }
 }
