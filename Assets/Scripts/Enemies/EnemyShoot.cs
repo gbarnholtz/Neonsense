@@ -62,8 +62,15 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
 
     void rotateWeaponTowardsPlayer()
     {
-        Vector3 direction = player.transform.position - weapon.transform.position;
-        //weapon.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-        gameObject.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        /* Makes the enemy face player */
+        Vector3 playerDirection = player.transform.position - transform.position;
+        Quaternion quaternion = Quaternion.LookRotation(playerDirection, Vector3.up);
+        quaternion.x = 0f;
+        quaternion.z = 0f;
+        gameObject.transform.rotation = quaternion;
+
+        /* Points weapon directly at player */
+        playerDirection = player.transform.position - weapon.transform.position;
+        weapon.transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
     }
 }
