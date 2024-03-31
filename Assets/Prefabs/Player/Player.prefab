@@ -1492,10 +1492,6 @@ PrefabInstance:
       propertyPath: MaxDistance
       value: 500
       objectReference: {fileID: 0}
-    - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2443215606958135552, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_CastShadows
       value: 0
