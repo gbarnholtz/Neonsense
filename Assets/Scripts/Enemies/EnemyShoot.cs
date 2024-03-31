@@ -52,7 +52,18 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
     {
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToShoot)
         {
+            rotateWeaponTowardsPlayer();
             weapon.StartTryingToFire();
+        } else
+        {
+            weapon.transform.rotation = new Quaternion();
         }
+    }
+
+    void rotateWeaponTowardsPlayer()
+    {
+        Vector3 direction = player.transform.position - weapon.transform.position;
+        //weapon.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        gameObject.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
 }
