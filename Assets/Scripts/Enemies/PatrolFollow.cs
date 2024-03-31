@@ -25,10 +25,10 @@ public class PatrolFollow : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        ToWaypoint();
+        //ToWaypoint();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player").transform;
     }
@@ -50,26 +50,11 @@ public class PatrolFollow : MonoBehaviour
             if (!StoppingDistanceReached())
             {
                 agent.SetDestination(target.transform.position);
-                ToWaypoint();
+                //ToWaypoint();
             } else
             {
                 /* Else set destination to current position */
                 agent.SetDestination(transform.position);
-            }
-        }
-
-        else
-        {
-            if (Vector3.Distance(agent.transform.position, waypointSelected.transform.position) >= 2)
-            {
-                // pursue 'waypointSelected'
-                //agent.SetDestination(waypointSelected.transform.position);
-            }
-
-            else
-            {
-                // if the distance is too small, find a new 'waypointSelected'
-                ToWaypoint();
             }
         }
     }
