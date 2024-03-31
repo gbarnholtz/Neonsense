@@ -9666,7 +9666,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-156312
+  m_Name: pb_Mesh-39424
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29241,6 +29241,10 @@ PrefabInstance:
     - target: {fileID: 5286086587929033661, guid: 0fc8264ca58dd064283d64a2ba35344e, type: 3}
       propertyPath: m_Name
       value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286086587929033661, guid: 0fc8264ca58dd064283d64a2ba35344e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6880592328278150281, guid: 0fc8264ca58dd064283d64a2ba35344e, type: 3}
       propertyPath: m_Mesh

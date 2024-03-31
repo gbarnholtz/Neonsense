@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToChasePlayer: 15
+  distanceToChasePlayer: 25
+  stoppingDistance: 5
 --- !u!195 &1222755513714852243
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -164,7 +165,6 @@ MonoBehaviour:
   innerTarget: 0
   targetDirection: {x: 0, y: 0, z: 0}
   randomizedVector: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   distanceToShoot: 5
   weapon: {fileID: 0}
 --- !u!114 &1222755513714852253
