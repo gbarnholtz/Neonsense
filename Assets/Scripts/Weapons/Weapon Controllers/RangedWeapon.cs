@@ -11,7 +11,7 @@ public class RangedWeapon : IWeapon
     [SerializeField] protected float bulletDamage = 1f, bulletSpeed = 25f; 
     [SerializeField] protected int bulletsPerShot = 1;
     [SerializeField] private bool automatic;
-    [SerializeField] protected float reloadTime = 1;
+    [SerializeField] public float reloadTime = 1;
     [SerializeField] protected int magazineSize = 10;
     [SerializeField] protected int ammoPool = 9999;
 
@@ -29,19 +29,20 @@ public class RangedWeapon : IWeapon
     [SerializeField, Range(0,1)] private float spread;
     [SerializeField] Bullet bullet;
 
-    protected bool isPastFireRate = true, isFiring;
+    public bool isPastFireRate = true, isFiring;
     public bool IsReloading => ReloadProgress < 1;
     public bool IsCooling => ReloadProgress < 1;
     public bool IsLoaded => ammoLoaded > 0;
     protected override bool CanAttack { get { return  !IsReloading && !IsCooling && isPastFireRate && !isFiring && IsLoaded; } }
 
     private float fireRate => 60 / rpm;
-    private float timeReloadStarted;
+    public float timeReloadStarted;
 
     private AudioSource audioSource;
     private AudioClip weaponSound;
 
-    [SerializeField] private float volume = 0.1f;
+    [SerializeField] private float volume;
+    [SerializeField] private AudioClip reloadSound;
 
     protected virtual void Awake()
     {
@@ -88,7 +89,7 @@ public class RangedWeapon : IWeapon
         ammoLoaded--;
         if (ammoLoaded <= 0)
         {
-            // TODO: play weapond reload sound here
+            audioSource.PlayOneShot(reloadSound);
             StopTryingToFire();
             StartCoroutine(DelayedReload());
         }
