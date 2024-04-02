@@ -29,6 +29,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     private float slopeDotProduct;
     [SerializeField, Range(0, 10)] public float JumpHeight=2f;
     [SerializeField] private int maxAirJumps;
+    [SerializeField] private int jumpCount;
     [SerializeField] LayerMask groundMask;
     
     private Rigidbody rb;
@@ -141,6 +142,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
                 ContactNormal = hit.normal;
                 currentHeadHeight = hit.distance;
                 disableGroundSnapping = false;
+                ResetJumps();
                 //TODO: remove conditional wrapper
                 //jumping during the window of the spring bouncing upwards causes forces to stack, sending the player super high
                 //only way of truly fixing it is with GetAccumulatedForces() but that is in a later version of Unity
@@ -168,6 +170,10 @@ public class PlayerStateMotor : SerializedMonoBehaviour
 
     private void Jump() => JumpDirectional(IsGrounded ? Vector3.Lerp(Vector3.up, ContactNormal, slopeJumpBias) : Vector3.up);
 
+    public void ResetJumps()
+    {
+        jumpCount = 0;
+    }
     public void JumpDirectional(Vector3 direction)
     {
         direction = direction.normalized;
@@ -178,7 +184,16 @@ public class PlayerStateMotor : SerializedMonoBehaviour
         disableGroundSnapping = true;
     }
 
-    private void TryJump() => shouldJump = activeState.CheckTryJump();
+    private void TryJump() {
+        if (activeState.AllowJump) { 
+            shouldJump = true; 
+        }else {
+            if (jumpCount < maxAirJumps) {
+                shouldJump = true;
+                jumpCount++;
+            }
+        }
+    }
 
     public void StartTrySlide() {
         TryingToSlide = true;

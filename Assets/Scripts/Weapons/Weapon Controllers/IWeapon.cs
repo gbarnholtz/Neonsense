@@ -16,6 +16,18 @@ public abstract class IWeapon : MonoBehaviour, IRecoilProvider, IButtonActionSub
 
     public event Action<Vector3> Recoil;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            /* Signal to the arsenal controller that weapon has been picked up */
+            ArsenalController arsenal = GameObject.FindWithTag("Player").GetComponent<ArsenalController>();
+            arsenal.PickupWeapon(description);
+            /* Destroys this weapon as the real weapon is simply disabled on the arsenal */
+            Destroy(gameObject);
+        }
+    }
+
     protected void InvokeRecoil(Vector3 recoilVector) => Recoil?.Invoke(recoilVector);
 
     public abstract void Subscribe(ButtonAction attackActions);

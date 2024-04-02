@@ -34,13 +34,14 @@ public class UI_Manager : MonoBehaviour
 
     void Update()
     {
-        //CurrentHealth_Text.text = health.Current.ToString();
-        //MaxHealth_Text.text = health.Max.ToString();
         /* Gets the weapon player is using */
-        weapon = (RangedWeapon) arsenal.activeWeapon;
-        CurrentWeapon_Text.text = weapon.gameObject.name;
-        CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
-        MaxAmmo_Text.text = weapon.MagazineSize.ToString();
+        if (arsenal.activeWeapon != null) // In case player hasn't picked up weapon
+        {
+            weapon = (RangedWeapon)arsenal.activeWeapon;
+            CurrentWeapon_Text.text = weapon.gameObject.name;
+            CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
+            MaxAmmo_Text.text = weapon.MagazineSize.ToString();
+        }
         HP_Text.text = playerHealth.GetHealth().ToString();    
     }
 }

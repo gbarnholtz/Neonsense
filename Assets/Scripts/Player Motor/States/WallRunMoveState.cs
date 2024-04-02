@@ -6,6 +6,8 @@ public class WallRunMoveState : MoveState, IInputModifier
 {
     public override bool ShouldApplyGravity => false;
     public override bool OverrideJump => true;
+    public override bool AllowJump => true;
+
 
     [SerializeField] private float wallRunSpeedScalar = 1.5f, accelerationScalar=4f, wallDetectDistance = 0.25f, ejectForce = 2f, ejectVelocity=1f, downSlip = 2f, slipEjectThreshold=6f;
     [SerializeField, Range(0, 1)] private float wallJumpBias = 0.5f;
@@ -100,6 +102,11 @@ public class WallRunMoveState : MoveState, IInputModifier
     private void Eject() {
         rb.AddForce(ejectForce * wallNormal, ForceMode.VelocityChange);
         psm.ChangeState(psm.WalkState);
+    }
+
+    public override void Exit()
+    {
+        psm.ResetJumps();
     }
 
     private bool WallCheck(Vector3 direction, out RaycastHit hit)
