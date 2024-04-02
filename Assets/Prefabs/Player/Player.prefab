@@ -511,7 +511,6 @@ MonoBehaviour:
   shotgun: {fileID: 7354971670136863053}
   assault_rifle: {fileID: 282831358629629481}
   smg: {fileID: 1116539119426513313}
-  PistolPickedUp: 0
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -886,7 +885,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 55
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -1570,13 +1569,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8095171721242498580, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b358b957122fc44ead4f0dbbcb7f4e5, type: 2}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_VersionIndex
-      value: 90
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_SelectedEdges.Array.size
