@@ -505,11 +505,12 @@ MonoBehaviour:
     - Name: inputProvider
       Entry: 10
       Data: 0
-  activeWeapon: {fileID: 59271931099936231}
+  activeWeapon: {fileID: 0}
   pistol: {fileID: 59271931099936231}
   shotgun: {fileID: 7354971670136863053}
   assault_rifle: {fileID: 282831358629629481}
   smg: {fileID: 1116539119426513313}
+  PistolPickedUp: 0
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -1147,7 +1148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7098786638656445594, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
       propertyPath: m_Mesh

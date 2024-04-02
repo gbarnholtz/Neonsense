@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class WeaponSwitchController : MonoBehaviour
+public class SwitchWeaponController : MonoBehaviour
 {
 
     ArsenalController arsenal;
@@ -23,9 +23,10 @@ public class WeaponSwitchController : MonoBehaviour
     }
 
     /* Switches weapons based on string passed*/
-    void switchWeapon(string weapon)
+    public void switchWeapon(string weapon)
     {
-        disableWeapon();
+        if (arsenal.activeWeapon != null)
+            disableWeapon();
 
         switch (weapon)
         {
@@ -69,7 +70,8 @@ public class WeaponSwitchController : MonoBehaviour
     void switchToPistolAction(InputAction.CallbackContext obj)
     {
         /* Only switches weapon if player is not reloading */
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+            && ArsenalController.PistolPickedUp) // Checks if player has picked up weapon
         {
             switchWeapon("pistol");
         }
@@ -77,14 +79,16 @@ public class WeaponSwitchController : MonoBehaviour
 
     void switchToShotgunAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+            && ArsenalController.ShotgunPickedUp)
         {
             switchWeapon("shotgun");
         }
     }
     void switchToRifleAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+            && ArsenalController.RiflePickedUp)
         {
             switchWeapon("rifle");
         }
@@ -92,7 +96,8 @@ public class WeaponSwitchController : MonoBehaviour
 
     void switchToSMGAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0)
+        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+            && ArsenalController.SMGPickedUp)
         {
             switchWeapon("smg");
         }
