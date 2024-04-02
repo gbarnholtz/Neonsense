@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 7749240005910225454}
   - component: {fileID: 3066006397483398553}
   - component: {fileID: 6509155053853022846}
+  - component: {fileID: -4356761528737227669}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -308,7 +309,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  initial: 100
+  initial: 50
   DisplayOverheadHealth: 0
 --- !u!114 &8765060215111350664
 MonoBehaviour:
@@ -472,7 +473,8 @@ MonoBehaviour:
   maxSlope: 60
   slopeJumpBias: 0.5
   JumpHeight: 2
-  maxAirJumps: 0
+  maxAirJumps: 1
+  jumpCount: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 1
@@ -504,11 +506,12 @@ MonoBehaviour:
     - Name: inputProvider
       Entry: 10
       Data: 0
-  activeWeapon: {fileID: 59271931099936231}
+  activeWeapon: {fileID: 0}
   pistol: {fileID: 59271931099936231}
   shotgun: {fileID: 7354971670136863053}
   assault_rifle: {fileID: 282831358629629481}
   smg: {fileID: 1116539119426513313}
+  PistolPickedUp: 0
 --- !u!96 &3066006397483398553
 TrailRenderer:
   serializedVersion: 2
@@ -517,7 +520,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024304656636799889}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -629,6 +632,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7b2bc1e2a609248bc5d69bad66539a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4356761528737227669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024304656636799889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2572f91137a3e3943baa4ad3c9092071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Team
+      Entry: 3
+      Data: 1
 --- !u!1 &4751926545273673872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,8 +1045,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -1122,7 +1149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7098786638656445594, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8750187333647956653, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
       propertyPath: m_Mesh
@@ -1466,10 +1493,6 @@ PrefabInstance:
     - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: MaxDistance
       value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2443215606958135552, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_CastShadows

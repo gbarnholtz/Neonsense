@@ -11,6 +11,7 @@ public abstract class MoveState
     public float Height = 1.5f;
     public abstract bool ShouldApplyGravity { get; }
     public virtual bool OverrideJump => false;
+    public virtual bool AllowJump => psm.IsGrounded;
 
     public virtual void Register(PlayerStateMotor sm)
     {
@@ -25,10 +26,6 @@ public abstract class MoveState
     public abstract void MovePlayer();
 
     public abstract void Update();
-
-    public virtual bool CheckTryJump() {
-        return true;
-    }
 
     public virtual bool CheckTryDash()
     {

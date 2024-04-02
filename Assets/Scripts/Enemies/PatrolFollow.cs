@@ -13,6 +13,7 @@ public class PatrolFollow : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     private Transform target;
     [SerializeField] private int distanceToChasePlayer;
+    [SerializeField] private int stoppingDistance;
 
     NavMeshAgent navMeshAgent;
     
@@ -24,10 +25,10 @@ public class PatrolFollow : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        ToWaypoint();
+        //ToWaypoint();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag("Player").transform;
     }
@@ -42,25 +43,29 @@ public class PatrolFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(agent.transform.position, target.transform.position) < distanceToChasePlayer)
+        /* If player is within range, chase player */
+        if (ChasePlayer())
         {
-            agent.SetDestination(target.transform.position);
-            ToWaypoint();
-        }
-
-        else
-        {
-            if (Vector3.Distance(agent.transform.position, waypointSelected.transform.position) >= 2)
+            /* If stopping distance is not reached, chase player */
+            if (!StoppingDistanceReached())
             {
-                // pursue 'waypointSelected'
-                //agent.SetDestination(waypointSelected.transform.position);
-            }
-
-            else
+                agent.SetDestination(target.transform.position);
+                //ToWaypoint();
+            } else
             {
-                // if the distance is too small, find a new 'waypointSelected'
-                ToWaypoint();
+                /* Else set destination to current position */
+                agent.SetDestination(transform.position);
             }
         }
+    }
+
+    bool ChasePlayer()
+    {
+        return Vector3.Distance(agent.transform.position, target.transform.position) < distanceToChasePlayer;
+    }
+
+    bool StoppingDistanceReached()
+    {
+        return Vector3.Distance(agent.transform.position, target.transform.position) < stoppingDistance;
     }
 }

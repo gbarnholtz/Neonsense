@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d41f141b788894392d777ce38a6613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToChasePlayer: 15
+  distanceToChasePlayer: 25
+  stoppingDistance: 2
 --- !u!195 &1222755513714852243
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 10
+  m_Speed: 20
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 3600

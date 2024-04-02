@@ -20,6 +20,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1832968600361548268}
     - target: {fileID: 1222755513714852252, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: distanceToShoot
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222755513714852252, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1222755513714852252, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
@@ -70,6 +74,10 @@ PrefabInstance:
     - target: {fileID: 1222755513714852254, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024350413067552673, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Health : Progressive, IDamageable
@@ -11,6 +12,11 @@ public class Health : Progressive, IDamageable
     public Team Team { get => team; set => team = value; }
     private Team team;
     public List<IDamageModifier> DamageModifiers = new List<IDamageModifier>();
+
+    public void Start()
+    {
+        team = gameObject.GetComponent<Teamable>().Team;
+    }
     
     public void OnEnable()
     {
@@ -23,7 +29,17 @@ public class Health : Progressive, IDamageable
         Current -= damage;
         if (Current <= 0)
         {
-            Destroy(gameObject);
+            if (team == Team.Enemy) Destroy(gameObject);
+            if (team == Team.Ally)
+            {
+                Scene thisScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(thisScene.name);
+            }
         }
+    }
+
+    public float GetHealth()
+    {
+        return Current;
     }
 }    

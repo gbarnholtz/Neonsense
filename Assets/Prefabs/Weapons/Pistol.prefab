@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5aa524fc597b54a8ac41abdd48d675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Lorem Ipsum
+  description: pistol
   IsAttacking: 0
   firePoint: {fileID: 3591885968686185719}
   bulletDamage: 1
