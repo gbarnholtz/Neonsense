@@ -347,7 +347,7 @@ MonoBehaviour:
       Data: 16
     - Name: airAccelerationScalar
       Entry: 4
-      Data: 2
+      Data: 4
     - Name: friction
       Entry: 4
       Data: 12
