@@ -473,7 +473,8 @@ MonoBehaviour:
   maxSlope: 60
   slopeJumpBias: 0.5
   JumpHeight: 2
-  maxAirJumps: 0
+  maxAirJumps: 1
+  jumpCount: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 1
