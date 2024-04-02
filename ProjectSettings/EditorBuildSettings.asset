@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooftop.unity
     guid: fe6f8e3086b45264fa4985f4cfae058b
+  - enabled: 1
+    path: Assets/Scenes/end text.unity
+    guid: 9a0b7acb71f66f24a9d45ea80c4b3caa
   m_configObjects: {}
