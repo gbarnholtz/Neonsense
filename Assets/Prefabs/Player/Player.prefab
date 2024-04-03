@@ -309,7 +309,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  initial: 50
+  initial: 100
   DisplayOverheadHealth: 0
 --- !u!114 &8765060215111350664
 MonoBehaviour:
