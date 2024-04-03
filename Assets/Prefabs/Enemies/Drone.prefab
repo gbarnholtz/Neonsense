@@ -366,8 +366,8 @@ MonoBehaviour:
   isPastFireRate: 1
   isFiring: 0
   timeReloadStarted: 0
-  volume: 0
-  reloadSound: {fileID: 0}
+  volume: 0.1
+  reloadSound: {fileID: 8300000, guid: 563c29a91e7e714498d4bbdb46dc78d1, type: 3}
 --- !u!82 &8964253040679750828
 AudioSource:
   m_ObjectHideFlags: 0
