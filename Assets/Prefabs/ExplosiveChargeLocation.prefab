@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactDistance: 3
-  UI: {fileID: 0}
+  UI: {fileID: 7434077281682102635, guid: 2ab662a5badce4b4393e431323690fc2, type: 3}
 --- !u!82 &2740719798033124454
 AudioSource:
   m_ObjectHideFlags: 0
