@@ -25,7 +25,7 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
     /*public ButtonAction SwitchToPistol { get { return switchToPistol; } }
 
     public ButtonAction SwitchToShotgun { get { return switchToShotgun; } }*/
-    public static InputAction switch2Pistol, switch2Shotgun, switch2Rifle, switch2SMG;
+    public static InputAction switch2Pistol, switch2Shotgun, switch2Rifle, switch2SMG, placeCharge;
 
     private ButtonAction jumpAction, dashAction, slideAction, primAction, secAction, switchToPistol, switchToShotgun;
 
