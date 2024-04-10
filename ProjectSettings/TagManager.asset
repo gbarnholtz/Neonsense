@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - waypoint
+  - health_pickup
+  - ammo_pickup
   layers:
   - Default
   - TransparentFX

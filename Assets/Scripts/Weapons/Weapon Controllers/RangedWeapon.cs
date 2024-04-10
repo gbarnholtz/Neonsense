@@ -16,7 +16,7 @@ public class RangedWeapon : IWeapon
     [SerializeField] protected int ammoPool = 9999;
 
     [SerializeField] protected int ammoLoaded;
-    public int AmmoPool => ammoPool;
+    public int AmmoPool { get { return ammoPool;} set { ammoPool = value; } }
     public int MagazineSize => magazineSize;
     public int AmmoLoaded => ammoLoaded;
     public float ReloadProgress => Mathf.Clamp01((Time.time - timeReloadStarted) / reloadTime);

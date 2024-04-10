@@ -37,23 +37,23 @@ public class UI_Manager : MonoBehaviour
     void Update()
     {
         /* Gets the weapon player is using */
-        if (arsenal.activeWeapon != null) // In case player hasn't picked up weapon
+        if (ArsenalController.activeWeapon != null) // In case player hasn't picked up weapon
         {
-            weapon = (RangedWeapon)arsenal.activeWeapon;
+            weapon = (RangedWeapon)ArsenalController.activeWeapon;
             CurrentWeapon_Text.text = weapon.gameObject.name;
             CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
-            MaxAmmo_Text.text = weapon.MagazineSize.ToString();
+            MaxAmmo_Text.text = weapon.AmmoPool.ToString();
         }
         HP_Text.text = playerHealth.GetHealth().ToString();    
     }
 
     public void ActivatePlaceChargeText()
     {
-        PlaceCharge_Text.gameObject.SetActive(true);
+        //PlaceCharge_Text.gameObject.SetActive(true);
     }
 
     public void DeactivatePlaceChargeText()
     {
-        PlaceCharge_Text.gameObject.SetActive(false);
+        //PlaceCharge_Text.gameObject.SetActive(false);
     }
 }

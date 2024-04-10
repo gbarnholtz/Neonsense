@@ -25,28 +25,28 @@ public class SwitchWeaponController : MonoBehaviour
     /* Switches weapons based on string passed*/
     public void switchWeapon(string weapon)
     {
-        if (arsenal.activeWeapon != null)
+        if (ArsenalController.activeWeapon != null)
             disableWeapon();
 
         switch (weapon)
         {
             case "pistol":
-                arsenal.activeWeapon = arsenal.pistol;
+                ArsenalController.activeWeapon = arsenal.pistol;
                 arsenal.OnEnable();
                 arsenal.pistol.gameObject.SetActive(true);
                 break;
             case "shotgun":
-                arsenal.activeWeapon = arsenal.shotgun;
+                ArsenalController.activeWeapon = arsenal.shotgun;
                 arsenal.OnEnable();
                 arsenal.shotgun.gameObject.SetActive(true);
                 break;
             case "rifle":
-                arsenal.activeWeapon = arsenal.assault_rifle;
+                ArsenalController.activeWeapon = arsenal.assault_rifle;
                 arsenal.OnEnable();
                 arsenal.assault_rifle.gameObject.SetActive(true);
                 break;
             case "smg":
-                arsenal.activeWeapon = arsenal.smg;
+                ArsenalController.activeWeapon = arsenal.smg;
                 arsenal.OnEnable();
                 arsenal.smg.gameObject.SetActive(true);
                 break;
@@ -59,10 +59,10 @@ public class SwitchWeaponController : MonoBehaviour
     /* Disables current weapon */
     void disableWeapon()
     {
-        arsenal.activeWeapon.IsAttacking = false;
-        ((RangedWeapon)arsenal.activeWeapon).isPastFireRate = true;
+        ArsenalController.activeWeapon.IsAttacking = false;
+        ((RangedWeapon)ArsenalController.activeWeapon).isPastFireRate = true;
         arsenal.OnDisable();
-        arsenal.activeWeapon.gameObject.SetActive(false);
+        ArsenalController.activeWeapon.gameObject.SetActive(false);
     }
 
     /* ------- Methods below are triggered when player presses their respective key ----------- */
@@ -70,7 +70,7 @@ public class SwitchWeaponController : MonoBehaviour
     void switchToPistolAction(InputAction.CallbackContext obj)
     {
         /* Only switches weapon if player is not reloading */
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+        if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.PistolPickedUp) // Checks if player has picked up weapon
         {
             switchWeapon("pistol");
@@ -79,7 +79,7 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToShotgunAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+        if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.ShotgunPickedUp)
         {
             switchWeapon("shotgun");
@@ -87,7 +87,7 @@ public class SwitchWeaponController : MonoBehaviour
     }
     void switchToRifleAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+        if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.RiflePickedUp)
         {
             switchWeapon("rifle");
@@ -96,7 +96,7 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToSMGAction(InputAction.CallbackContext obj)
     {
-        if (((RangedWeapon)arsenal.activeWeapon).AmmoLoaded > 0
+        if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.SMGPickedUp)
         {
             switchWeapon("smg");

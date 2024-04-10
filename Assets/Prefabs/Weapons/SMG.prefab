@@ -389,7 +389,7 @@ MonoBehaviour:
   automatic: 1
   reloadTime: 2
   magazineSize: 40
-  ammoPool: 9999
+  ammoPool: 160
   ammoLoaded: 0
   rpm: 700
   recoil: {x: 0, y: 0, z: 0}

@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class ArsenalController : SerializedMonoBehaviour
 {
     [OdinSerialize] private IInputProvider inputProvider;
-    [SerializeField] public IWeapon activeWeapon;
+    [SerializeField] public static IWeapon activeWeapon;
 
     [SerializeField] public IWeapon pistol;
     [SerializeField] public IWeapon shotgun;

@@ -42,4 +42,9 @@ public class Health : Progressive, IDamageable
     {
         return Current;
     }
+
+    public void AddToHealth(float value)
+    {
+        Current += value;
+    }
 }    
