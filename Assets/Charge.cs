@@ -26,8 +26,10 @@ public class Charge : MonoBehaviour
         {
             /* Show UI to place charge */
             UI_manager.ActivatePlaceChargeText();
-        } else
+            ChargePlaced = true;
+        } else if (!IsPlayerInRange() && ChargePlaced)
         {
+            ChargePlaced = false;
             UI_manager.DeactivatePlaceChargeText();
         }
     }
