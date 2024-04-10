@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class Crate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] public int AddToAmmo;
+    [SerializeField] public float AddToHealth;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,12 +14,12 @@ public class Crate : MonoBehaviour
         {
             if (gameObject.tag == "ammo_pickup")
             {
-                ((RangedWeapon)ArsenalController.activeWeapon).AmmoPool += 100;
+                ((RangedWeapon)ArsenalController.activeWeapon).AmmoPool += AddToAmmo;
                 Destroy(gameObject);    
             }
             if (gameObject.tag == "health_pickup")
             {
-                other.gameObject.GetComponent<Health>().AddToHealth(50f);
+                other.gameObject.GetComponent<Health>().AddToHealth(AddToHealth);
                 Destroy(gameObject);
             }
         }

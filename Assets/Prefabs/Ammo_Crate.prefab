@@ -357,3 +357,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e640344015e9fef4ea0b86e0ec25fa30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddToAmmo: 100
+  AddToHealth: 50

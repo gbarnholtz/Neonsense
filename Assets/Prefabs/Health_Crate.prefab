@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6198399659737094265}
   m_Layer: 0
   m_Name: Health_Crate
-  m_TagString: Untagged
+  m_TagString: health_pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -837,3 +837,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e640344015e9fef4ea0b86e0ec25fa30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddToAmmo: 100
+  AddToHealth: 50
