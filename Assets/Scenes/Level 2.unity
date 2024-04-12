@@ -4451,7 +4451,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1077943704}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2705181349650105720, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
 --- !u!1 &198911131
 GameObject:
@@ -8399,7 +8400,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-397788
+  m_Name: pb_Mesh-586332
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19344,7 +19345,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 381042361}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2705181349650105720, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
 --- !u!1 &730221957 stripped
 GameObject:
@@ -19369,6 +19371,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6627107464513559954, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
   m_PrefabInstance: {fileID: 730221956}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &730221962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730221957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865e9a215e2818c4eb047a3214db73c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobSpeed: 4
+  bobHeight: 0.2
 --- !u!43 &738712161
 Mesh:
   m_ObjectHideFlags: 0
@@ -28605,7 +28621,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-396014
+  m_Name: pb_Mesh-584558
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30527,6 +30543,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.5, y: 0, z: 0.5}
+--- !u!114 &1162792022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162792017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865e9a215e2818c4eb047a3214db73c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobSpeed: 4
+  bobHeight: 0.2
 --- !u!43 &1178318887
 Mesh:
   m_ObjectHideFlags: 0
