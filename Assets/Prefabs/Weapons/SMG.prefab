@@ -384,7 +384,7 @@ MonoBehaviour:
   IsAttacking: 0
   firePoint: {fileID: 3591885968686185719}
   bulletDamage: 0.5
-  bulletSpeed: 100
+  bulletSpeed: 200
   bulletsPerShot: 1
   automatic: 1
   reloadTime: 2
