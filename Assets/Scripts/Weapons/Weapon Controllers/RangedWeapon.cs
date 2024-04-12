@@ -49,7 +49,10 @@ public class RangedWeapon : IWeapon
         ammoLoaded = magazineSize;
         timeReloadStarted = -reloadTime;
         audioSource = gameObject.GetComponent<AudioSource>();
-        weaponSound = audioSource.clip;
+        if (audioSource != null)
+        {
+            weaponSound = audioSource.clip;
+        }
     }
 
     public IEnumerator Reload() {
