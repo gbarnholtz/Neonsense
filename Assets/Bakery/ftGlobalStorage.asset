@@ -400,7 +400,55 @@ MonoBehaviour:
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
-  uvOverlapAssetList: 00000000ffffffff
+  - Assets/Standard Assets/Prototyping/Models/PickupPrototype01x01x01.fbx
+  - Assets/Animation/Basic Shooter Pack/strafe left.fbx
+  - Assets/Standard Assets/Prototyping/Models/JoinMidPrototype04x06x01.fbx
+  - Assets/Standard Assets/Prototyping/Models/StepsPrototype04x02x02.fbx
+  - Assets/Standard Assets/Prototyping/Models/CubePrototype08x08x08.fbx
+  - Assets/Animation/Basic Shooter Pack/toss grenade.fbx
+  - Assets/Animation/Basic Shooter Pack/rifle run.fbx
+  - Assets/Models/drone.fbx
+  - Assets/Samples/Universal RP/12.1.7/URP Package Samples/RendererFeatures/TrailEffect/SandBoxModel.fbx
+  - Assets/Standard Assets/Prototyping/Models/BlockPrototype04x04x04.fbx
+  - Assets/Animation/Basic Shooter Pack/hit reaction.fbx
+  - Assets/UnityTechnologies/EffectExamples/WeaponEffects/Models/RocketWarhead.FBX
+  - Assets/Samples/Universal RP/12.1.7/URP Package Samples/Shaders/Lit/Models/UVSphere.fbx
+  - Assets/Standard Assets/Prototyping/Models/JoinOuterPrototype02x06x02.fbx
+  - Assets/Animation/Basic Shooter Pack/turning right 45 degrees.fbx
+  - Assets/Standard Assets/Prototyping/Models/JoinInnerPrototype01x06x01.fbx
+  - Assets/Standard Assets/Prototyping/Models/PillarPrototype01x02x01.fbx
+  - Assets/Standard Assets/Prototyping/Models/WallPrototype08x08x01.fbx
+  - Assets/Animation/Basic Shooter Pack/strafe (2).fbx
+  - Assets/Standard Assets/Prototyping/Models/FloorPrototype08x01x08.fbx
+  - Assets/Standard Assets/Prototyping/Models/PillarPrototype02x08x02.fbx
+  - Assets/Animation/Basic Shooter Pack/turn left.fbx
+  - Assets/Models/smg.blend
+  - Assets/Models/shotgun.blend
+  - Assets/Standard Assets/Prototyping/Models/PlatformPrototype08x01x08.fbx
+  - Assets/Standard Assets/Prototyping/Models/FloorPrototype04x01x04.fbx
+  - Assets/Standard Assets/Prototyping/Models/PlatformPrototype02x01x02.fbx
+  - Assets/Animation/Basic Shooter Pack/strafe right.fbx
+  - Assets/Animation/Basic Shooter Pack/walking.fbx
+  - Assets/Animation/Basic Shooter Pack/strafe.fbx
+  - Assets/Models/obj-drone.fbx
+  - Assets/UnityTechnologies/EffectExamples/WeaponEffects/Models/ShellCasing.FBX
+  - Assets/Standard Assets/Prototyping/Models/RampPrototype04x02x02.fbx
+  - Assets/Models/Ch44_nonPBR.fbx
+  - Assets/Animation/Basic Shooter Pack/rifle jump.fbx
+  - Assets/Standard Assets/Prototyping/Models/FloorPrototype64x01x64.fbx
+  - Assets/Animation/Basic Shooter Pack/run backwards.fbx
+  - Assets/Animation/Basic Shooter Pack/rifle aiming idle.fbx
+  - Assets/Standard Assets/Prototyping/Models/PlatformPrototype04x01x04.fbx
+  - Assets/Models/pistol.blend
+  - Assets/Animation/Basic Shooter Pack/walking backwards.fbx
+  - Assets/Animation/Basic Shooter Pack/firing rifle.fbx
+  - Packages/com.unity.render-pipelines.core/Editor/Resources/DebugProbe.fbx
+  - Assets/Standard Assets/Prototyping/Models/HousePrototype16x16x24.fbx
+  - Assets/Standard Assets/Prototyping/Models/CubePrototype04x04x04.fbx
+  - Assets/Animation/Basic Shooter Pack/obj-med-enemy.fbx
+  - Assets/Animation/Basic Shooter Pack/reloading.fbx
+  - Assets/Standard Assets/Prototyping/Models/CubePrototype02x02x02.fbx
+  uvOverlapAssetList: 00000000ffffffff010100000000000000000000000000000000000000000000000000000101000001010000000000000000000001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000001010000000000000000000000000000000000000000000000000000010100000101000000000000000000000000000000000000000000000000000000000000010100000000000000000000000000000000000000000000000000000000000000000000
   xatlasWarningShown: 0
   foundCompatibleSetup: 1
   gpuName: NVIDIA GeForce RTX 4070
