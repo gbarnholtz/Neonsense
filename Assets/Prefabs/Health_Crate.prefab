@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8085280980873394108}
   - component: {fileID: 8085280980873394109}
   - component: {fileID: 6198399659737094265}
+  - component: {fileID: 2347531453265909099}
   m_Layer: 0
   m_Name: Health_Crate
   m_TagString: health_pickup
@@ -781,7 +782,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 851363b4ae3819f4586613bce75e8b05, type: 2}
+  - {fileID: 2100000, guid: ab76a12001c1d7f499c490671a8eb326, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -839,3 +840,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AddToAmmo: 100
   AddToHealth: 50
+--- !u!114 &2347531453265909099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085280980873394106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865e9a215e2818c4eb047a3214db73c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobSpeed: 4
+  bobHeight: 0.2
