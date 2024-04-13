@@ -88,4 +88,29 @@ crashlytics-build.properties
 # If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
 # Log files can be ignored.
 fmod_editor.log
-/Assets/Editor/x64/Bakery
+Assets/Editor/x64/Bakery/cudart32_91.dll
+Assets/Editor/x64/Bakery/cudart32_91.dll.meta
+Assets/Editor/x64/Bakery/cudart64_90.dll
+Assets/Editor/x64/Bakery/cudart64_90.dll.meta
+Assets/Editor/x64/Bakery/cudart64_91.dll
+Assets/Editor/x64/Bakery/cudart64_91.dll.meta
+Assets/Editor/x64/Bakery/cudnn64_7.dll
+Assets/Editor/x64/Bakery/cudnn64_7.dll.meta
+Assets/Editor/x64/Bakery/OpenImageDenoise.dll
+Assets/Editor/x64/Bakery/OpenImageDenoise.dll.meta
+Assets/Editor/x64/Bakery/OpenImageDenoise_core.dll
+Assets/Editor/x64/Bakery/OpenImageDenoise_core.dll.meta
+Assets/Editor/x64/Bakery/OpenImageDenoise_device_cuda.dll
+Assets/Editor/x64/Bakery/OpenImageDenoise_device_cuda.dll.meta
+Assets/Editor/x64/Bakery/optix.1.dll
+Assets/Editor/x64/Bakery/optix.1.dll.meta
+Assets/Editor/x64/Bakery/optix.51.dll
+Assets/Editor/x64/Bakery/optix.51.dll.meta
+Assets/Editor/x64/Bakery/optix.6.0.0.dll
+Assets/Editor/x64/Bakery/optix.6.0.0.dll.meta
+Assets/Editor/x64/Bakery/optix_denoiser.51.dll
+Assets/Editor/x64/Bakery/optix_denoiser.51.dll.meta
+Assets/Editor/x64/Bakery/optix_denoiser.6.0.0.dll
+Assets/Editor/x64/Bakery/optix_denoiser.6.0.0.dll.meta
+Assets/Editor/x64/Bakery/NormalsFittingTexture_dds
+Assets/Editor/x64/Bakery/NormalsFittingTexture_dds.meta
