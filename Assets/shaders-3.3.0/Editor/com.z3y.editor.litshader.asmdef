@@ -1,0 +1,21 @@
+{
+    "name": "com.z3y.shaders",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.vrchat.base",
+            "expression": "0",
+            "define": "VRCHAT_SDK"
+        }
+    ],
+    "noEngineReferences": false
+}
