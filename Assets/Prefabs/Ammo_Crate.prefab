@@ -360,6 +360,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AddToAmmo: 100
   AddToHealth: 50
+  soundAttachedToPlayer: {fileID: 0}
+  healthSound: {fileID: 0}
+  ammoSound: {fileID: 0}
 --- !u!114 &823055648711422794
 MonoBehaviour:
   m_ObjectHideFlags: 0

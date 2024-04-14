@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Crate : MonoBehaviour
@@ -7,6 +5,12 @@ public class Crate : MonoBehaviour
 
     [SerializeField] public int AddToAmmo;
     [SerializeField] public float AddToHealth;
+    
+    [Header("Sounds")]
+    [SerializeField] private AudioSource soundAttachedToPlayer;
+    [SerializeField] private AudioClip healthSound;
+    [SerializeField] private AudioClip ammoSound;
+    //[SerializeField] [Range(0, 1)] private float soundVolume = 1f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,11 +19,25 @@ public class Crate : MonoBehaviour
             if (gameObject.tag == "ammo_pickup")
             {
                 ((RangedWeapon)ArsenalController.activeWeapon).AmmoPool += AddToAmmo;
+                
+                if (soundAttachedToPlayer != null && ammoSound != null)
+                {
+                    //soundAttachedToPlayer.PlayOneShot(ammoSound, soundVolume);
+                    soundAttachedToPlayer.PlayOneShot(ammoSound);
+                }
+                
                 Destroy(gameObject);    
             }
             if (gameObject.tag == "health_pickup")
             {
                 other.gameObject.GetComponent<Health>().AddToHealth(AddToHealth);
+                
+                if (soundAttachedToPlayer != null && healthSound != null)
+                {
+                    //soundAttachedToPlayer.PlayOneShot(healthSound, soundVolume);
+                    soundAttachedToPlayer.PlayOneShot(healthSound);
+                }
+                
                 Destroy(gameObject);
             }
         }
