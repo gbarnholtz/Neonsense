@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 308378453702008555}
   - component: {fileID: 308378453702008556}
   - component: {fileID: 308378453702008557}
-  - component: {fileID: 308378453702008558}
+  - component: {fileID: 4572469401546884038}
   m_Layer: 0
   m_Name: Computer
   m_TagString: Untagged
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 16000000
+  m_SelectedVertices: 
 --- !u!114 &308378453702008555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,8 +1051,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308378453702008559}
   m_Mesh: {fileID: 0}
---- !u!64 &308378453702008558
-MeshCollider:
+--- !u!65 &4572469401546884038
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1061,7 +1061,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.4873222, y: 1.3962517, z: 0.5215685}
+  m_Center: {x: 0.29527608, y: 0.69812584, z: -0.26077834}
