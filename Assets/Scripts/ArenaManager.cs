@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class ArenaManager : SerializedMonoBehaviour
 {
-    public readonly GameObject Elevator;
+    public readonly GameObject ElevatorTrigger;
+    public readonly Animator ElevatorDoors;
     public readonly GameObject RemoveBarriers;
 
 
     private void Start()
     {
-        if (Elevator != null)
-            Elevator.SetActive(false);
+        if (ElevatorTrigger != null)
+            ElevatorTrigger.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,8 +24,10 @@ public class ArenaManager : SerializedMonoBehaviour
         if (transform.childCount == 0)
         {
             Debug.Log("All enemies in first arena are dead");
-            if (Elevator != null)
-                Elevator.SetActive(true);
+            if (ElevatorTrigger != null)
+                ElevatorTrigger.SetActive(true);
+            if (ElevatorDoors != null)
+                ElevatorDoors.enabled = true;
             if (RemoveBarriers != null)
                 RemoveBarriers.SetActive(false);
 
