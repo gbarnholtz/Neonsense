@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8085280980873394109}
   - component: {fileID: 6198399659737094265}
   - component: {fileID: 2347531453265909099}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Health_Crate
   m_TagString: health_pickup
   m_Icon: {fileID: 0}
