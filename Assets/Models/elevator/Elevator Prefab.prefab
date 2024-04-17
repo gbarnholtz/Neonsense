@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 56373727311135781}
   - component: {fileID: 56373727311135780}
   - component: {fileID: 56373727311135779}
+  - component: {fileID: 395874151505725658}
   m_Layer: 0
   m_Name: ElevatorDoors (2)
   m_TagString: Untagged
@@ -927,6 +928,19 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &395874151505725658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56373727311135777}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3354589, y: 2.495986, z: 0.104575}
+  m_Center: {x: -0.66772455, y: -0.000003516674, z: 0.00000086799264}
 --- !u!1 &56373728007200025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1272,7 @@ GameObject:
   - component: {fileID: 56373728521146448}
   - component: {fileID: 56373728521146479}
   - component: {fileID: 56373728521146478}
+  - component: {fileID: 2696102686984679390}
   m_Layer: 0
   m_Name: ElevatorDoors (1)
   m_TagString: Untagged
@@ -1867,6 +1882,19 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &2696102686984679390
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56373728521146476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.335458, y: 2.495986, z: 0.104575}
+  m_Center: {x: 0.6677302, y: -0.000003516674, z: 0.00000086799264}
 --- !u!1 &581299478426283434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2420,6 +2448,7 @@ GameObject:
   - component: {fileID: 2874956312642122828}
   - component: {fileID: 1639415446659649752}
   - component: {fileID: 8179915343686327870}
+  - component: {fileID: 2478274506888263352}
   m_Layer: 0
   m_Name: ElevatorDoorFrame
   m_TagString: Untagged
@@ -6795,6 +6824,20 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!64 &2478274506888263352
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8179915343686327869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &56373727626737905
 PrefabInstance:
   m_ObjectHideFlags: 0
