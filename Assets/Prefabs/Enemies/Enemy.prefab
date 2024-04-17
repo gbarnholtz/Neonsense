@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToChasePlayer: 25
-  stoppingDistance: 2
+  stoppingDistance: 5
 --- !u!195 &1222755513714852243
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -166,7 +166,8 @@ MonoBehaviour:
   innerTarget: 0
   targetDirection: {x: 0, y: 0, z: 0}
   randomizedVector: {x: 0, y: 0, z: 0}
-  distanceToShoot: 5
+  distanceToShoot: 10
+  distanceToLookAtPlayer: 100
   weapon: {fileID: 0}
 --- !u!114 &1222755513714852253
 MonoBehaviour:

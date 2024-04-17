@@ -15,6 +15,7 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         
     private GameObject player;
     [SerializeField] private int distanceToShoot;
+    [SerializeField] private int distanceToLookAtPlayer;
     [SerializeField] private RangedWeapon weapon;
 
     public ButtonAction Jump => jump;
@@ -50,11 +51,18 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
 
     void Update()
     {
+        /* Shoot player if within range */
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToShoot)
         {
-            rotateWeaponTowardsPlayer();
             weapon.StartTryingToFire();
-        } else
+        } 
+        
+        /* Rotate weapon towards player */
+        if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
+        {
+            rotateWeaponTowardsPlayer();
+        }
+        else
         {
             weapon.transform.rotation = new Quaternion();
         }
