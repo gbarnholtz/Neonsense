@@ -2792,3 +2792,7 @@ Running halffloat2hdr "C:\Users\Admin\AppData\Local\Temp\frender/Level 2_LM0_fin
 Running rgba2tga "C:\Users\Admin\AppData\Local\Temp\frender/Level 2_LM0_final_Dir.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/Level 2_LM0_dir.tga" 
 Running halffloat2hdr "C:\Users\Admin\AppData\Local\Temp\frender/Level 2_LMA1_final_HDR.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/Level 2_LMA1_final.hdr" 1024
 Running rgba2tga "C:\Users\Admin\AppData\Local\Temp\frender/Level 2_LMA1_final_Dir.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/Level 2_LMA1_dir.tga" 
+Done
+Done
+Done
+Done
