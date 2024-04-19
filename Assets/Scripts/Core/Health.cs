@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,10 @@ public class Health : Progressive, IDamageable
     private Team team;
     public List<IDamageModifier> DamageModifiers = new List<IDamageModifier>();
 
+    /* Only for mat swap purposes */
+    [SerializeField] private Material hurtMat;
+    [SerializeField] private GameObject Ch44;
+
     public void Start()
     {
         team = gameObject.GetComponent<Teamable>().Team;
@@ -24,9 +29,25 @@ public class Health : Progressive, IDamageable
         rb = transform.GetComponent<Rigidbody>();
     }
 
+    private IEnumerator SwitchMat()
+    {
+        // Get all Renderer components attached to the GameObject
+        Renderer renderer = Ch44.GetComponent<Renderer>();
+        Material blueMat = renderer.material;
+        renderer.material = hurtMat;
+        yield return new WaitForSeconds(0.25f);
+        renderer.material = blueMat;
+    }
+
     public void TakeDamage(float damage)      
     { 
         Current -= damage;
+
+        if (team == Team.Enemy)
+        {
+            StartCoroutine(SwitchMat());
+        }
+
         if (Current <= 0)
         {
             if (team == Team.Enemy) Destroy(gameObject);

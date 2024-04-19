@@ -229,6 +229,8 @@ MonoBehaviour:
       Data: 
   initial: 5
   DisplayOverheadHealth: 0
+  hurtMat: {fileID: 2100000, guid: a87cd1582efdc0f4bb451baae7b4a564, type: 2}
+  Ch44: {fileID: 4690225943621801952}
 --- !u!1001 &1530171913957470302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,5 +357,10 @@ PrefabInstance:
 --- !u!4 &2372975286111126408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4479127543551721038, guid: 8101dfa6b3ba1744c8ccee365c973f31, type: 3}
+  m_PrefabInstance: {fileID: 2217898261430025670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4690225943621801952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6904168941604055590, guid: 8101dfa6b3ba1744c8ccee365c973f31, type: 3}
   m_PrefabInstance: {fileID: 2217898261430025670}
   m_PrefabAsset: {fileID: 0}
