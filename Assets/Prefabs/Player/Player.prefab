@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 280147645013546488}
   - component: {fileID: 5849769197017468895}
   - component: {fileID: 5730761275400699059}
+  - component: {fileID: 3878291675397364471}
   m_Layer: 3
   m_Name: Camera
   m_TagString: MainCamera
@@ -1066,6 +1067,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 7757060408971392405}
+--- !u!114 &3878291675397364471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757060408971392405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfea5ed4cd5feff47bd657f6899ae6c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionLossEnabled: 1
+  visionLossStartsAt: 0.55
+  visionLossMaxEffect: 0.6
+  visionLossHeartBeat: 0
+  detailLossEnabled: 1
+  detailLossStartsAt: 0.45
+  detailLossMaxEffect: 0.8
+  colorLossEnabled: 1
+  colorLossStartsAt: 0.65
+  colorLossTowardRedStartsAt: 0.15
+  doubleVisionEnabled: 1
+  doubleVisionStartsAt: 0.25
+  doubleVisionMaxEffect: 0.35
+  doubleVisionWaving: 0.5
+  stopEffectsWhenZeroHealth: 1
+  showInEditor: 0
+  simulateHealth: 1
 --- !u!1001 &3517539666823211776
 PrefabInstance:
   m_ObjectHideFlags: 0
