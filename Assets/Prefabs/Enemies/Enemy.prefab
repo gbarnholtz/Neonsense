@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1222755513714852251}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: normal_enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   DisplayOverheadHealth: 0
   hurtMat: {fileID: 2100000, guid: a87cd1582efdc0f4bb451baae7b4a564, type: 2}
   Ch44: {fileID: 4690225943621801952}
+  hurtTime: 0.2
 --- !u!1001 &1530171913957470302
 PrefabInstance:
   m_ObjectHideFlags: 0

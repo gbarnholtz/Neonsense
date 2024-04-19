@@ -17,6 +17,10 @@ public class Health : Progressive, IDamageable
     /* Only for mat swap purposes */
     [SerializeField] private Material hurtMat;
     [SerializeField] private GameObject Ch44;
+    [SerializeField] private float hurtTime;
+
+    private bool isCouroutineRunning = false;
+
 
     public void Start()
     {
@@ -31,19 +35,25 @@ public class Health : Progressive, IDamageable
 
     private IEnumerator SwitchMat()
     {
+        isCouroutineRunning = true;
+
         // Get all Renderer components attached to the GameObject
         Renderer renderer = Ch44.GetComponent<Renderer>();
         Material blueMat = renderer.material;
         renderer.material = hurtMat;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(hurtTime);
         renderer.material = blueMat;
+
+        isCouroutineRunning = false;
     }
 
     public void TakeDamage(float damage)      
     { 
         Current -= damage;
 
-        if (team == Team.Enemy)
+        if (team == Team.Enemy 
+            && gameObject.tag == "normal_enemy"
+            && !isCouroutineRunning)
         {
             StartCoroutine(SwitchMat());
         }
