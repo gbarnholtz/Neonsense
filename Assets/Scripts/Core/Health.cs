@@ -47,26 +47,29 @@ public class Health : Progressive, IDamageable
         isCouroutineRunning = false;
     }
 
-    public void TakeDamage(float damage)      
+    public void TakeDamage(float damage, Team shooterTeam)      
     { 
-        Current -= damage;
-
-        if (team == Team.Enemy)
+        if (shooterTeam != team)
         {
-            UI_Manager.Instance.EnableHitMarker(hurtTime);
+            Current -= damage;
 
-            /* Switch mat for normal enemies*/
-            if (gameObject.tag == "normal_enemy" && !isCouroutineRunning)
-                StartCoroutine(SwitchMat());
-        }
-
-        if (Current <= 0)
-        {
-            if (team == Team.Enemy) Destroy(gameObject);
-            if (team == Team.Ally)
+            if (team == Team.Enemy)
             {
-                Scene thisScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(thisScene.name);
+                UI_Manager.Instance.EnableHitMarker(hurtTime);
+
+                /* Switch mat for normal enemies*/
+                if (gameObject.tag == "normal_enemy" && !isCouroutineRunning)
+                    StartCoroutine(SwitchMat());
+            }
+
+            if (Current <= 0)
+            {
+                if (team == Team.Enemy) Destroy(gameObject);
+                if (team == Team.Ally)
+                {
+                    Scene thisScene = SceneManager.GetActiveScene();
+                    SceneManager.LoadScene(thisScene.name);
+                }
             }
         }
     }
