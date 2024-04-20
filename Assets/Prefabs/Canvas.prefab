@@ -1808,6 +1808,7 @@ MonoBehaviour:
   healthBar: {fileID: 8215473526329802218}
   PlaceCharge_Text: {fileID: 6380650172589178670}
   CurrentWeapon_Text: {fileID: 7212854742473126416}
+  hitMarker: {fileID: 3223222209983912748}
 --- !u!114 &7024167781629013259
 MonoBehaviour:
   m_ObjectHideFlags: 0

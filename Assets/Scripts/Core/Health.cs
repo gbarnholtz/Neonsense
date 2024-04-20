@@ -51,11 +51,13 @@ public class Health : Progressive, IDamageable
     { 
         Current -= damage;
 
-        if (team == Team.Enemy 
-            && gameObject.tag == "normal_enemy"
-            && !isCouroutineRunning)
+        if (team == Team.Enemy)
         {
-            StartCoroutine(SwitchMat());
+            UI_Manager.Instance.EnableHitMarker(hurtTime);
+
+            /* Switch mat for normal enemies*/
+            if (gameObject.tag == "normal_enemy" && !isCouroutineRunning)
+                StartCoroutine(SwitchMat());
         }
 
         if (Current <= 0)
