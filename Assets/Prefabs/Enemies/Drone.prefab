@@ -50440,7 +50440,7 @@ GameObject:
   - component: {fileID: 3584517207988484633}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: drone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50592,6 +50592,7 @@ MonoBehaviour:
   targetDirection: {x: 0, y: 0, z: 0}
   randomizedVector: {x: 0, y: 0, z: 0}
   distanceToShoot: 15
+  distanceToLookAtPlayer: 0
   weapon: {fileID: 6064913536173387118}
 --- !u!114 &5286086587929033652
 MonoBehaviour:
@@ -50653,6 +50654,9 @@ MonoBehaviour:
       Data: 
   initial: 5
   DisplayOverheadHealth: 0
+  hurtMat: {fileID: 0}
+  Ch44: {fileID: 0}
+  hurtTime: 0
 --- !u!95 &3584517207988484633
 Animator:
   serializedVersion: 4
