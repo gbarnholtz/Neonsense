@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using MagicPigGames;
 using Unity.VisualScripting;
+using System.Drawing;
 
 public class UI_Manager : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class UI_Manager : MonoBehaviour
     private ArsenalController arsenal;
     private Health health;
 
+    [SerializeField] private GameObject damageOverlay;
+    private Image damage_image;
+
     /* Singleton pattern */
     private static UI_Manager instance;
     public static UI_Manager Instance
@@ -43,6 +47,13 @@ public class UI_Manager : MonoBehaviour
         arsenal = player.GetComponent<ArsenalController>();
         health = player.GetComponent<Health>();
 
+        damage_image = damageOverlay.GetComponent<Image>();
+
+        /* Makes damage overlay transparent */
+        Vector4 color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
+        damage_image.color = color;
+
+
         instance = this;
     }
 
@@ -59,6 +70,14 @@ public class UI_Manager : MonoBehaviour
             MaxAmmo_Text.text = weapon.AmmoPool.ToString();
         }
         healthBar.SetProgress(playerHealth.GetHealth()*0.01f);
+
+        DamageOverlay();
+    }
+
+    /* Updates damage overlay based on player hp */
+    private void DamageOverlay()
+    {
+        damage_image.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f - (playerHealth.Current / playerHealth.Max));
     }
 
     private bool IsCoroutineActive = false;
