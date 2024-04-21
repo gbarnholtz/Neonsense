@@ -9,6 +9,8 @@ public class ArenaManager : SerializedMonoBehaviour
     public readonly Animator ElevatorDoors;
     public readonly GameObject RemoveBarriers;
 
+    [SerializeField] private AudioSource levelMusic;
+    [SerializeField] private AudioSource arenaMusic;
 
     private void Start()
     {
@@ -17,9 +19,8 @@ public class ArenaManager : SerializedMonoBehaviour
         if (ElevatorDoors != null)
             ElevatorDoors.enabled = false;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void CheckIfEnemiesDefeated()
     {
         /* If Arena gameobject has no children, 
          * then all enemies in arena are dead*/
@@ -32,6 +33,9 @@ public class ArenaManager : SerializedMonoBehaviour
                 ElevatorDoors.enabled = true;
             if (RemoveBarriers != null)
                 RemoveBarriers.SetActive(false);
+           
+            arenaMusic.Stop();
+            levelMusic.Play();
 
             Destroy(gameObject);
         }

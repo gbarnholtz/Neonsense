@@ -28,12 +28,15 @@ public class Health : Progressive, IDamageable
 
     private bool isCouroutineRunning = false;
 
+    private ArenaManager _arenaManager;
+
 
     public void Start()
     {
         team = gameObject.GetComponent<Teamable>().Team;
         audioSourceObj = GameObject.FindWithTag("player_audio_source");
         audioSource = audioSourceObj.GetComponent<AudioSource>();
+        _arenaManager = GetComponent<ArenaManager>();
     }
     
     public void OnEnable()
@@ -74,7 +77,11 @@ public class Health : Progressive, IDamageable
 
             if (Current <= 0)
             {
-                if (team == Team.Enemy) Destroy(gameObject);
+                if (team == Team.Enemy)
+                {
+                    _arenaManager.CheckIfEnemiesDefeated();
+                    Destroy(gameObject);
+                }
                 if (team == Team.Ally)
                 {
                     Scene thisScene = SceneManager.GetActiveScene();
