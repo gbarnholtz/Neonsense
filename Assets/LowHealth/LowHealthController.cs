@@ -92,7 +92,7 @@ namespace Leguar.LowHealth {
 		public float simulateHealth;
 
 		private Material lhMaterial;
-		//private float playerHealth; 
+		private float playerHealth; 
 
 		private bool smoothPlayerHealth;
 		private float sphStart;
