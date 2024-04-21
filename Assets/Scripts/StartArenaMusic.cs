@@ -10,7 +10,7 @@ public class StartArenaMusic : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            levelMusic.Stop();
+            levelMusic.Pause();
             arenaMusic.Play();
         }
     }
