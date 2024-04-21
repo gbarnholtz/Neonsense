@@ -10,8 +10,12 @@ public class SwitchWeaponController : MonoBehaviour
 
     private void reloadWeapon(InputAction.CallbackContext obj)
     {
-        ArsenalController.activeWeapon.StopTryingToFire();
-        ArsenalController.activeWeapon.StartCoroutine(((RangedWeapon)ArsenalController.activeWeapon).DelayedReload());
+        /* If weapon is not reloading, initiate reload */
+        if (!((RangedWeapon)ArsenalController.activeWeapon).IsReloading)
+        {
+            ArsenalController.activeWeapon.StopTryingToFire();
+            ArsenalController.activeWeapon.StartCoroutine(((RangedWeapon)ArsenalController.activeWeapon).DelayedReload());
+        }
     }
 
     private void Awake()

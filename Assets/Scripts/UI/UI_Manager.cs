@@ -72,14 +72,14 @@ public class UI_Manager : MonoBehaviour
             CurrentWeapon_Text.text = weapon.gameObject.name;
             CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
             MaxAmmo_Text.text = weapon.AmmoPool.ToString();
+            CheckReloadPopup(weapon);
         }
         healthBar.SetProgress(playerHealth.GetHealth()*0.01f);
 
         DamageOverlay();
-        ReloadPopup();
     }
 
-    private void ReloadPopup()
+    private void CheckReloadPopup(RangedWeapon weapon)
     {
         if ((float)weapon.AmmoLoaded / (float)weapon.MagazineSize < reload_popup_percentage)
         {
