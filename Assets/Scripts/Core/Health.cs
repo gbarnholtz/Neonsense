@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using Random = System.Random;
 
 public class Health : Progressive, IDamageable
 {
@@ -19,8 +21,8 @@ public class Health : Progressive, IDamageable
     [SerializeField] private GameObject Ch44;
     [SerializeField] private float hurtTime;
     
-    [SerializeField] private AudioClip impactFlesh;
-    [SerializeField] private AudioClip impactDrone;
+    [SerializeField] private AudioClip[] hitSound;
+    //[SerializeField] private AudioClip impactDrone;
     private GameObject audioSourceObj;
     private AudioSource audioSource;
 
@@ -59,14 +61,7 @@ public class Health : Progressive, IDamageable
         if (shooterTeam != team)
         {
             Current -= damage;
-            if (gameObject.CompareTag("drone"))
-            {
-                audioSource.PlayOneShot(impactDrone);
-            }
-            else if (gameObject.CompareTag("normal_enemy"))
-            {
-                audioSource.PlayOneShot(impactFlesh);
-            }
+            audioSource.PlayOneShot(hitSound[UnityEngine.Random.Range(0, hitSound.Length)]);
             
             if (team == Team.Enemy)
             {

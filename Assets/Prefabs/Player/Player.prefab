@@ -315,7 +315,13 @@ MonoBehaviour:
   hurtMat: {fileID: 0}
   Ch44: {fileID: 0}
   hurtTime: 0
-  impact: {fileID: 0}
+  hitSound:
+  - {fileID: 8300000, guid: 57ad9b479b8dc0040b9bc9c7d8f347a8, type: 3}
+  - {fileID: 8300000, guid: c02c517c4f5be4d4a9a9b9561e1ebbc2, type: 3}
+  - {fileID: 8300000, guid: da149a438ffa1604e9b2e3ecf223fbc4, type: 3}
+  - {fileID: 8300000, guid: b92f84f07ad382b40aae378a9fbafd08, type: 3}
+  - {fileID: 8300000, guid: 220811284f28d8147a2e1044378b6d86, type: 3}
+  - {fileID: 8300000, guid: a8ca353dc597ef142aeef64141d9e076, type: 3}
 --- !u!114 &8765060215111350664
 MonoBehaviour:
   m_ObjectHideFlags: 0
