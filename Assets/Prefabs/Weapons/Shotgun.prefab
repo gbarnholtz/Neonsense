@@ -387,8 +387,8 @@ MonoBehaviour:
   bulletSpeed: 75
   bulletsPerShot: 20
   automatic: 0
-  reloadTime: 3
-  magazineSize: 2
+  reloadTime: 1.5
+  magazineSize: 6
   ammoPool: 20
   ammoLoaded: 0
   rpm: 60
