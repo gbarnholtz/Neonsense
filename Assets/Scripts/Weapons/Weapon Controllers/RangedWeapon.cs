@@ -25,6 +25,8 @@ public class RangedWeapon : IWeapon
 
     public float rpm = 60;
 
+    public int maxAmmo;
+
     [SerializeField] protected Vector3 recoil;
     [SerializeField, Range(0,1)] private float spread;
     [SerializeField] Bullet bullet;
@@ -56,6 +58,8 @@ public class RangedWeapon : IWeapon
             weaponSound = audioSource.clip;
         }
         SetTeam();
+
+        maxAmmo = ammoPool;
     }
 
     private void SetTeam()

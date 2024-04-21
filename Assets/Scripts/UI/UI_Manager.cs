@@ -30,9 +30,10 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameObject damageOverlay;
     private Image damage_image;
 
-
     [SerializeField] private GameObject reload_popup;
     [SerializeField] private float reload_popup_percentage;
+
+    [SerializeField] private GameObject low_ammo_popup;
 
     /* Singleton pattern */
     private static UI_Manager instance;
@@ -73,10 +74,23 @@ public class UI_Manager : MonoBehaviour
             CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
             MaxAmmo_Text.text = weapon.AmmoPool.ToString();
             CheckReloadPopup(weapon);
+            CheckLowAmmoPopup(weapon);
         }
         healthBar.SetProgress(playerHealth.GetHealth()*0.01f);
 
         DamageOverlay();
+    }
+
+    private void CheckLowAmmoPopup(RangedWeapon weapon)
+    {
+        if ((float)weapon.AmmoPool / (float)weapon.maxAmmo < reload_popup_percentage)
+        {
+            low_ammo_popup.SetActive(true);
+        }
+        else
+        {
+            low_ammo_popup.SetActive(false);
+        }
     }
 
     private void CheckReloadPopup(RangedWeapon weapon)
