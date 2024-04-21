@@ -12,6 +12,10 @@ PrefabInstance:
       value: Enemy_Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: impactFlesh
+      value: 
+      objectReference: {fileID: 8300000, guid: 220811284f28d8147a2e1044378b6d86, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
@@ -81,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024350413067552673, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5090553217038469203, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: m_IsActive

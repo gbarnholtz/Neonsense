@@ -19,7 +19,8 @@ public class Health : Progressive, IDamageable
     [SerializeField] private GameObject Ch44;
     [SerializeField] private float hurtTime;
     
-    [SerializeField] private AudioClip impact;
+    [SerializeField] private AudioClip impactFlesh;
+    [SerializeField] private AudioClip impactDrone;
     private GameObject audioSourceObj;
     private AudioSource audioSource;
 
@@ -58,10 +59,15 @@ public class Health : Progressive, IDamageable
         if (shooterTeam != team)
         {
             Current -= damage;
-            //if (gameObject.CompareTag("drone"))
-            //else if (gameObject.CompareTag("normal_enemy"))
-            audioSource.PlayOneShot(impact);
-
+            if (gameObject.CompareTag("drone"))
+            {
+                audioSource.PlayOneShot(impactDrone);
+            }
+            else if (gameObject.CompareTag("normal_enemy"))
+            {
+                audioSource.PlayOneShot(impactFlesh);
+            }
+            
             if (team == Team.Enemy)
             {
                 UI_Manager.Instance.EnableHitMarker(hurtTime);
