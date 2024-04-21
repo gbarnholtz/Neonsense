@@ -1218,6 +1218,10 @@ PrefabInstance:
       propertyPath: volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4588730248826798753, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 70cdd69639468754fb2788f9fb32f282, type: 3}
     - target: {fileID: 5197721666836309241, guid: a632967b91cd04c4fa758b6a18e1baff, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1327,6 +1331,10 @@ PrefabInstance:
       propertyPath: volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4588730248826798753, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 70cdd69639468754fb2788f9fb32f282, type: 3}
     - target: {fileID: 5197721666836309241, guid: f57a79cc35745c5408c0330e749e1404, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1498,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4588730248826798753, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
       propertyPath: volume
-      value: 0.1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5119427911556208545, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
       propertyPath: m_Layer
@@ -1627,7 +1635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4588730248826798753, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: volume
-      value: 0.1
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588730248826798753, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
+      propertyPath: reloadTime
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5197721666836309241, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: m_Mesh
