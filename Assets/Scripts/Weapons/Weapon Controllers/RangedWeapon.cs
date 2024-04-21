@@ -84,6 +84,7 @@ public class RangedWeapon : IWeapon
 
     public IEnumerator DelayedReload()
     {
+        audioSource.PlayOneShot(reloadSound);
         yield return new WaitForSeconds(autoReloadDelay);
         StartCoroutine(Reload());
     }
@@ -107,7 +108,6 @@ public class RangedWeapon : IWeapon
         ammoLoaded--;
         if (ammoLoaded <= 0)
         {
-            audioSource.PlayOneShot(reloadSound);
             StopTryingToFire();
             StartCoroutine(DelayedReload());
         }

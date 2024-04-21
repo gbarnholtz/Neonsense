@@ -134,6 +134,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""44621511-5697-414e-b383-a65a74871ca5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -499,6 +508,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""SwitchToSmg"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36946981-07af-4edd-9a63-2fbea9ffef25"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -547,6 +567,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Game_SwitchToShotgun = m_Game.FindAction("SwitchToShotgun", throwIfNotFound: true);
         m_Game_SwitchToRifle = m_Game.FindAction("SwitchToRifle", throwIfNotFound: true);
         m_Game_SwitchToSmg = m_Game.FindAction("SwitchToSmg", throwIfNotFound: true);
+        m_Game_Reload = m_Game.FindAction("Reload", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -618,6 +639,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_SwitchToShotgun;
     private readonly InputAction m_Game_SwitchToRifle;
     private readonly InputAction m_Game_SwitchToSmg;
+    private readonly InputAction m_Game_Reload;
     public struct GameActions
     {
         private @PlayerInput m_Wrapper;
@@ -634,6 +656,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @SwitchToShotgun => m_Wrapper.m_Game_SwitchToShotgun;
         public InputAction @SwitchToRifle => m_Wrapper.m_Game_SwitchToRifle;
         public InputAction @SwitchToSmg => m_Wrapper.m_Game_SwitchToSmg;
+        public InputAction @Reload => m_Wrapper.m_Game_Reload;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -679,6 +702,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SwitchToSmg.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToSmg;
                 @SwitchToSmg.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToSmg;
                 @SwitchToSmg.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToSmg;
+                @Reload.started -= m_Wrapper.m_GameActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnReload;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -719,6 +745,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SwitchToSmg.started += instance.OnSwitchToSmg;
                 @SwitchToSmg.performed += instance.OnSwitchToSmg;
                 @SwitchToSmg.canceled += instance.OnSwitchToSmg;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
             }
         }
     }
@@ -755,5 +784,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnSwitchToShotgun(InputAction.CallbackContext context);
         void OnSwitchToRifle(InputAction.CallbackContext context);
         void OnSwitchToSmg(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
 }
