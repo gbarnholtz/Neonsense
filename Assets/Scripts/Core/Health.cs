@@ -18,6 +18,10 @@ public class Health : Progressive, IDamageable
     [SerializeField] private Material hurtMat;
     [SerializeField] private GameObject Ch44;
     [SerializeField] private float hurtTime;
+    
+    [SerializeField] private AudioClip impact;
+    private GameObject audioSourceObj;
+    private AudioSource audioSource;
 
     private bool isCouroutineRunning = false;
 
@@ -25,6 +29,8 @@ public class Health : Progressive, IDamageable
     public void Start()
     {
         team = gameObject.GetComponent<Teamable>().Team;
+        audioSourceObj = GameObject.FindWithTag("player_audio_source");
+        audioSource = audioSourceObj.GetComponent<AudioSource>();
     }
     
     public void OnEnable()
@@ -52,6 +58,9 @@ public class Health : Progressive, IDamageable
         if (shooterTeam != team)
         {
             Current -= damage;
+            //if (gameObject.CompareTag("drone"))
+            //else if (gameObject.CompareTag("normal_enemy"))
+            audioSource.PlayOneShot(impact);
 
             if (team == Team.Enemy)
             {

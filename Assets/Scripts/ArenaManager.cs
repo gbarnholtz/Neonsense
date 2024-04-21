@@ -14,6 +14,8 @@ public class ArenaManager : SerializedMonoBehaviour
     {
         if (ElevatorTrigger != null)
             ElevatorTrigger.SetActive(false);
+        if (ElevatorDoors != null)
+            ElevatorDoors.enabled = false;
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class ArenaManager : SerializedMonoBehaviour
          * then all enemies in arena are dead*/
         if (transform.childCount == 0)
         {
-            Debug.Log("All enemies in first arena are dead");
+            Debug.Log("All enemies in the arena are dead");
             if (ElevatorTrigger != null)
                 ElevatorTrigger.SetActive(true);
             if (ElevatorDoors != null)

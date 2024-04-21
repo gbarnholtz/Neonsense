@@ -361,8 +361,8 @@ MonoBehaviour:
   AddToAmmo: 100
   AddToHealth: 50
   soundAttachedToPlayer: {fileID: 0}
-  healthSound: {fileID: 0}
-  ammoSound: {fileID: 0}
+  healthSound: {fileID: 8300000, guid: b3c1ab709097f7a47842d56925c82586, type: 3}
+  ammoSound: {fileID: 8300000, guid: ee6556b054f258044bb5accb54712ce6, type: 3}
 --- !u!114 &823055648711422794
 MonoBehaviour:
   m_ObjectHideFlags: 0

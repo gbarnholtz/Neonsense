@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class Crate : MonoBehaviour
 {
-
     [SerializeField] public int AddToAmmo;
     [SerializeField] public float AddToHealth;
     
     [Header("Sounds")]
-    [SerializeField] private AudioSource soundAttachedToPlayer;
+    private AudioSource soundAttachedToPlayer;
     [SerializeField] private AudioClip healthSound;
     [SerializeField] private AudioClip ammoSound;
     //[SerializeField] [Range(0, 1)] private float soundVolume = 1f;
+
+    void Start()
+    {
+        GameObject audioSourceObj = GameObject.FindWithTag("player_audio_source");
+        soundAttachedToPlayer = audioSourceObj.GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
