@@ -30,6 +30,10 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameObject damageOverlay;
     private Image damage_image;
 
+
+    [SerializeField] private GameObject reload_popup;
+    [SerializeField] private float reload_popup_percentage;
+
     /* Singleton pattern */
     private static UI_Manager instance;
     public static UI_Manager Instance
@@ -72,6 +76,18 @@ public class UI_Manager : MonoBehaviour
         healthBar.SetProgress(playerHealth.GetHealth()*0.01f);
 
         DamageOverlay();
+        ReloadPopup();
+    }
+
+    private void ReloadPopup()
+    {
+        if ((float)weapon.AmmoLoaded / (float)weapon.MagazineSize < reload_popup_percentage)
+        {
+            reload_popup.SetActive(true);
+        } else
+        {
+            reload_popup.SetActive(false);
+        }
     }
 
     /* Updates damage overlay based on player hp */
