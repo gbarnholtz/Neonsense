@@ -315,6 +315,7 @@ MonoBehaviour:
   hurtMat: {fileID: 0}
   Ch44: {fileID: 0}
   hurtTime: 0
+  impact: {fileID: 0}
 --- !u!114 &8765060215111350664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,10 +1576,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7235953470690153186, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 7471837160096187285, guid: a27389e45565ada4c8b6e79e795e1f7c, type: 3}
       propertyPath: m_Layer
       value: 31
@@ -1616,10 +1613,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963660194878198897}
     m_Modifications:
-    - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: -2705181349650105720, guid: d5f9f4f56dcc0d44dbd0fb3950607488, type: 3}
       propertyPath: MaxDistance
       value: 500

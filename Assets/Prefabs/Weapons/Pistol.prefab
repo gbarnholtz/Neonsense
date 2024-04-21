@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: pistol
   IsAttacking: 0
+  pickupSound: {fileID: 8300000, guid: 70cdd69639468754fb2788f9fb32f282, type: 3}
   firePoint: {fileID: 3591885968686185719}
   bulletDamage: 1
   bulletSpeed: 200
