@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,14 @@ public class Health : Progressive, IDamageable
     private Team team;
     public List<IDamageModifier> DamageModifiers = new List<IDamageModifier>();
 
+    /* Only for mat swap purposes */
+    [SerializeField] private Material hurtMat;
+    [SerializeField] private GameObject Ch44;
+    [SerializeField] private float hurtTime;
+
+    private bool isCouroutineRunning = false;
+
+
     public void Start()
     {
         team = gameObject.GetComponent<Teamable>().Team;
@@ -24,16 +33,43 @@ public class Health : Progressive, IDamageable
         rb = transform.GetComponent<Rigidbody>();
     }
 
-    public void TakeDamage(float damage)      
+    private IEnumerator SwitchMat()
+    {
+        isCouroutineRunning = true;
+
+        // Get all Renderer components attached to the GameObject
+        Renderer renderer = Ch44.GetComponent<Renderer>();
+        Material blueMat = renderer.material;
+        renderer.material = hurtMat;
+        yield return new WaitForSeconds(hurtTime);
+        renderer.material = blueMat;
+
+        isCouroutineRunning = false;
+    }
+
+    public void TakeDamage(float damage, Team shooterTeam)      
     { 
-        Current -= damage;
-        if (Current <= 0)
+        if (shooterTeam != team)
         {
-            if (team == Team.Enemy) Destroy(gameObject);
-            if (team == Team.Ally)
+            Current -= damage;
+
+            if (team == Team.Enemy)
             {
-                Scene thisScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(thisScene.name);
+                UI_Manager.Instance.EnableHitMarker(hurtTime);
+
+                /* Switch mat for normal enemies*/
+                if (gameObject.tag == "normal_enemy" && !isCouroutineRunning)
+                    StartCoroutine(SwitchMat());
+            }
+
+            if (Current <= 0)
+            {
+                if (team == Team.Enemy) Destroy(gameObject);
+                if (team == Team.Ally)
+                {
+                    Scene thisScene = SceneManager.GetActiveScene();
+                    SceneManager.LoadScene(thisScene.name);
+                }
             }
         }
     }
