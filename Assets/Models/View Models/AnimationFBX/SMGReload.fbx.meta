@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: gas tube|SMGReload
+      name: SMGReload
       takeName: gas tube|SMGReload
       internalID: -6251399928233228555
       firstFrame: 0
