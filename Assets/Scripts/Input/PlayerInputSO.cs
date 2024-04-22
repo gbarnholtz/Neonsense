@@ -25,7 +25,7 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
     /*public ButtonAction SwitchToPistol { get { return switchToPistol; } }
 
     public ButtonAction SwitchToShotgun { get { return switchToShotgun; } }*/
-    public static InputAction switch2Pistol, switch2Shotgun, switch2Rifle, switch2SMG, placeCharge;
+    public static InputAction switch2Pistol, switch2Shotgun, switch2Rifle, switch2SMG, placeCharge, reload;
 
     private ButtonAction jumpAction, dashAction, slideAction, primAction, secAction, switchToPistol, switchToShotgun;
 
@@ -52,6 +52,8 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
         switch2Shotgun = input.Game.SwitchToShotgun;
         switch2Rifle = input.Game.SwitchToRifle;
         switch2SMG = input.Game.SwitchToSmg;
+
+        reload = input.Game.Reload;
     }
 
     public PlayerInputState GetState()
