@@ -25,6 +25,8 @@ public class RangedWeapon : IWeapon
 
     public float rpm = 60;
 
+    public int maxAmmo;
+
     [SerializeField] protected Vector3 recoil;
     [SerializeField, Range(0,1)] private float spread;
     [SerializeField] Bullet bullet;
@@ -44,6 +46,8 @@ public class RangedWeapon : IWeapon
     [SerializeField] private float volume;
     [SerializeField] private AudioClip reloadSound;
 
+    private Team team;
+
     protected virtual void Awake()
     {
         ammoLoaded = magazineSize;
@@ -52,6 +56,21 @@ public class RangedWeapon : IWeapon
         if (audioSource != null)
         {
             weaponSound = audioSource.clip;
+        }
+        SetTeam();
+
+        maxAmmo = ammoPool;
+    }
+
+    private void SetTeam()
+    {
+        if (transform.parent.gameObject.tag == "normal_enemy"
+            || transform.parent.gameObject.tag == "drone")
+        {
+            team = Team.Enemy;
+        } else
+        {
+            team = Team.Ally;
         }
     }
 
@@ -69,6 +88,7 @@ public class RangedWeapon : IWeapon
 
     public IEnumerator DelayedReload()
     {
+        audioSource.PlayOneShot(reloadSound);
         yield return new WaitForSeconds(autoReloadDelay);
         StartCoroutine(Reload());
     }
@@ -85,14 +105,13 @@ public class RangedWeapon : IWeapon
         for (int i = 0; i < bulletsPerShot; i++) {
             float inaccuracy = Mathf.Lerp(0, 90, spread);
             Quaternion inaccuracyRotation = Quaternion.Euler(Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy));
-            ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * firePoint.forward);
+            ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * firePoint.forward, team);
         }
 
         InvokeRecoil(recoil);
         ammoLoaded--;
         if (ammoLoaded <= 0)
         {
-            audioSource.PlayOneShot(reloadSound);
             StopTryingToFire();
             StartCoroutine(DelayedReload());
         }

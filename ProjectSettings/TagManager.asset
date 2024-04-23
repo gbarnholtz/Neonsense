@@ -7,6 +7,9 @@ TagManager:
   - waypoint
   - health_pickup
   - ammo_pickup
+  - normal_enemy
+  - drone
+  - player_audio_source
   layers:
   - Default
   - TransparentFX
