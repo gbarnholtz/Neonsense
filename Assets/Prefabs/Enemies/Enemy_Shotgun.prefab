@@ -12,6 +12,38 @@ PrefabInstance:
       value: Enemy_Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: impactFlesh
+      value: 
+      objectReference: {fileID: 8300000, guid: 220811284f28d8147a2e1044378b6d86, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: hitSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: hitSound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 57ad9b479b8dc0040b9bc9c7d8f347a8, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: hitSound.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c02c517c4f5be4d4a9a9b9561e1ebbc2, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: hitSound.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: da149a438ffa1604e9b2e3ecf223fbc4, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: hitSound.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b92f84f07ad382b40aae378a9fbafd08, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: hitSound.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 220811284f28d8147a2e1044378b6d86, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: hitSound.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: a8ca353dc597ef142aeef64141d9e076, type: 3}
+    - target: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1222755513714852251, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
@@ -81,10 +113,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024350413067552673, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5090553217038469203, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920075343856356621, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920075343856356621, guid: 83b6d78b23503ca42a91710d6e4bcd4e, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
