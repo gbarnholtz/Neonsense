@@ -2796,3 +2796,336 @@ Done
 Done
 Done
 Done
+2024-4-23
+Rendering UV GBuffer for level 1_LM0 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Admin\AppData\Local\Temp\frender" "uvpos_level 1_LM0.lz4" 2 0 0 0
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_1" 1924 0 1 lights0.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_1" 1924 0 1 lights1.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_1" 1924 0 1 lights2.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_1" 1924 0 1 lights3.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_1" 1924 0 1 lights4.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_1" 1924 0 1 lights5.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_1" 1924 0 1 lights6.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_1" 1924 0 1 lights7.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_1" 1924 0 1 lights8.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_1" 1924 0 1 lights9.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_1" 1924 0 1 lights10.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_1" 1924 0 1 lights11.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_1" 1924 0 1 lights12.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_1" 1924 0 1 lights13.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_1" 1924 0 1 lights14.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_0_10" 1924 0 1 batchpointlight_1_0_10.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_11_15" 1924 0 1 batchpointlight_1_11_15.bin
+Running ftraceRTX sunprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_16_1" 1924 0 1 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "probes" 4 0 1 comp_1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_0" 68 0 0 lights0.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_0" 68 0 0 lights1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_0" 68 0 0 lights2.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_0" 68 0 0 lights3.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_0" 68 0 0 lights4.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_0" 68 0 0 lights5.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_0" 68 0 0 lights6.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_0" 68 0 0 lights7.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_0" 68 0 0 lights8.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_0" 68 0 0 lights9.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_0" 68 0 0 lights10.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_0" 68 0 0 lights11.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_0" 68 0 0 lights12.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_0" 68 0 0 lights13.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_0" 68 0 0 lights14.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_0_10" 68 0 0 batchpointlight_0_0_10.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_11_15" 68 0 0 batchpointlight_0_11_15.bin
+Running ftraceRTX sun "C:\Users\Admin\AppData\Local\Temp\frender" "light_16_0" 68 0 0 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX diradd "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM00.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM01.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final" 1924 16 1 "gi_probes2.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgidir "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_final" 68 16 0 "gi_level 1_LM02.bin" "level 1_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final_" 4 0 1 shcomp_1.bin
+Running denoiser72 D "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" 2048 0
+Running denoiser72 c "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" 2048 0
+Running seamfixer "C:\Users\Admin\AppData\Local\Temp\frender" "0" "level 1_LM0_final_HDR.lz4" "level 1_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_final.hdr" 1024
+Running rgba2tga "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_dir.tga" 
+Done
+Done
+Done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Done
+Rendering UV GBuffer for level 1_LM0 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Admin\AppData\Local\Temp\frender" "uvpos_level 1_LM0.lz4" 2 0 0 0
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_1" 1924 0 1 lights0.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_1" 1924 0 1 lights1.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_1" 1924 0 1 lights2.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_1" 1924 0 1 lights3.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_1" 1924 0 1 lights4.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_1" 1924 0 1 lights5.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_1" 1924 0 1 lights6.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_1" 1924 0 1 lights7.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_1" 1924 0 1 lights8.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_1" 1924 0 1 lights9.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_1" 1924 0 1 lights10.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_1" 1924 0 1 lights11.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_1" 1924 0 1 lights12.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_1" 1924 0 1 lights13.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_0_10" 1924 0 1 batchpointlight_1_0_10.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_11_16" 1924 0 1 batchpointlight_1_11_16.bin
+Running ftraceRTX sunprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_1" 1924 0 1 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "probes" 4 0 1 comp_1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_0" 68 0 0 lights0.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_0" 68 0 0 lights1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_0" 68 0 0 lights2.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_0" 68 0 0 lights3.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_0" 68 0 0 lights4.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_0" 68 0 0 lights5.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_0" 68 0 0 lights6.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_0" 68 0 0 lights7.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_0" 68 0 0 lights8.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_0" 68 0 0 lights9.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_0" 68 0 0 lights10.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_0" 68 0 0 lights11.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_0" 68 0 0 lights12.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_0" 68 0 0 lights13.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_0_10" 68 0 0 batchpointlight_0_0_10.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_11_16" 68 0 0 batchpointlight_0_11_16.bin
+Running ftraceRTX sun "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_0" 68 0 0 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX diradd "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM00.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM01.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final" 1924 16 1 "gi_probes2.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgidir "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_final" 68 16 0 "gi_level 1_LM02.bin" "level 1_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final_" 4 0 1 shcomp_1.bin
+Running denoiser72 D "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" 2048 0
+Running denoiser72 c "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" 2048 0
+Running seamfixer "C:\Users\Admin\AppData\Local\Temp\frender" "0" "level 1_LM0_final_HDR.lz4" "level 1_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_final.hdr" 1024
+Running rgba2tga "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_dir.tga" 
+Done
+Done
+Done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Done
+Rendering UV GBuffer for level 1_LM0 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Admin\AppData\Local\Temp\frender" "uvpos_level 1_LM0.lz4" 2 0 0 0
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_1" 1924 0 1 lights0.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_1" 1924 0 1 lights1.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_1" 1924 0 1 lights2.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_1" 1924 0 1 lights3.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_1" 1924 0 1 lights4.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_1" 1924 0 1 lights5.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_1" 1924 0 1 lights6.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_1" 1924 0 1 lights7.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_1" 1924 0 1 lights8.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_1" 1924 0 1 lights9.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_1" 1924 0 1 lights10.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_1" 1924 0 1 lights11.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_1" 1924 0 1 lights12.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_1" 1924 0 1 lights13.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_0_10" 1924 0 1 batchpointlight_1_0_10.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_11_16" 1924 0 1 batchpointlight_1_11_16.bin
+Running ftraceRTX sunprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_1" 1924 0 1 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "probes" 4 0 1 comp_1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_0" 68 0 0 lights0.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_0" 68 0 0 lights1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_0" 68 0 0 lights2.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_0" 68 0 0 lights3.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_0" 68 0 0 lights4.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_0" 68 0 0 lights5.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_0" 68 0 0 lights6.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_0" 68 0 0 lights7.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_0" 68 0 0 lights8.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_0" 68 0 0 lights9.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_0" 68 0 0 lights10.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_0" 68 0 0 lights11.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_0" 68 0 0 lights12.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_0" 68 0 0 lights13.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_0_10" 68 0 0 batchpointlight_0_0_10.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_11_16" 68 0 0 batchpointlight_0_11_16.bin
+Running ftraceRTX sun "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_0" 68 0 0 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX diradd "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM00.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM01.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final" 1924 16 1 "gi_probes2.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgidir "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_final" 68 16 0 "gi_level 1_LM02.bin" "level 1_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final_" 4 0 1 shcomp_1.bin
+Running denoiser72 D "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" 2048 0
+Running denoiser72 c "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" 2048 0
+Running seamfixer "C:\Users\Admin\AppData\Local\Temp\frender" "0" "level 1_LM0_final_HDR.lz4" "level 1_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_final.hdr" 1024
+Running rgba2tga "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_dir.tga" 
+Done
+Done
+Done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Done
+Rendering UV GBuffer for level 1_LM0 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Admin\AppData\Local\Temp\frender" "uvpos_level 1_LM0.lz4" 2 0 0 0
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_1" 1924 0 1 lights0.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_1" 1924 0 1 lights1.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_1" 1924 0 1 lights2.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_1" 1924 0 1 lights3.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_1" 1924 0 1 lights4.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_1" 1924 0 1 lights5.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_1" 1924 0 1 lights6.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_1" 1924 0 1 lights7.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_1" 1924 0 1 lights8.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_1" 1924 0 1 lights9.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_1" 1924 0 1 lights10.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_1" 1924 0 1 lights11.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_1" 1924 0 1 lights12.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_1" 1924 0 1 lights13.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_0_10" 1924 0 1 batchpointlight_1_0_10.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_11_16" 1924 0 1 batchpointlight_1_11_16.bin
+Running ftraceRTX sunprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_1" 1924 0 1 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "probes" 4 0 1 comp_1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_0" 68 0 0 lights0.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_0" 68 0 0 lights1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_0" 68 0 0 lights2.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_0" 68 0 0 lights3.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_0" 68 0 0 lights4.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_0" 68 0 0 lights5.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_0" 68 0 0 lights6.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_0" 68 0 0 lights7.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_0" 68 0 0 lights8.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_0" 68 0 0 lights9.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_0" 68 0 0 lights10.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_0" 68 0 0 lights11.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_0" 68 0 0 lights12.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_0" 68 0 0 lights13.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_0_10" 68 0 0 batchpointlight_0_0_10.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_11_16" 68 0 0 batchpointlight_0_11_16.bin
+Running ftraceRTX sun "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_0" 68 0 0 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX diradd "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM00.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM01.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final" 1924 16 1 "gi_probes2.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgidir "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_final" 68 16 0 "gi_level 1_LM02.bin" "level 1_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final_" 4 0 1 shcomp_1.bin
+Running denoiser72 D "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" 2048 0
+Running denoiser72 c "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" 2048 0
+Running seamfixer "C:\Users\Admin\AppData\Local\Temp\frender" "0" "level 1_LM0_final_HDR.lz4" "level 1_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_final.hdr" 1024
+Running rgba2tga "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_dir.tga" 
+Done
+Done
+Done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Done
+Rendering UV GBuffer for level 1_LM0 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Admin\AppData\Local\Temp\frender" "uvpos_level 1_LM0.lz4" 2 0 0 0
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_1" 1924 0 1 lights0.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_1" 1924 0 1 lights1.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_1" 1924 0 1 lights2.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_1" 1924 0 1 lights3.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_1" 1924 0 1 lights4.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_1" 1924 0 1 lights5.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_1" 1924 0 1 lights6.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_1" 1924 0 1 lights7.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_1" 1924 0 1 lights8.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_1" 1924 0 1 lights9.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_1" 1924 0 1 lights10.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_1" 1924 0 1 lights11.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_1" 1924 0 1 lights12.bin
+Running ftraceRTX arealightprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_1" 1924 0 1 lights13.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_0_10" 1924 0 1 batchpointlight_1_0_10.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_1_11_16" 1924 0 1 batchpointlight_1_11_16.bin
+Running ftraceRTX sunprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_1" 1924 0 1 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "probes" 4 0 1 comp_1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_1_0" 68 0 0 lights0.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_2_0" 68 0 0 lights1.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_3_0" 68 0 0 lights2.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_4_0" 68 0 0 lights3.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_5_0" 68 0 0 lights4.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_6_0" 68 0 0 lights5.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_7_0" 68 0 0 lights6.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_8_0" 68 0 0 lights7.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_9_0" 68 0 0 lights8.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_10_0" 68 0 0 lights9.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_11_0" 68 0 0 lights10.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_12_0" 68 0 0 lights11.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_13_0" 68 0 0 lights12.bin
+Running ftraceRTX arealightdir "C:\Users\Admin\AppData\Local\Temp\frender" "light_14_0" 68 0 0 lights13.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_0_10" 68 0 0 batchpointlight_0_0_10.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Admin\AppData\Local\Temp\frender" "PointBatch_0_11_16" 68 0 0 batchpointlight_0_11_16.bin
+Running ftraceRTX sun "C:\Users\Admin\AppData\Local\Temp\frender" "light_15_0" 68 0 0 direct0.bin
+Running ftraceRTX addmul "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX diradd "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM00.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_diffuse" 4 16 0 "gi_level 1_LM01.bin" "level 1_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final" 1924 16 1 "gi_probes2.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgidir "C:\Users\Admin\AppData\Local\Temp\frender" "level 1_LM0_final" 68 16 0 "gi_level 1_LM02.bin" "level 1_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Admin\AppData\Local\Temp\frender" "probes_final_" 4 0 1 shcomp_1.bin
+Running denoiser72 D "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" 2048 0
+Running denoiser72 c "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" 2048 0
+Running seamfixer "C:\Users\Admin\AppData\Local\Temp\frender" "0" "level 1_LM0_final_HDR.lz4" "level 1_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_HDR.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_final.hdr" 1024
+Running rgba2tga "C:\Users\Admin\AppData\Local\Temp\frender/level 1_LM0_final_Dir.lz4" "D:/Users/Admin/Unity Projects/_University/4154/Neonsense/Assets/BakeryLightmaps/level 1_LM0_dir.tga" 
