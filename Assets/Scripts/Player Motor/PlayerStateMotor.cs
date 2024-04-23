@@ -185,7 +185,7 @@ public class PlayerStateMotor : SerializedMonoBehaviour
     }
 
     private void TryJump() {
-        if (activeState.AllowJump) { 
+        if (IsGrounded || activeState.OverrideJump) { 
             shouldJump = true; 
         }else {
             if (jumpCount < maxAirJumps) {

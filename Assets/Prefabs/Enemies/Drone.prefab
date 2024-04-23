@@ -29163,6 +29163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: smg
   IsAttacking: 0
+  pickupSound: {fileID: 0}
   firePoint: {fileID: 7039075723126679147}
   bulletDamage: 0.5
   bulletSpeed: 100
@@ -50799,6 +50800,13 @@ MonoBehaviour:
   hurtMat: {fileID: 0}
   Ch44: {fileID: 0}
   hurtTime: 0
+  hitSound:
+  - {fileID: 8300000, guid: 1b4c9050245e62d4ca858e9b5a9df312, type: 3}
+  - {fileID: 8300000, guid: b3a3d63505a047943bd42d8c7338e355, type: 3}
+  - {fileID: 8300000, guid: 17ca46bf925562c4a8152e7c284ae028, type: 3}
+  - {fileID: 8300000, guid: 11f0537ebb4e4f543a74ac1a2f4cacf3, type: 3}
+  - {fileID: 8300000, guid: 880c9e2ec0262b447b89341ed3847a0c, type: 3}
+  - {fileID: 8300000, guid: da3fcd3f4b76a204ba534e2c876224d7, type: 3}
 --- !u!95 &3584517207988484633
 Animator:
   serializedVersion: 4

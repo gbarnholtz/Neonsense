@@ -8,9 +8,21 @@ public class SwitchWeaponController : MonoBehaviour
 
     ArsenalController arsenal;
 
+    private void reloadWeapon(InputAction.CallbackContext obj)
+    {
+        /* If weapon is not reloading, initiate reload */
+        if (!((RangedWeapon)ArsenalController.activeWeapon).IsReloading)
+        {
+            ArsenalController.activeWeapon.StopTryingToFire();
+            ArsenalController.activeWeapon.StartCoroutine(((RangedWeapon)ArsenalController.activeWeapon).DelayedReload());
+        }
+    }
+
     private void Awake()
     {
         arsenal = GetComponent<ArsenalController>();
+
+        PlayerInputSO.reload.performed += reloadWeapon;
 
         PlayerInputSO.switch2Pistol.performed += switchToPistolAction;
         PlayerInputSO.switch2Shotgun.performed += switchToShotgunAction;

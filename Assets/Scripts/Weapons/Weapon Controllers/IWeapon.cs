@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class IWeapon : MonoBehaviour, IRecoilProvider, IButtonActionSubscriber
@@ -14,15 +15,30 @@ public abstract class IWeapon : MonoBehaviour, IRecoilProvider, IButtonActionSub
     public bool IsAttacking;
     protected abstract bool CanAttack { get; }
 
+    [SerializeField] private AudioClip pickupSound;
+    private AudioSource soundAttachedToPlayer;
+
+    private ArsenalController arsenal;
+    private GameObject audioSourceObj;
+
     public event Action<Vector3> Recoil;
+
+    void Start()
+    {
+        arsenal = GameObject.FindWithTag("Player").GetComponent<ArsenalController>();
+        audioSourceObj = GameObject.FindWithTag("player_audio_source");
+        soundAttachedToPlayer = audioSourceObj.GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             /* Signal to the arsenal controller that weapon has been picked up */
-            ArsenalController arsenal = GameObject.FindWithTag("Player").GetComponent<ArsenalController>();
             arsenal.PickupWeapon(description);
+            
+            soundAttachedToPlayer.PlayOneShot(pickupSound);
+            
             /* Destroys this weapon as the real weapon is simply disabled on the arsenal */
             Destroy(gameObject);
         }
