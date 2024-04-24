@@ -322,6 +322,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b92f84f07ad382b40aae378a9fbafd08, type: 3}
   - {fileID: 8300000, guid: 220811284f28d8147a2e1044378b6d86, type: 3}
   - {fileID: 8300000, guid: a8ca353dc597ef142aeef64141d9e076, type: 3}
+  _arenaManager: {fileID: 0}
 --- !u!114 &8765060215111350664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7b2bc1e2a609248bc5d69bad66539a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swapWeaponSound: {fileID: 8300000, guid: e1ebcb59ef7ea684bb488849bcd41077, type: 3}
+  audioSource: {fileID: 7325689933525535420}
 --- !u!114 &-4356761528737227669
 MonoBehaviour:
   m_ObjectHideFlags: 0

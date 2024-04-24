@@ -7,6 +7,9 @@ public class SwitchWeaponController : MonoBehaviour
 {
 
     ArsenalController arsenal;
+    
+    [SerializeField] private AudioClip swapWeaponSound;
+    [SerializeField] private AudioSource audioSource;
 
     private void reloadWeapon(InputAction.CallbackContext obj)
     {
@@ -39,6 +42,10 @@ public class SwitchWeaponController : MonoBehaviour
     {
         if (ArsenalController.activeWeapon != null)
             disableWeapon();
+        else
+        {
+            audioSource.PlayOneShot(swapWeaponSound);
+        }
 
         switch (weapon)
         {
