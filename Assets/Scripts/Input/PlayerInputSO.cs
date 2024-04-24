@@ -26,7 +26,7 @@ public class PlayerInputSO : MonoBehaviour, IPlayerInputProvider
     /*public ButtonAction SwitchToPistol { get { return switchToPistol; } }
 
     public ButtonAction SwitchToShotgun { get { return switchToShotgun; } }*/
-    public static InputAction switch2Pistol, switch2Shotgun, switch2Rifle, switch2SMG, placeCharge, reload;
+    public static InputAction switch2Pistol, switch2Shotgun, switch2Rifle, switch2SMG, placeCharge, reload, pause;
 
     private ButtonAction jumpAction, dashAction, slideAction, primAction, secAction, switchToPistol, switchToShotgun;
 
@@ -56,6 +56,7 @@ public class PlayerInputSO : MonoBehaviour, IPlayerInputProvider
         switch2SMG =     input.FindAction("SwitchToSmg");
 
         reload =         input.FindAction("Reload");
+        pause =          input.FindAction("Pause");
     }
 
     public PlayerInputState GetState()
