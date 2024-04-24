@@ -15,6 +15,8 @@ public class UI_Manager : MonoBehaviour
     public ProgressBar healthBar;
 
     public TMP_Text PlaceCharge_Text;
+    public static int chargesPlaced = 0;
+    private int maxCharges = 4;
 
     public TMP_Text CurrentWeapon_Text;
     public GameObject RevolverIcon;
@@ -103,8 +105,16 @@ public class UI_Manager : MonoBehaviour
         healthBar.SetProgress(playerHealth.GetHealth()*0.01f);
 
         DamageOverlay();
+        ChargesPlaced();
     }
 
+    private void ChargesPlaced()
+    {
+        if (chargesPlaced <= maxCharges)
+            PlaceCharge_Text.text = chargesPlaced.ToString();   
+    }
+
+    /* Checks low ammo */
     private void CheckLowAmmoPopup(RangedWeapon weapon)
     {
         if ((float)weapon.AmmoPool / (float)weapon.maxAmmo < reload_popup_percentage)
@@ -117,6 +127,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    /* Checks if reload text should popup */
     private void CheckReloadPopup(RangedWeapon weapon)
     {
         if ((float)weapon.AmmoLoaded / (float)weapon.MagazineSize < reload_popup_percentage)
