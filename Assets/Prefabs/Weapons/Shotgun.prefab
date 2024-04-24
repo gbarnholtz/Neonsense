@@ -382,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: shotgun
   IsAttacking: 0
+  pickupSound: {fileID: 8300000, guid: 70cdd69639468754fb2788f9fb32f282, type: 3}
   firePoint: {fileID: 3591885968686185719}
   bulletDamage: 0.5
   bulletSpeed: 75
@@ -392,6 +393,7 @@ MonoBehaviour:
   ammoPool: 20
   ammoLoaded: 0
   rpm: 60
+  maxAmmo: 0
   recoil: {x: 0, y: 0, z: 0}
   spread: 0.05
   bullet: {fileID: 7634292425448812394, guid: 8f44287303290a24283a5c31d13877fe, type: 3}
@@ -399,7 +401,7 @@ MonoBehaviour:
   isFiring: 0
   timeReloadStarted: 0
   volume: 0.1
-  reloadSound: {fileID: 8300000, guid: 78573af1b174cf747b3045bda184d057, type: 3}
+  reloadSound: {fileID: 8300000, guid: def6edcbb43979241aa0fcaed28b7b2b, type: 3}
 --- !u!82 &-2705181349650105720
 AudioSource:
   m_ObjectHideFlags: 0
@@ -409,7 +411,7 @@ AudioSource:
   m_GameObject: {fileID: 7098786638656445594}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6834538207042041464, guid: c7ed3f96774e3124b823f4cb045a26de, type: 2}
   m_audioClip: {fileID: 8300000, guid: ffb70a118c097864291bd322f737e6d4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05

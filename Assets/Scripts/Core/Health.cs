@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using Random = System.Random;
 
 public class Health : Progressive, IDamageable
 {
@@ -18,13 +20,26 @@ public class Health : Progressive, IDamageable
     [SerializeField] private Material hurtMat;
     [SerializeField] private GameObject Ch44;
     [SerializeField] private float hurtTime;
+    
+    [SerializeField] private AudioClip[] hitSound;
+    //[SerializeField] private AudioClip impactDrone;
+    private GameObject audioSourceObj;
+    private AudioSource audioSource;
 
     private bool isCouroutineRunning = false;
+
+    [SerializeField] private ArenaManager _arenaManager;
 
 
     public void Start()
     {
         team = gameObject.GetComponent<Teamable>().Team;
+        
+        // UNCOMMENT THESE AND THE OTHER BLOCK TO RESTORE AUDIO
+        //audioSourceObj = GameObject.FindWithTag("player_audio_source");
+        //audioSource = audioSourceObj.GetComponent<AudioSource>();
+        
+        //_arenaManager = GetComponent<ArenaManager>();
     }
     
     public void OnEnable()
@@ -52,7 +67,10 @@ public class Health : Progressive, IDamageable
         if (shooterTeam != team)
         {
             Current -= damage;
-
+            
+            // this has been causing the audio to go haywire
+            //audioSource.PlayOneShot(hitSound[UnityEngine.Random.Range(0, hitSound.Length)]);
+            
             if (team == Team.Enemy)
             {
                 UI_Manager.Instance.EnableHitMarker(hurtTime);
@@ -64,7 +82,16 @@ public class Health : Progressive, IDamageable
 
             if (Current <= 0)
             {
-                if (team == Team.Enemy) Destroy(gameObject);
+                if (team == Team.Enemy)
+                {
+                    if (_arenaManager != null)
+                    {
+                        _arenaManager.CheckIfEnemiesDefeated();
+                        //Debug.Log("CheckIfEnemiesDefeated() called by " + gameObject.name);
+                    }
+                    
+                    Destroy(gameObject);
+                }
                 if (team == Team.Ally)
                 {
                     Scene thisScene = SceneManager.GetActiveScene();

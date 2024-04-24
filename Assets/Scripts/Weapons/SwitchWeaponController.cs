@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,30 @@ public class SwitchWeaponController : MonoBehaviour
 {
 
     ArsenalController arsenal;
+    
+    [SerializeField] private AudioClip swapWeaponSound;
+    [SerializeField] private AudioSource audioSource;
 
-    private void Awake()
+    private void reloadWeapon(InputAction.CallbackContext obj)
+    {
+        if (ArsenalController.activeWeapon == null) return;
+
+        var weapon = (RangedWeapon)ArsenalController.activeWeapon;
+
+        // Don't reload if
+        if (weapon == null) return;
+        if (weapon.IsReloading) return;
+        if (weapon.AmmoLoaded == weapon.MagazineSize) return;
+        
+        ArsenalController.activeWeapon.StopTryingToFire();
+        ArsenalController.activeWeapon.StartCoroutine(((RangedWeapon)ArsenalController.activeWeapon).DelayedReload());
+    }
+
+    private void Start()
     {
         arsenal = GetComponent<ArsenalController>();
+
+        PlayerInputSO.reload.performed += reloadWeapon;
 
         PlayerInputSO.switch2Pistol.performed += switchToPistolAction;
         PlayerInputSO.switch2Shotgun.performed += switchToShotgunAction;
@@ -20,6 +41,16 @@ public class SwitchWeaponController : MonoBehaviour
         PlayerInputSO.switch2Shotgun.Enable();
         PlayerInputSO.switch2Rifle.Enable();
         PlayerInputSO.switch2SMG.Enable();
+    }
+
+    private void OnDisable()
+    {
+        PlayerInputSO.reload.performed -= reloadWeapon;
+        
+        PlayerInputSO.switch2Pistol.performed   -= switchToPistolAction;
+        PlayerInputSO.switch2Shotgun.performed  -= switchToShotgunAction;
+        PlayerInputSO.switch2Rifle.performed    -= switchToRifleAction;
+        PlayerInputSO.switch2SMG.performed      -= switchToSMGAction;
     }
 
     /* Switches weapons based on string passed*/
@@ -34,21 +65,25 @@ public class SwitchWeaponController : MonoBehaviour
                 ArsenalController.activeWeapon = arsenal.pistol;
                 arsenal.OnEnable();
                 arsenal.pistol.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             case "shotgun":
                 ArsenalController.activeWeapon = arsenal.shotgun;
                 arsenal.OnEnable();
                 arsenal.shotgun.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             case "rifle":
                 ArsenalController.activeWeapon = arsenal.assault_rifle;
                 arsenal.OnEnable();
                 arsenal.assault_rifle.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             case "smg":
                 ArsenalController.activeWeapon = arsenal.smg;
                 arsenal.OnEnable();
                 arsenal.smg.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             default:
                 // code block
@@ -59,6 +94,8 @@ public class SwitchWeaponController : MonoBehaviour
     /* Disables current weapon */
     void disableWeapon()
     {
+        if (ArsenalController.activeWeapon == null) return;
+        
         ArsenalController.activeWeapon.IsAttacking = false;
         ((RangedWeapon)ArsenalController.activeWeapon).isPastFireRate = true;
         arsenal.OnDisable();
@@ -69,6 +106,8 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToPistolAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
+        
         /* Only switches weapon if player is not reloading */
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.PistolPickedUp) // Checks if player has picked up weapon
@@ -79,6 +118,7 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToShotgunAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.ShotgunPickedUp)
         {
@@ -87,6 +127,7 @@ public class SwitchWeaponController : MonoBehaviour
     }
     void switchToRifleAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.RiflePickedUp)
         {
@@ -96,6 +137,8 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToSMGAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
+        
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.SMGPickedUp)
         {

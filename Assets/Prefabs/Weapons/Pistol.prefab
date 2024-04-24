@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: pistol
   IsAttacking: 0
+  pickupSound: {fileID: 8300000, guid: 70cdd69639468754fb2788f9fb32f282, type: 3}
   firePoint: {fileID: 3591885968686185719}
   bulletDamage: 1
   bulletSpeed: 200
@@ -181,7 +182,7 @@ MonoBehaviour:
   isFiring: 0
   timeReloadStarted: 0
   volume: 0.1
-  reloadSound: {fileID: 8300000, guid: 020551b9002bc9249adee00f9b6c6df3, type: 3}
+  reloadSound: {fileID: 8300000, guid: 5fcd1d990236a664aaaea883dc0c7ae1, type: 3}
 --- !u!82 &7235953470690153186
 AudioSource:
   m_ObjectHideFlags: 0
@@ -191,8 +192,8 @@ AudioSource:
   m_GameObject: {fileID: 7098786638656445594}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 60f06a24a04a82f44aeb6841e6e1ff62, type: 3}
+  OutputAudioMixerGroup: {fileID: 6834538207042041464, guid: c7ed3f96774e3124b823f4cb045a26de, type: 2}
+  m_audioClip: {fileID: 8300000, guid: eb25ecbda19ebe046853413fa7255b14, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
