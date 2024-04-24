@@ -11,8 +11,9 @@ public class CheckPoint : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            CheckPointManager.lastCheckPointPos = transform.position;
-            CheckPointManager.lastCheckPointRot = transform.rotation;
+            Transform transform1 = transform;
+            CheckPointManager.lastCheckPointPos = transform1.position;
+            CheckPointManager.lastCheckPointRot = transform1.rotation;
         }
     }
 
