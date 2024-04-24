@@ -71,6 +71,8 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         }
     }
 
+    // Still doesn't work :(
+    // Maybe it's a problem with the navmesh or something
     void RotateTowardsPlayer()
     {
         // Makes the enemy face player
