@@ -21,7 +21,7 @@ public class SwitchWeaponController : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         arsenal = GetComponent<ArsenalController>();
 
@@ -78,6 +78,8 @@ public class SwitchWeaponController : MonoBehaviour
     /* Disables current weapon */
     void disableWeapon()
     {
+        if (ArsenalController.activeWeapon != null) return;
+        
         ArsenalController.activeWeapon.IsAttacking = false;
         ((RangedWeapon)ArsenalController.activeWeapon).isPastFireRate = true;
         arsenal.OnDisable();
@@ -88,6 +90,8 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToPistolAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
+        
         /* Only switches weapon if player is not reloading */
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.PistolPickedUp) // Checks if player has picked up weapon
@@ -98,6 +102,7 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToShotgunAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.ShotgunPickedUp)
         {
@@ -106,6 +111,7 @@ public class SwitchWeaponController : MonoBehaviour
     }
     void switchToRifleAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.RiflePickedUp)
         {
@@ -115,6 +121,8 @@ public class SwitchWeaponController : MonoBehaviour
 
     void switchToSMGAction(InputAction.CallbackContext obj)
     {
+        if (ArsenalController.activeWeapon == null) return;
+        
         if (((RangedWeapon)ArsenalController.activeWeapon).AmmoLoaded > 0
             && ArsenalController.SMGPickedUp)
         {

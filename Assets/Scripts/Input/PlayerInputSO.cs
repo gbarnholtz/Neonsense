@@ -5,10 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
-[CreateAssetMenu(fileName = "PlayerInputSO", menuName = "ScriptableObjects/PlayerInputSO", order = 1)]
-public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
+//[CreateAssetMenu(fileName = "PlayerInputSO", menuName = "ScriptableObjects/PlayerInputSO", order = 1)]
+public class PlayerInputSO : MonoBehaviour, IPlayerInputProvider
 {
-    public PlayerInput input { get; private set; }
+    [field:SerializeField]
+    public InputActionAsset input { get; private set; }
 
     public ButtonAction Jump { get { return jumpAction; } }
 
@@ -31,33 +32,34 @@ public class PlayerInputSO : ScriptableObject, IPlayerInputProvider
 
     [SerializeField] private float lookSensitivity;
 
-    public void OnEnable()
+    public void Awake()
     {
-        input = new PlayerInput();
+        //input = new PlayerInput();
+        
         input.Enable();
 
-        jumpAction = new ButtonAction(input.Game.Jump);
-        dashAction = new ButtonAction(input.Game.Dash);
-        primAction = new ButtonAction(input.Game.Primary);
-        secAction = new ButtonAction(input.Game.Secondary);
-        slideAction = new ButtonAction(input.Game.Slide);
+        jumpAction = new ButtonAction( input.FindAction("Jump"));
+        dashAction = new ButtonAction( input.FindAction("Dash"));
+        primAction = new ButtonAction( input.FindAction("Primary"));
+        secAction = new ButtonAction(  input.FindAction("Secondary"));
+        slideAction = new ButtonAction(input.FindAction("Slide"));
 
 
-        switchToPistol = new ButtonAction(input.Game.SwitchToPistol);
-        switchToShotgun = new ButtonAction(input.Game.SwitchToShotgun);
+        switchToPistol = new ButtonAction(input. FindAction("SwitchToPistol"));
+        switchToShotgun = new ButtonAction(input.FindAction("SwitchToShotgun"));
 
 
         // TODO: Switch to using button actions 
-        switch2Pistol = input.Game.SwitchToPistol;
-        switch2Shotgun = input.Game.SwitchToShotgun;
-        switch2Rifle = input.Game.SwitchToRifle;
-        switch2SMG = input.Game.SwitchToSmg;
+        switch2Pistol =  input.FindAction("SwitchToPistol");
+        switch2Shotgun = input.FindAction("SwitchToShotgun");
+        switch2Rifle =   input.FindAction("SwitchToRifle");
+        switch2SMG =     input.FindAction("SwitchToSmg");
 
-        reload = input.Game.Reload;
+        reload =         input.FindAction("Reload");
     }
 
     public PlayerInputState GetState()
     {
-        return new PlayerInputState(input.Game.Move.ReadValue<Vector2>(), input.Game.Look.ReadValue<Vector2>() * lookSensitivity);
+        return new PlayerInputState(input.FindAction("Move").ReadValue<Vector2>(), input.FindAction("Look").ReadValue<Vector2>() * lookSensitivity);
     }
 }
