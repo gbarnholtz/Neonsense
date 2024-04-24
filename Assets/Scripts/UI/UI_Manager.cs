@@ -19,9 +19,15 @@ public class UI_Manager : MonoBehaviour
     private int maxCharges = 4;
 
     public TMP_Text CurrentWeapon_Text;
-    public GameObject RevolverIcon;
-    public GameObject ShotgunIcon;
-    public GameObject SMGIcon;
+    public GameObject RevolverSelect;
+    public GameObject RevolverInvent;
+    private bool revPickup;
+    public GameObject ShotgunSelect;
+    public GameObject ShotgunInvent;
+    private bool shotgunPickup;
+    public GameObject SMGSelect;
+    public GameObject SMGInvent;
+    private Boolean smgPickup;
 
     private GameObject player;
     private Health playerHealth;
@@ -63,6 +69,9 @@ public class UI_Manager : MonoBehaviour
         Vector4 color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
         damage_image.color = color;
 
+        revPickup = false;
+        shotgunPickup = false;
+        smgPickup = false;
 
         instance = this;
     }
@@ -78,24 +87,39 @@ public class UI_Manager : MonoBehaviour
             CurrentWeapon_Text.text = weapon.gameObject.name;
             if (weapon.gameObject.name.Equals("Pistol") || weapon.gameObject.name.Equals("Revolver"))
             {
-                ShotgunIcon.SetActive(false);
-                SMGIcon.SetActive(false);
-                RevolverIcon.SetActive(true);
+                if (revPickup == false)
+                {
+                    revPickup = true;
+                    RevolverInvent.SetActive(true);
+                }
+                ShotgunSelect.SetActive(false);
+                SMGSelect.SetActive(false);
+                RevolverSelect.SetActive(true);
             } else if (weapon.gameObject.name.Equals("Shotgun"))
             {
-                RevolverIcon.SetActive(false);
-                SMGIcon.SetActive(false);
-                ShotgunIcon.SetActive(true);
+                if (shotgunPickup == false)
+                {
+                    shotgunPickup = true;
+                    ShotgunInvent.SetActive(true);
+                }
+                RevolverSelect.SetActive(false);
+                SMGSelect.SetActive(false);
+                ShotgunSelect.SetActive(true);
             } else if (weapon.gameObject.name.Equals("SMG"))
             {
-                ShotgunIcon.SetActive(false);
-                RevolverIcon.SetActive(false);
-                SMGIcon.SetActive(true);
+                if (smgPickup == false)
+                {
+                    smgPickup = true;
+                    SMGInvent.SetActive(true);
+                }
+                ShotgunSelect.SetActive(false);
+                RevolverSelect.SetActive(false);
+                SMGSelect.SetActive(true);
             } else
             {
-                ShotgunIcon.SetActive(false);
-                RevolverIcon.SetActive(false);
-                SMGIcon.SetActive(false);
+                ShotgunSelect.SetActive(false);
+                RevolverSelect.SetActive(false);
+                SMGSelect.SetActive(false);
             }
             CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
             MaxAmmo_Text.text = weapon.AmmoPool.ToString();
