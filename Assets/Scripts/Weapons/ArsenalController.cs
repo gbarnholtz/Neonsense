@@ -31,6 +31,7 @@ public class ArsenalController : SerializedMonoBehaviour
             switchController.switchWeapon("pistol");
     }
 
+    [Button("PickupWeapon")]
     public void PickupWeapon(string weapon)
     {
         if (weapon == "pistol") PistolPickedUp = true;

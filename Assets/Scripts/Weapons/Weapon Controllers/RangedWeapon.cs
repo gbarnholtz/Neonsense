@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -7,7 +7,7 @@ public class RangedWeapon : IWeapon
 {
     //[SerializeField] protected WeaponData weaponData;
     [SerializeField] protected Transform firePoint;
-    
+    public event Action Fired, Reloaded;
     [SerializeField] protected float bulletDamage = 1f, bulletSpeed = 25f; 
     [SerializeField] protected int bulletsPerShot = 1;
     [SerializeField] private bool automatic;
@@ -76,6 +76,7 @@ public class RangedWeapon : IWeapon
 
     public IEnumerator Reload() {
         if (IsReloading) yield return null;
+        Reloaded?.Invoke();
         timeReloadStarted = Time.time;
         ammoPool += ammoLoaded;
         ammoLoaded = 0;
@@ -98,13 +99,13 @@ public class RangedWeapon : IWeapon
         //Debug.Log("Entering Attack method");
         audioSource.volume = volume;
         audioSource.PlayOneShot(weaponSound);
-
+        Fired?.Invoke();
         IsAttacking = true;
         Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
 
         for (int i = 0; i < bulletsPerShot; i++) {
             float inaccuracy = Mathf.Lerp(0, 90, spread);
-            Quaternion inaccuracyRotation = Quaternion.Euler(Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy), Random.Range(-inaccuracy, inaccuracy));
+            Quaternion inaccuracyRotation = Quaternion.Euler(UnityEngine.Random.Range(-inaccuracy, inaccuracy), UnityEngine.Random.Range(-inaccuracy, inaccuracy), UnityEngine.Random.Range(-inaccuracy, inaccuracy));
             ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * firePoint.forward, team);
         }
 
