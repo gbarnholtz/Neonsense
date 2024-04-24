@@ -17,6 +17,9 @@ public class UI_Manager : MonoBehaviour
     public TMP_Text PlaceCharge_Text;
 
     public TMP_Text CurrentWeapon_Text;
+    public GameObject RevolverIcon;
+    public GameObject ShotgunIcon;
+    public GameObject SMGIcon;
 
     private GameObject player;
     private Health playerHealth;
@@ -71,6 +74,27 @@ public class UI_Manager : MonoBehaviour
         {
             weapon = (RangedWeapon)ArsenalController.activeWeapon;
             CurrentWeapon_Text.text = weapon.gameObject.name;
+            if (weapon.gameObject.name.Equals("Pistol") || weapon.gameObject.name.Equals("Revolver"))
+            {
+                ShotgunIcon.SetActive(false);
+                SMGIcon.SetActive(false);
+                RevolverIcon.SetActive(true);
+            } else if (weapon.gameObject.name.Equals("Shotgun"))
+            {
+                RevolverIcon.SetActive(false);
+                SMGIcon.SetActive(false);
+                ShotgunIcon.SetActive(true);
+            } else if (weapon.gameObject.name.Equals("SMG"))
+            {
+                ShotgunIcon.SetActive(false);
+                RevolverIcon.SetActive(false);
+                SMGIcon.SetActive(true);
+            } else
+            {
+                ShotgunIcon.SetActive(false);
+                RevolverIcon.SetActive(false);
+                SMGIcon.SetActive(false);
+            }
             CurrentAmmo_Text.text = weapon.AmmoLoaded.ToString();
             MaxAmmo_Text.text = weapon.AmmoPool.ToString();
             CheckReloadPopup(weapon);
