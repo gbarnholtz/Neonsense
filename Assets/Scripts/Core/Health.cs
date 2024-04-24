@@ -87,7 +87,7 @@ public class Health : Progressive, IDamageable
                     if (_arenaManager != null)
                     {
                         _arenaManager.CheckIfEnemiesDefeated();
-                        Debug.Log("CheckIfEnemiesDefeated() called by " + gameObject.name);
+                        //Debug.Log("CheckIfEnemiesDefeated() called by " + gameObject.name);
                     }
                     
                     Destroy(gameObject);
