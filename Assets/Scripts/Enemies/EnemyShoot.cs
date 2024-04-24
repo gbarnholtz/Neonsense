@@ -58,21 +58,22 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToShoot)
         {
             weapon.StartTryingToFire();
-        } 
-        
-        /* Rotate weapon towards player */
+        }
+
+        #region old non-functioning rotate code
+        /* Rotate weapon towards player 
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
         {
             // Old method
             //rotateWeaponTowardsPlayer();
             //RotateTowardsPlayer();
-            
-            
         }
         else
         {
             weapon.transform.rotation = new Quaternion();
         }
+        */
+        #endregion
     }
 
     // Still doesn't work :(
