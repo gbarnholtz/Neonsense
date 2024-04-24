@@ -42,10 +42,6 @@ public class SwitchWeaponController : MonoBehaviour
     {
         if (ArsenalController.activeWeapon != null)
             disableWeapon();
-        else
-        {
-            audioSource.PlayOneShot(swapWeaponSound);
-        }
 
         switch (weapon)
         {
@@ -53,21 +49,25 @@ public class SwitchWeaponController : MonoBehaviour
                 ArsenalController.activeWeapon = arsenal.pistol;
                 arsenal.OnEnable();
                 arsenal.pistol.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             case "shotgun":
                 ArsenalController.activeWeapon = arsenal.shotgun;
                 arsenal.OnEnable();
                 arsenal.shotgun.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             case "rifle":
                 ArsenalController.activeWeapon = arsenal.assault_rifle;
                 arsenal.OnEnable();
                 arsenal.assault_rifle.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             case "smg":
                 ArsenalController.activeWeapon = arsenal.smg;
                 arsenal.OnEnable();
                 arsenal.smg.gameObject.SetActive(true);
+                audioSource.PlayOneShot(swapWeaponSound);
                 break;
             default:
                 // code block
