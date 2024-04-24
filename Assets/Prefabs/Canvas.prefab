@@ -2155,7 +2155,7 @@ MonoBehaviour:
   CurrentAmmo_Text: {fileID: 4838335931004924376}
   MaxAmmo_Text: {fileID: 7877678492142232145}
   healthBar: {fileID: 8215473526329802218}
-  PlaceCharge_Text: {fileID: 6380650172589178670}
+  PlaceCharge_Text: {fileID: 2124013776500564473}
   CurrentWeapon_Text: {fileID: 7212854742473126416}
   hitMarker: {fileID: 3223222209983912748}
   damageOverlay: {fileID: 4277739857428467837}
