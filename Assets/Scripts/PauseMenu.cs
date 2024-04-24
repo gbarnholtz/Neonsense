@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -16,16 +17,18 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseToggle += PauseActivation;
+        PlayerInputSO.pause.performed += PauseActivation;
+        //pauseToggle += PauseActivation;
         isPaused = false; 
     }
 
     private void OnDestroy()
     {
-        pauseToggle -= PauseActivation;
+        PlayerInputSO.pause.performed -= PauseActivation;
+        //pauseToggle -= PauseActivation;
     }
 
-    public void PauseActivation()
+    public void PauseActivation(InputAction.CallbackContext obj)
     {
         isPaused = !isPaused;
         if (isPaused)
@@ -37,16 +40,14 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
         Time.timeScale = 0.0f;
+        EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-       
-    
-    Time.timeScale = 1.0f;
+        Time.timeScale = 1.0f;
     }
     
     public void MainMenu()
