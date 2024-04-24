@@ -60,7 +60,10 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         /* Rotate weapon towards player */
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
         {
-            rotateWeaponTowardsPlayer();
+            // Old method
+            //rotateWeaponTowardsPlayer();
+            
+            RotateTowardsPlayer();
         }
         else
         {
@@ -68,6 +71,16 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         }
     }
 
+    void RotateTowardsPlayer()
+    {
+        // Makes the enemy face player
+        gameObject.transform.LookAt(player.transform);
+        
+        // Points weapon directly at player
+        weapon.transform.LookAt(player.transform);
+    }
+
+    // Old method
     void rotateWeaponTowardsPlayer()
     {
         /* Makes the enemy face player */
