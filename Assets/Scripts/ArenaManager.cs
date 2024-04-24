@@ -25,7 +25,7 @@ public class ArenaManager : SerializedMonoBehaviour
         /* If Arena gameobject has one child,
          * that child was just killed,
          * so all enemies in arena are dead*/
-        if (transform.childCount >= 1)
+        if (transform.childCount <= 1)
         {
             Debug.Log("All enemies in the arena are dead");
             if (ElevatorTrigger != null)

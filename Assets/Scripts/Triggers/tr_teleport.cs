@@ -10,6 +10,9 @@ public class tr_teleport : MonoBehaviour
     [SerializeField] private Transform destination;
     [SerializeField] private AudioSource sound;
     
+    [SerializeField] private AudioSource levelMusic;
+    [SerializeField] private AudioSource arenaMusic;
+    
     public void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Player"))
@@ -20,6 +23,11 @@ public class tr_teleport : MonoBehaviour
                 if (sound != null)
                 {
                     sound.Play();
+                }
+                if (levelMusic != null && arenaMusic != null)
+                {
+                    levelMusic.Pause();
+                    arenaMusic.Play();
                 }
             }
             else
