@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,12 +14,17 @@ public class SwitchWeaponController : MonoBehaviour
 
     private void reloadWeapon(InputAction.CallbackContext obj)
     {
-        /* If weapon is not reloading, initiate reload */
-        if (!((RangedWeapon)ArsenalController.activeWeapon).IsReloading)
-        {
-            ArsenalController.activeWeapon.StopTryingToFire();
-            ArsenalController.activeWeapon.StartCoroutine(((RangedWeapon)ArsenalController.activeWeapon).DelayedReload());
-        }
+        if (ArsenalController.activeWeapon == null) return;
+
+        var weapon = (RangedWeapon)ArsenalController.activeWeapon;
+
+        // Don't reload if
+        if (weapon == null) return;
+        if (weapon.IsReloading) return;
+        if (weapon.AmmoLoaded == weapon.MagazineSize) return;
+        
+        ArsenalController.activeWeapon.StopTryingToFire();
+        ArsenalController.activeWeapon.StartCoroutine(((RangedWeapon)ArsenalController.activeWeapon).DelayedReload());
     }
 
     private void Start()
@@ -35,6 +41,16 @@ public class SwitchWeaponController : MonoBehaviour
         PlayerInputSO.switch2Shotgun.Enable();
         PlayerInputSO.switch2Rifle.Enable();
         PlayerInputSO.switch2SMG.Enable();
+    }
+
+    private void OnDisable()
+    {
+        PlayerInputSO.reload.performed -= reloadWeapon;
+        
+        PlayerInputSO.switch2Pistol.performed   -= switchToPistolAction;
+        PlayerInputSO.switch2Shotgun.performed  -= switchToShotgunAction;
+        PlayerInputSO.switch2Rifle.performed    -= switchToRifleAction;
+        PlayerInputSO.switch2SMG.performed      -= switchToSMGAction;
     }
 
     /* Switches weapons based on string passed*/
@@ -78,7 +94,7 @@ public class SwitchWeaponController : MonoBehaviour
     /* Disables current weapon */
     void disableWeapon()
     {
-        if (ArsenalController.activeWeapon != null) return;
+        if (ArsenalController.activeWeapon == null) return;
         
         ArsenalController.activeWeapon.IsAttacking = false;
         ((RangedWeapon)ArsenalController.activeWeapon).isPastFireRate = true;
