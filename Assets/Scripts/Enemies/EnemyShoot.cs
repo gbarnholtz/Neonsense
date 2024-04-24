@@ -60,20 +60,22 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
             weapon.StartTryingToFire();
         }
 
-        #region old non-functioning rotate code
-        /* Rotate weapon towards player 
+
+        // Rotate weapon towards player except if drone
+        if (this.CompareTag("drone")) return;
+        
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
         {
+            RotateTowardsPlayer();
+            
             // Old method
             //rotateWeaponTowardsPlayer();
-            //RotateTowardsPlayer();
         }
-        else
-        {
-            weapon.transform.rotation = new Quaternion();
-        }
-        */
-        #endregion
+        //else
+        //{
+        //    weapon.transform.rotation = new Quaternion();
+        //}
+        
     }
 
     // Still doesn't work :(
