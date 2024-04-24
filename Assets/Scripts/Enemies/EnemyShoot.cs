@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Animations;
 using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
@@ -26,6 +27,8 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
 
     public ButtonAction Secondary => secondary;
     private ButtonAction secondary;
+
+    //private LookAtConstraint _lookAtConstraint;
 
     private void Awake()
     {
@@ -60,7 +63,11 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         /* Rotate weapon towards player */
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
         {
-            rotateWeaponTowardsPlayer();
+            // Old method
+            //rotateWeaponTowardsPlayer();
+            //RotateTowardsPlayer();
+            
+            
         }
         else
         {
@@ -68,6 +75,18 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         }
     }
 
+    // Still doesn't work :(
+    // Maybe it's a problem with the navmesh or something
+    void RotateTowardsPlayer()
+    {
+        // Makes the enemy face player
+        gameObject.transform.LookAt(player.transform);
+        
+        // Points weapon directly at player
+        weapon.transform.LookAt(player.transform);
+    }
+
+    // Old method
     void rotateWeaponTowardsPlayer()
     {
         /* Makes the enemy face player */
