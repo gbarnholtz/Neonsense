@@ -481,7 +481,7 @@ MonoBehaviour:
   springAdjustSpeed: 0.5
   gravity: 35
   terminalVelocity: 15
-  BaseSpeed: 10
+  BaseSpeed: 12
   maxSlope: 60
   slopeJumpBias: 0.5
   JumpHeight: 2
