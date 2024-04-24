@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Animations;
 using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
@@ -26,6 +27,8 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
 
     public ButtonAction Secondary => secondary;
     private ButtonAction secondary;
+
+    //private LookAtConstraint _lookAtConstraint;
 
     private void Awake()
     {
@@ -62,8 +65,9 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         {
             // Old method
             //rotateWeaponTowardsPlayer();
+            //RotateTowardsPlayer();
             
-            RotateTowardsPlayer();
+            
         }
         else
         {

@@ -29174,6 +29174,7 @@ MonoBehaviour:
   ammoPool: 160
   ammoLoaded: 0
   rpm: 700
+  maxAmmo: 0
   recoil: {x: 0, y: 0, z: 0}
   spread: 0
   bullet: {fileID: 7634292425448812394, guid: 8f44287303290a24283a5c31d13877fe, type: 3}
@@ -50580,6 +50581,7 @@ GameObject:
   - component: {fileID: 5286086587929033652}
   - component: {fileID: 5286086587929033650}
   - component: {fileID: 3584517207988484633}
+  - component: {fileID: 5904272806085123656}
   m_Layer: 0
   m_Name: Drone
   m_TagString: drone
@@ -50807,6 +50809,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 11f0537ebb4e4f543a74ac1a2f4cacf3, type: 3}
   - {fileID: 8300000, guid: 880c9e2ec0262b447b89341ed3847a0c, type: 3}
   - {fileID: 8300000, guid: da3fcd3f4b76a204ba534e2c876224d7, type: 3}
+  _arenaManager: {fileID: 0}
 --- !u!95 &3584517207988484633
 Animator:
   serializedVersion: 4
@@ -50827,6 +50830,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1183024399 &5904272806085123656
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286086587929033661}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_Roll: 0
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources: []
 --- !u!1 &5481113017555591509
 GameObject:
   m_ObjectHideFlags: 0
