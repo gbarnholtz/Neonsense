@@ -61,20 +61,37 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         }
 
 
-        // Rotate weapon towards player except if drone
-        if (this.CompareTag("drone")) return;
-        
+        // Rotate weapon towards player
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
         {
-            rotateWeaponTowardsPlayer();
+            RotateWeaponTowardsPlayer();
         }
-        //else
-        //{
-        //    weapon.transform.rotation = new Quaternion();
-        //}
+        else
+        {
+            weapon.transform.rotation = Quaternion.identity;
+        }
         
     }
+
+    void RotateWeaponTowardsPlayer()
+    {
+        Vector3 playerDirection = player.transform.position - transform.position;
+        
+        /* Points weapon directly at player */
+        playerDirection = player.transform.position - weapon.transform.position;
+        weapon.transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
+        
+        // more efficient to exlude the drone since its rotation is through a look at component
+        if (CompareTag("drone")) return;
+        
+        /* Makes the enemy face player */
+        Quaternion quaternion = Quaternion.LookRotation(playerDirection, Vector3.up);
+        quaternion.x = 0f;
+        quaternion.z = 0f;
+        gameObject.transform.rotation = quaternion;
+    }
     
+    // Rotates on all axes which is not what we want
     void RotateTowardsPlayer()
     {
         // Makes the enemy face player
@@ -83,19 +100,5 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         // Points weapon directly at player
         weapon.transform.LookAt(player.transform);
     }
-
-    // Old method
-    void rotateWeaponTowardsPlayer()
-    {
-        /* Makes the enemy face player */
-        Vector3 playerDirection = player.transform.position - transform.position;
-        Quaternion quaternion = Quaternion.LookRotation(playerDirection, Vector3.up);
-        quaternion.x = 0f;
-        quaternion.z = 0f;
-        gameObject.transform.rotation = quaternion;
-
-        /* Points weapon directly at player */
-        playerDirection = player.transform.position - weapon.transform.position;
-        weapon.transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
-    }
+    
 }
