@@ -66,10 +66,7 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
         {
-            RotateTowardsPlayer();
-            
-            // Old method
-            //rotateWeaponTowardsPlayer();
+            rotateWeaponTowardsPlayer();
         }
         //else
         //{
@@ -77,9 +74,7 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         //}
         
     }
-
-    // Still doesn't work :(
-    // Maybe it's a problem with the navmesh or something
+    
     void RotateTowardsPlayer()
     {
         // Makes the enemy face player
