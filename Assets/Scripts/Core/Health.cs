@@ -28,15 +28,18 @@ public class Health : Progressive, IDamageable
 
     private bool isCouroutineRunning = false;
 
-    private ArenaManager _arenaManager;
+    [SerializeField] private ArenaManager _arenaManager;
 
 
     public void Start()
     {
         team = gameObject.GetComponent<Teamable>().Team;
-        audioSourceObj = GameObject.FindWithTag("player_audio_source");
-        audioSource = audioSourceObj.GetComponent<AudioSource>();
-        _arenaManager = GetComponent<ArenaManager>();
+        
+        // UNCOMMENT THESE AND THE OTHER BLOCK TO RESTORE AUDIO
+        //audioSourceObj = GameObject.FindWithTag("player_audio_source");
+        //audioSource = audioSourceObj.GetComponent<AudioSource>();
+        
+        //_arenaManager = GetComponent<ArenaManager>();
     }
     
     public void OnEnable()
@@ -64,7 +67,9 @@ public class Health : Progressive, IDamageable
         if (shooterTeam != team)
         {
             Current -= damage;
-            audioSource.PlayOneShot(hitSound[UnityEngine.Random.Range(0, hitSound.Length)]);
+            
+            // this has been causing the audio to go haywire
+            //audioSource.PlayOneShot(hitSound[UnityEngine.Random.Range(0, hitSound.Length)]);
             
             if (team == Team.Enemy)
             {
@@ -79,7 +84,12 @@ public class Health : Progressive, IDamageable
             {
                 if (team == Team.Enemy)
                 {
-                    _arenaManager.CheckIfEnemiesDefeated();
+                    if (_arenaManager != null)
+                    {
+                        _arenaManager.CheckIfEnemiesDefeated();
+                        Debug.Log("CheckIfEnemiesDefeated() called by " + gameObject.name);
+                    }
+                    
                     Destroy(gameObject);
                 }
                 if (team == Team.Ally)
