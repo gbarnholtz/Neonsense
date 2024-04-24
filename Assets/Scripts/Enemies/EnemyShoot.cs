@@ -61,31 +61,19 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         }
 
 
-        // Rotate weapon towards player except if drone
-        if (this.CompareTag("drone")) return;
-        
+        // Rotate weapon towards player
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToLookAtPlayer)
         {
-            rotateWeaponTowardsPlayer();
+            RotateWeaponTowardsPlayer();
         }
-        //else
-        //{
-        //    weapon.transform.rotation = new Quaternion();
-        //}
+        else
+        {
+            weapon.transform.rotation = Quaternion.identity;
+        }
         
-    }
-    
-    void RotateTowardsPlayer()
-    {
-        // Makes the enemy face player
-        gameObject.transform.LookAt(player.transform);
-        
-        // Points weapon directly at player
-        weapon.transform.LookAt(player.transform);
     }
 
-    // Old method
-    void rotateWeaponTowardsPlayer()
+    void RotateWeaponTowardsPlayer()
     {
         /* Makes the enemy face player */
         Vector3 playerDirection = player.transform.position - transform.position;
@@ -98,4 +86,15 @@ public class EnemyShoot : SerializedMonoBehaviour, ICharacterInputProvider
         playerDirection = player.transform.position - weapon.transform.position;
         weapon.transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
     }
+    
+    // Rotates on all axes which is not what we want
+    void RotateTowardsPlayer()
+    {
+        // Makes the enemy face player
+        gameObject.transform.LookAt(player.transform);
+        
+        // Points weapon directly at player
+        weapon.transform.LookAt(player.transform);
+    }
+    
 }
