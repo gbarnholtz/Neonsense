@@ -99,16 +99,15 @@ public class RangedWeapon : IWeapon
         //Debug.Log("Entering Attack method");
         audioSource.volume = volume;
         audioSource.PlayOneShot(weaponSound);
-        Fired?.Invoke();
         IsAttacking = true;
         Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
 
         for (int i = 0; i < bulletsPerShot; i++) {
             float inaccuracy = Mathf.Lerp(0, 90, spread);
             Quaternion inaccuracyRotation = Quaternion.Euler(UnityEngine.Random.Range(-inaccuracy, inaccuracy), UnityEngine.Random.Range(-inaccuracy, inaccuracy), UnityEngine.Random.Range(-inaccuracy, inaccuracy));
-            ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * firePoint.forward, team);
+            ProjectileFactory.CreateBullet(bullet, bulletDamage, bulletSpeed, firePoint.position, inaccuracyRotation * transform.forward, team);
         }
-
+        Fired?.Invoke();
         InvokeRecoil(recoil);
         ammoLoaded--;
         if (ammoLoaded <= 0)
