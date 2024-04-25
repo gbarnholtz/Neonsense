@@ -48,6 +48,9 @@ public class RangedWeapon : IWeapon
 
     private Team team;
 
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private ParticleSystem muzzleFlash2;
+
     protected virtual void Awake()
     {
         ammoLoaded = magazineSize;
@@ -99,7 +102,18 @@ public class RangedWeapon : IWeapon
         //Debug.Log("Entering Attack method");
         audioSource.volume = volume;
         audioSource.PlayOneShot(weaponSound);
+        
         IsAttacking = true;
+
+        if (muzzleFlash != null)
+        {
+            muzzleFlash.Play();   
+        }
+        if (muzzleFlash2 != null)
+        {
+            muzzleFlash2.Play();   
+        }
+        
         Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
 
         for (int i = 0; i < bulletsPerShot; i++) {
