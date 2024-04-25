@@ -85,6 +85,7 @@ public class UI_Manager : MonoBehaviour
         {
             weapon = (RangedWeapon)ArsenalController.activeWeapon;
             CurrentWeapon_Text.text = weapon.gameObject.name;
+            Debug.Log(weapon.gameObject.name);
             if (weapon.gameObject.name.Equals("Pistol") || weapon.gameObject.name.Equals("Revolver"))
             {
                 if (revPickup == false)
@@ -154,6 +155,11 @@ public class UI_Manager : MonoBehaviour
     /* Checks if reload text should popup */
     private void CheckReloadPopup(RangedWeapon weapon)
     {
+        if (weapon.description == "shotgun")
+        {
+            reload_popup.SetActive(false);
+            return;
+        }
         if ((float)weapon.AmmoLoaded / (float)weapon.MagazineSize < reload_popup_percentage)
         {
             reload_popup.SetActive(true);

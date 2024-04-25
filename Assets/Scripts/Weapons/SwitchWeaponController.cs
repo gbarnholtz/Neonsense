@@ -22,6 +22,7 @@ public class SwitchWeaponController : MonoBehaviour
         if (weapon == null) return;
         if (weapon.IsReloading) return;
         if (weapon.AmmoLoaded == weapon.MagazineSize) return;
+        if (weapon.description == "shotgun" && weapon.AmmoLoaded > 0) return;
         
         ArsenalController.activeWeapon.StopTryingToFire();
         ArsenalController.activeWeapon.StartCoroutine(((RangedWeapon)ArsenalController.activeWeapon).DelayedReload());
