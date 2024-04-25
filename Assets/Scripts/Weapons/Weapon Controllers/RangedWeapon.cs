@@ -49,6 +49,7 @@ public class RangedWeapon : IWeapon
     private Team team;
 
     [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private ParticleSystem muzzleFlash2;
 
     protected virtual void Awake()
     {
@@ -108,9 +109,9 @@ public class RangedWeapon : IWeapon
         {
             muzzleFlash.Play();   
         }
-        else
+        if (muzzleFlash2 != null)
         {
-            Debug.Log(name + " does not have muzzle flash particle system attached");
+            muzzleFlash2.Play();   
         }
         
         Debug.DrawRay(firePoint.position, firePoint.forward, Color.red, 1f);
