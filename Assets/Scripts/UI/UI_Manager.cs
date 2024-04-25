@@ -86,7 +86,7 @@ public class UI_Manager : MonoBehaviour
             weapon = (RangedWeapon)ArsenalController.activeWeapon;
             CurrentWeapon_Text.text = weapon.gameObject.name;
             Debug.Log(weapon.gameObject.name);
-            if (weapon.gameObject.name.Equals("Pistol") || weapon.gameObject.name.Equals("Revolver"))
+            if (weapon.description.Equals("pistol"))
             {
                 if (revPickup == false)
                 {
@@ -96,7 +96,7 @@ public class UI_Manager : MonoBehaviour
                 ShotgunSelect.SetActive(false);
                 SMGSelect.SetActive(false);
                 RevolverSelect.SetActive(true);
-            } else if (weapon.gameObject.name.Equals("Shotgun"))
+            } else if (weapon.description.Equals("shotgun"))
             {
                 if (shotgunPickup == false)
                 {
@@ -106,7 +106,7 @@ public class UI_Manager : MonoBehaviour
                 RevolverSelect.SetActive(false);
                 SMGSelect.SetActive(false);
                 ShotgunSelect.SetActive(true);
-            } else if (weapon.gameObject.name.Equals("SMG"))
+            } else if (weapon.description.Equals("smg"))
             {
                 if (smgPickup == false)
                 {

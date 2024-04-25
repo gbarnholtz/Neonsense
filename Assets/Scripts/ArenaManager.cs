@@ -19,7 +19,17 @@ public class ArenaManager : SerializedMonoBehaviour
         if (ElevatorDoors != null)
             ElevatorDoors.enabled = false;
     }
-    
+
+    private bool enemiesAreDefeated = false;
+
+    private void Update()
+    {
+        if (!enemiesAreDefeated)
+        {
+            CheckIfEnemiesDefeated();
+        }
+    }
+
     public void CheckIfEnemiesDefeated()
     {
         /* If Arena gameobject has one child,
@@ -27,6 +37,7 @@ public class ArenaManager : SerializedMonoBehaviour
          * so all enemies in arena are dead*/
         if (transform.childCount <= 1)
         {
+            enemiesAreDefeated = true;
             Debug.Log("All enemies in the arena are dead");
             if (ElevatorTrigger != null)
                 ElevatorTrigger.SetActive(true);
