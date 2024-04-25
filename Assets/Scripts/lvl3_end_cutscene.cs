@@ -6,11 +6,11 @@ using UnityEngine.Serialization;
 
 public class lvl3_end_cutscene : MonoBehaviour
 {
-    [SerializeField] private GameObject _swanController;
+    [SerializeField] private GameObject _playerController;
     //[SerializeField] private SwanController _swanController;
     [SerializeField] private Animator _cutsceneAnimator;
     //[SerializeField] private Animator _trainAnimator;
-    int keyframes = 360;
+    int keyframes = 1200;
     int keyframesPerSecond = 60;
     
     private void OnTriggerEnter (Collider col)
@@ -25,7 +25,7 @@ public class lvl3_end_cutscene : MonoBehaviour
                 (optional) vignette
              */
 
-            _swanController.SetActive(false);
+            _playerController.SetActive(false);
             
             _cutsceneAnimator.enabled = true;
             _cutsceneAnimator.Play("End cutscene");
