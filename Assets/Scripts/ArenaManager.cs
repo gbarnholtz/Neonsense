@@ -36,7 +36,7 @@ public class ArenaManager : SerializedMonoBehaviour
                 RemoveBarriers.SetActive(false);
            
             arenaMusic.Stop();
-            levelMusic.Play();
+            levelMusic.UnPause();
 
             Destroy(gameObject);
         }
