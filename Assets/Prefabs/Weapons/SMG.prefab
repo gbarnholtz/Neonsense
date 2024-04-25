@@ -393,6 +393,7 @@ MonoBehaviour:
   ammoPool: 160
   ammoLoaded: 0
   rpm: 700
+  maxAmmo: 0
   recoil: {x: 0, y: 0, z: 0}
   spread: 0
   bullet: {fileID: 7634292425448812394, guid: 8f44287303290a24283a5c31d13877fe, type: 3}
@@ -411,7 +412,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6834538207042041464, guid: c7ed3f96774e3124b823f4cb045a26de, type: 2}
-  m_audioClip: {fileID: 8300000, guid: aa1138a7a2f6ba1429b2b584e5b0af37, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ed78b226478552e47aa9b8bc9965441e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
