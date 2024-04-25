@@ -85,6 +85,7 @@ public class UI_Manager : MonoBehaviour
         {
             weapon = (RangedWeapon)ArsenalController.activeWeapon;
             CurrentWeapon_Text.text = weapon.gameObject.name;
+            Debug.Log(weapon.gameObject.name);
             if (weapon.gameObject.name.Equals("Pistol") || weapon.gameObject.name.Equals("Revolver"))
             {
                 if (revPickup == false)
