@@ -949,7 +949,7 @@ MonoBehaviour:
   isPastFireRate: 1
   isFiring: 0
   timeReloadStarted: 0
-  volume: 0.1
+  volume: 0.5
   reloadSound: {fileID: 8300000, guid: 5fcd1d990236a664aaaea883dc0c7ae1, type: 3}
 --- !u!114 &4194888494457916907
 MonoBehaviour:

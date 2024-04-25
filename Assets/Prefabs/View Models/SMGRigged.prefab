@@ -854,9 +854,9 @@ AudioSource:
   m_GameObject: {fileID: 2234753009106080477}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: 6834538207042041464, guid: c7ed3f96774e3124b823f4cb045a26de, type: 2}
+  m_audioClip: {fileID: 8300000, guid: aa1138a7a2f6ba1429b2b584e5b0af37, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -987,7 +987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: smg
   IsAttacking: 0
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 70cdd69639468754fb2788f9fb32f282, type: 3}
   firePoint: {fileID: 8806117667558062527}
   bulletDamage: 0.5
   bulletSpeed: 200
