@@ -21,13 +21,13 @@ public class UI_Manager : MonoBehaviour
     public TMP_Text CurrentWeapon_Text;
     public GameObject RevolverSelect;
     public GameObject RevolverInvent;
-    private bool revPickup;
+    private static bool revPickup = false;
     public GameObject ShotgunSelect;
     public GameObject ShotgunInvent;
-    private bool shotgunPickup;
+    private static bool shotgunPickup = false;
     public GameObject SMGSelect;
     public GameObject SMGInvent;
-    private Boolean smgPickup;
+    private static Boolean smgPickup = false;
 
     private GameObject player;
     private Health playerHealth;
@@ -69,10 +69,6 @@ public class UI_Manager : MonoBehaviour
         Vector4 color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
         damage_image.color = color;
 
-        revPickup = false;
-        shotgunPickup = false;
-        smgPickup = false;
-
         instance = this;
     }
 
@@ -80,6 +76,13 @@ public class UI_Manager : MonoBehaviour
 
     void Update()
     {
+        if (revPickup)
+            RevolverInvent.SetActive(true);
+        if (shotgunPickup)
+            ShotgunInvent.SetActive(true);
+        if (smgPickup)
+            SMGInvent.SetActive(true);
+
         /* Gets the weapon player is using */
         if (ArsenalController.activeWeapon != null) // In case player hasn't picked up weapon
         {
@@ -88,31 +91,22 @@ public class UI_Manager : MonoBehaviour
             Debug.Log(weapon.gameObject.name);
             if (weapon.description.Equals("pistol"))
             {
-                if (revPickup == false)
-                {
-                    revPickup = true;
-                    RevolverInvent.SetActive(true);
-                }
+                revPickup = true;
+                RevolverInvent.SetActive(true);
                 ShotgunSelect.SetActive(false);
                 SMGSelect.SetActive(false);
                 RevolverSelect.SetActive(true);
             } else if (weapon.description.Equals("shotgun"))
             {
-                if (shotgunPickup == false)
-                {
-                    shotgunPickup = true;
-                    ShotgunInvent.SetActive(true);
-                }
+                shotgunPickup = true;
+                ShotgunInvent.SetActive(true);
                 RevolverSelect.SetActive(false);
                 SMGSelect.SetActive(false);
                 ShotgunSelect.SetActive(true);
             } else if (weapon.description.Equals("smg"))
             {
-                if (smgPickup == false)
-                {
-                    smgPickup = true;
-                    SMGInvent.SetActive(true);
-                }
+                smgPickup = true;
+                SMGInvent.SetActive(true);
                 ShotgunSelect.SetActive(false);
                 RevolverSelect.SetActive(false);
                 SMGSelect.SetActive(true);
