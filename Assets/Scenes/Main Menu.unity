@@ -363,7 +363,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7548692046234014352, guid: c7ed3f96774e3124b823f4cb045a26de, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4a783dac4166d094391b148fca19f28c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.285
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -619,7 +619,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.22113104, g: 0.11952651, b: 0.3207547, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -904,8 +904,8 @@ RectTransform:
   m_GameObject: {fileID: 1647713409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1919048, y: 1.1919048, z: 1.1919048}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.19, y: 1.19, z: 1.19}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3879606696979225725}
   m_RootOrder: 5
@@ -1052,7 +1052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.999939, y: -17}
+  m_AnchoredPosition: {x: -20.999878, y: -17}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1811647018
